@@ -11,6 +11,8 @@
     <!--默认打包为jar-->
     <!--    <packaging>jar</packaging>-->
     <artifactId>foodie-common</artifactId>
-
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
 </project>
