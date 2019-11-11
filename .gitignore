@@ -1,0 +1,13 @@
+/foodie-common/target/
+.gitignore
+.idea/vcs.xml
+foodie-api/src/
+foodie-api/target/classes/
+foodie-common/src/
+foodie-mapper/src/
+foodie-mapper/target/classes/
+foodie-pojo/src/
+foodie-pojo/target/classes/
+foodie-service/src/
+foodie-service/target/classes/
+src/
