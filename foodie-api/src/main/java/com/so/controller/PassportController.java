@@ -10,18 +10,31 @@ import com.so.pojo.Users;
 import com.so.service.UserService;
 import com.so.utils.ServerResponseResult;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 /**
  * 应用模块名称：
  * 
  * @author show
  * @since 2019/11/19 20:16
  */
+@Api(value = "注册登录", tags = "用户注册登录的相关接口")
 @RestController
 @RequestMapping("passport")
 public class PassportController {
     @Autowired
     UserService userService;
 
+    /**
+     * 判断用户名是否存在
+     * 
+     * @author xuanweiyao
+     * @date 2019/11/25 17:43
+     * @param username
+     *            用户名
+     */
+    @ApiOperation(value = "用户名是否存在", notes = "用户名是否存在", httpMethod = "GET")
     @GetMapping("/usernameIsExist")
     public ServerResponseResult usernameIsExist(@RequestParam String username) {
         // 1.判断用户名不能为空
@@ -37,14 +50,12 @@ public class PassportController {
     }
 
     /**
-     * 注册用户
-     * 
      * @author xuanweiyao
      * @date 2019/11/25 13:14
      * @param userBo
      *            用户注册类
-     * @return com.so.utils.ServerResponseResult
      */
+    @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
     @PostMapping("/register")
     public ServerResponseResult register(@Validated @RequestBody UserBO userBo) {
         // 判断两次密码是否一致

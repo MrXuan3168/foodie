@@ -9,6 +9,8 @@ package com.so.utils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,13 +33,17 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@ApiModel(value = "客户端返回对象", description = "从客户端返回的对象，为json格式")
 public class ServerResponseResult {
 
     /** 响应业务状态 */
+    @ApiModelProperty(value = "接口状态码", name = "status", example = "show", required = true)
     private Integer status;
     /** 响应消息 */
+    @ApiModelProperty(value = "响应消息", name = "msg", example = "show")
     private String msg;
-    /** 响应中的数据 */
+    /** 响应数据 */
+    @ApiModelProperty(value = "响应数据", name = "data", example = "show")
     private Object data;
 
     /** 不使用 */
