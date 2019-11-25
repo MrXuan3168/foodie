@@ -1,13 +1,20 @@
 package com.so.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.so.bo.UserBO;
+import com.so.bo.UserLoginBO;
 import com.so.pojo.Users;
 import com.so.service.UserService;
+import com.so.utils.CookieUtils;
+import com.so.utils.JsonUtils;
+import com.so.utils.Md5Utils;
 import com.so.utils.ServerResponseResult;
 
 import io.swagger.annotations.Api;
@@ -57,7 +64,8 @@ public class PassportController {
      */
     @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
     @PostMapping("/register")
-    public ServerResponseResult register(@Validated @RequestBody UserBO userBo) {
+    public ServerResponseResult register(@Validated @RequestBody UserBO userBo, HttpServletRequest request,
+        HttpServletResponse response) {
         // 判断两次密码是否一致
         if (!StringUtils.equals(userBo.getPassword(), userBo.getConfirmPassword())) {
             return ServerResponseResult.errorMsg("密码与确认密码不一致");
@@ -68,7 +76,48 @@ public class PassportController {
             return ServerResponseResult.errorMsg("用户名已存在");
         }
         Users user = userService.createUser(userBo);
+
+        this.setNullProperty(user);
+        // isEncode是否加密
+        CookieUtils.setCookie(request, response, "user", JsonUtils.objectToJson(user), true);
         // 3.请求成功，用户名没有重复
         return ServerResponseResult.ok(user);
     }
+
+    /**
+     * 用户登录
+     * 
+     * @author xuanweiyao
+     * @date 2019/11/25 23:18
+     * @param bo
+     *            用户登录
+     * @return com.so.utils.ServerResponseResult
+     */
+    @ApiOperation(value = "用户登录", notes = "用户登录", httpMethod = "POST")
+    @PostMapping("/login")
+    public ServerResponseResult login(@Validated @RequestBody UserLoginBO bo, HttpServletRequest request,
+        HttpServletResponse response) throws Exception {
+        String username = bo.getUsername();
+        String password = bo.getPassword();
+        Users user = userService.queryUserForLogin(username, Md5Utils.getMd5Str(password));
+        if (user == null) {
+            return ServerResponseResult.errorMsg("用户名和密码不正确");
+        }
+        this.setNullProperty(user);
+        // isEncode是否加密
+        CookieUtils.setCookie(request, response, "user", JsonUtils.objectToJson(user), true);
+        return ServerResponseResult.ok(user);
+
+    }
+
+    private void setNullProperty(Users users) {
+        users.setPassword(null);
+        users.setRealname(null);
+        users.setMobile(null);
+        users.setEmail(null);
+        users.setCreatedTime(null);
+        users.setUpdatedTime(null);
+        users.setBirthday(null);
+    }
+
 }
