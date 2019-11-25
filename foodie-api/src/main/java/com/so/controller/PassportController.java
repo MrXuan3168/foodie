@@ -110,6 +110,17 @@ public class PassportController {
 
     }
 
+    @ApiOperation(value = "用户退出登录", notes = "用户退出登录", httpMethod = "POST")
+    @PostMapping("/logout")
+    public ServerResponseResult logout(@RequestParam String userId, HttpServletRequest request,
+        HttpServletResponse response) {
+        // 清除用户相关的信息的 cookie
+        CookieUtils.deleteCookie(request, response, "user");
+        // TODO: 2019/11/26 用户退出登录，需要清空购物车
+        // TODO: 2019/11/26 分布式会话中需要清除用户数据
+        return ServerResponseResult.ok();
+    }
+
     private void setNullProperty(Users users) {
         users.setPassword(null);
         users.setRealname(null);
