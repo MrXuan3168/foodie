@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import com.so.bo.UserBO;
-import com.so.bo.UserLoginBO;
+import com.so.bo.LoginUserBO;
+import com.so.bo.RegisterUserBO;
 import com.so.pojo.Users;
 import com.so.service.UserService;
 import com.so.utils.CookieUtils;
@@ -59,23 +59,23 @@ public class PassportController {
     /**
      * @author xuanweiyao
      * @date 2019/11/25 13:14
-     * @param userBo
+     * @param bo
      *            用户注册类
      */
     @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
     @PostMapping("/register")
-    public ServerResponseResult register(@Validated @RequestBody UserBO userBo, HttpServletRequest request,
+    public ServerResponseResult register(@Validated @RequestBody RegisterUserBO bo, HttpServletRequest request,
         HttpServletResponse response) {
         // 判断两次密码是否一致
-        if (!StringUtils.equals(userBo.getPassword(), userBo.getConfirmPassword())) {
+        if (!StringUtils.equals(bo.getPassword(), bo.getConfirmPassword())) {
             return ServerResponseResult.errorMsg("密码与确认密码不一致");
         }
         // 查询用户名是否存在
-        boolean usernameIsExist = userService.queryUsernameIsExist(userBo.getUsername());
+        boolean usernameIsExist = userService.queryUsernameIsExist(bo.getUsername());
         if (usernameIsExist) {
             return ServerResponseResult.errorMsg("用户名已存在");
         }
-        Users user = userService.createUser(userBo);
+        Users user = userService.createUser(bo);
 
         this.setNullProperty(user);
         // isEncode是否加密
@@ -95,7 +95,7 @@ public class PassportController {
      */
     @ApiOperation(value = "用户登录", notes = "用户登录", httpMethod = "POST")
     @PostMapping("/login")
-    public ServerResponseResult login(@Validated @RequestBody UserLoginBO bo, HttpServletRequest request,
+    public ServerResponseResult login(@Validated @RequestBody LoginUserBO bo, HttpServletRequest request,
         HttpServletResponse response) throws Exception {
         String username = bo.getUsername();
         String password = bo.getPassword();

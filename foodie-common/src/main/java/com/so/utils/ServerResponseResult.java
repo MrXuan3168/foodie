@@ -37,13 +37,13 @@ import lombok.ToString;
 public class ServerResponseResult {
 
     /** 响应业务状态 */
-    @ApiModelProperty(value = "接口状态码", name = "status", example = "show", required = true)
+    @ApiModelProperty(value = "接口状态码", name = "status", example = "200", required = true)
     private Integer status;
     /** 响应消息 */
-    @ApiModelProperty(value = "响应消息", name = "msg", example = "show")
+    @ApiModelProperty(value = "响应消息", name = "msg", example = "OK")
     private String msg;
     /** 响应数据 */
-    @ApiModelProperty(value = "响应数据", name = "data", example = "show")
+    @ApiModelProperty(value = "响应数据", name = "data", example = "Object")
     private Object data;
 
     /** 不使用 */

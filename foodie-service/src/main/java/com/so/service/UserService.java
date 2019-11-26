@@ -1,6 +1,6 @@
 package com.so.service;
 
-import com.so.bo.UserBO;
+import com.so.bo.RegisterUserBO;
 import com.so.pojo.Users;
 
 /**
@@ -26,11 +26,11 @@ public interface UserService {
      * 
      * @author show
      * @date 2019/11/25 12:26
-     * @param userBo
+     * @param registerUserBo
      *            前端入参对象
      * @return com.so.pojo.Users
      */
-    Users createUser(UserBO userBo);
+    Users createUser(RegisterUserBO registerUserBo);
 
     /**
      * 用户登录

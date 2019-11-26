@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.so.bo.UserBO;
+import com.so.bo.RegisterUserBO;
 import com.so.enums.Sex;
 import com.so.mapper.UsersMapper;
 import com.so.pojo.Users;
@@ -44,17 +44,17 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
-    public Users createUser(UserBO userBo) {
+    public Users createUser(RegisterUserBO registerUserBo) {
         Users users = new Users();
         users.setId(sid.nextShort());
-        users.setUsername(userBo.getUsername());
+        users.setUsername(registerUserBo.getUsername());
         try {
-            users.setPassword(Md5Utils.getMd5Str(userBo.getPassword()));
+            users.setPassword(Md5Utils.getMd5Str(registerUserBo.getPassword()));
         } catch (Exception e) {
             e.printStackTrace();
         }
         // 默认用户昵称同用户名
-        users.setNickname(userBo.getUsername());
+        users.setNickname(registerUserBo.getUsername());
         // 默认头像
         users.setFace(USER_FACE);
         // 默认性别为 保密
