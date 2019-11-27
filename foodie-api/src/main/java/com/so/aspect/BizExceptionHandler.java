@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.so.utils.ServerResponseResult;
+import com.so.utils.Rest;
 
 /**
  * 应用模块名称： Valid参数校验异常处理类
@@ -34,10 +34,10 @@ public class BizExceptionHandler {
      */
     @ExceptionHandler(BindException.class)
     @ResponseBody
-    public ServerResponseResult bindExceptionHandler(BindException e) {
+    public Rest bindExceptionHandler(BindException e) {
         String message = e.getBindingResult().getAllErrors().stream()
             .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
-        return ServerResponseResult.errorMsg(message);
+        return Rest.errorMsg(message);
     }
 
     /**
@@ -51,10 +51,10 @@ public class BizExceptionHandler {
      */
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseBody
-    public ServerResponseResult constraintViolationExceptionHandler(ConstraintViolationException e) {
+    public Rest constraintViolationExceptionHandler(ConstraintViolationException e) {
         String message =
             e.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.joining());
-        return ServerResponseResult.errorMsg(message);
+        return Rest.errorMsg(message);
     }
 
     /**
@@ -68,9 +68,9 @@ public class BizExceptionHandler {
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
-    public ServerResponseResult methodArgumentNotValidException(MethodArgumentNotValidException e) {
+    public Rest methodArgumentNotValidException(MethodArgumentNotValidException e) {
         String message = e.getBindingResult().getAllErrors().stream()
             .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
-        return ServerResponseResult.errorMsg(message);
+        return Rest.errorMsg(message);
     }
 }

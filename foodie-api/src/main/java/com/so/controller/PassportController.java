@@ -16,7 +16,7 @@ import com.so.service.UserService;
 import com.so.utils.CookieUtils;
 import com.so.utils.JsonUtils;
 import com.so.utils.Md5Utils;
-import com.so.utils.ServerResponseResult;
+import com.so.utils.Rest;
 import com.so.vo.UserVO;
 
 import io.swagger.annotations.Api;
@@ -51,17 +51,17 @@ public class PassportController {
      */
     @ApiOperation(value = "用户名是否存在", notes = "用户名是否存在", httpMethod = "GET")
     @GetMapping("/usernameIsExist")
-    public ServerResponseResult usernameIsExist(@RequestParam String username) {
+    public Rest usernameIsExist(@RequestParam String username) {
         // 1.判断用户名不能为空
         if (StringUtils.isBlank(username)) {
-            return ServerResponseResult.errorMsg("用户名不能为空");
+            return Rest.errorMsg("用户名不能为空");
         }
         // 2.查找注册是用户名是否存在
         if (userService.queryUsernameIsExist(username)) {
-            return ServerResponseResult.errorMsg("用户名已存在");
+            return Rest.errorMsg("用户名已存在");
         }
         // 3.请求成功，用户名没有重复
-        return ServerResponseResult.ok();
+        return Rest.ok();
     }
 
     /**
@@ -72,15 +72,15 @@ public class PassportController {
      */
     @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
     @PostMapping("/register")
-    public ServerResponseResult<UserVO> register(@Validated @RequestBody RegisterUserBO bo) {
+    public Rest<UserVO> register(@Validated @RequestBody RegisterUserBO bo) {
         // 判断两次密码是否一致
         if (!StringUtils.equals(bo.getPassword(), bo.getConfirmPassword())) {
-            return ServerResponseResult.errorMsg("密码与确认密码不一致");
+            return Rest.errorMsg("密码与确认密码不一致");
         }
         // 查询用户名是否存在
         boolean usernameIsExist = userService.queryUsernameIsExist(bo.getUsername());
         if (usernameIsExist) {
-            return ServerResponseResult.errorMsg("用户名已存在");
+            return Rest.errorMsg("用户名已存在");
         }
         Users user = userService.createUser(bo);
         UserVO userVO = UserVO.builder().build();
@@ -88,7 +88,7 @@ public class PassportController {
         // isEncode是否加密
         CookieUtils.setCookie(request, response, "user", JsonUtils.objectToJson(user), true);
         // 3.请求成功，用户名没有重复
-        return ServerResponseResult.ok(userVO);
+        return Rest.ok(userVO);
     }
 
     /**
@@ -102,29 +102,29 @@ public class PassportController {
      */
     @ApiOperation(value = "用户登录", notes = "用户登录", httpMethod = "POST")
     @PostMapping("/login")
-    public ServerResponseResult<UserVO> login(@Validated @RequestBody LoginUserBO bo) throws Exception {
+    public Rest<UserVO> login(@Validated @RequestBody LoginUserBO bo) throws Exception {
         String username = bo.getUsername();
         String password = bo.getPassword();
         Users user = userService.queryUserForLogin(username, Md5Utils.getMd5Str(password));
         if (user == null) {
-            return ServerResponseResult.errorMsg("用户名和密码不正确");
+            return Rest.errorMsg("用户名和密码不正确");
         }
         UserVO userVO = UserVO.builder().build();
         BeanUtils.copyProperties(user, userVO);
         // isEncode是否加密
         CookieUtils.setCookie(request, response, "user", JsonUtils.objectToJson(user), true);
-        return ServerResponseResult.ok(userVO);
+        return Rest.ok(userVO);
 
     }
 
     @ApiOperation(value = "用户退出登录", notes = "用户退出登录", httpMethod = "POST")
     @PostMapping("/logout")
-    public ServerResponseResult logout(@RequestParam String userId) {
+    public Rest logout(@RequestParam String userId) {
         // 清除用户相关的信息的 cookie
         CookieUtils.deleteCookie(request, response, "user");
         // TODO: 2019/11/26 用户退出登录，需要清空购物车
         // TODO: 2019/11/26 分布式会话中需要清除用户数据
-        return ServerResponseResult.ok();
+        return Rest.ok();
     }
 
 }
