@@ -7,11 +7,10 @@ package com.so.utils;
  * @since 2019/11/25 11:42
  */
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -31,10 +30,9 @@ import lombok.ToString;
  */
 @Getter
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
 @ApiModel(value = "客户端返回对象", description = "从客户端返回的对象，为json格式")
-public class ServerResponseResult {
+public class ServerResponseResult<T> implements Serializable {
 
     /** 响应业务状态 */
     @ApiModelProperty(value = "接口状态码", name = "status", example = "200", required = true)
@@ -44,55 +42,48 @@ public class ServerResponseResult {
     private String msg;
     /** 响应数据 */
     @ApiModelProperty(value = "响应数据", name = "data", example = "Object")
-    private Object data;
+    private T data;
 
-    /** 不使用 */
-    @JsonIgnore
-    private String ok;
-
-    public static ServerResponseResult build(Integer status, String msg, Object data) {
-        return new ServerResponseResult(status, msg, data);
+    public static <T> ServerResponseResult<T> build(Integer status, String msg, T data) {
+        return new ServerResponseResult<>(status, msg, data);
     }
 
-    public static ServerResponseResult build(Integer status, String msg, Object data, String ok) {
-        return new ServerResponseResult(status, msg, data, ok);
+    public static <T> ServerResponseResult<T> ok(T data) {
+        return new <T>ServerResponseResult<T>(data);
     }
 
-    public static ServerResponseResult ok(Object data) {
-        return new ServerResponseResult(data);
+    public static <T> ServerResponseResult<T> ok() {
+        return new <T>ServerResponseResult<T>(null);
     }
 
-    public static ServerResponseResult ok() {
-        return new ServerResponseResult(null);
+    public static <T> ServerResponseResult<T> errorMsg(String msg) {
+        return new <T>ServerResponseResult<T>(500, msg, null);
     }
 
-    public static ServerResponseResult errorMsg(String msg) {
-        return new ServerResponseResult(500, msg, null);
+    public static <T> ServerResponseResult<T> errorMap(T data) {
+        return new <T>ServerResponseResult<T>(501, "error", data);
     }
 
-    public static ServerResponseResult errorMap(Object data) {
-        return new ServerResponseResult(501, "error", data);
+    public static <T> ServerResponseResult<T> errorTokenMsg(String msg) {
+        return new <T>ServerResponseResult<T>(502, msg, null);
     }
 
-    public static ServerResponseResult errorTokenMsg(String msg) {
-        return new ServerResponseResult(502, msg, null);
+    public static <T> ServerResponseResult<T> errorException(String msg) {
+        return new <T>ServerResponseResult<T>(555, msg, null);
     }
 
-    public static ServerResponseResult errorException(String msg) {
-        return new ServerResponseResult(555, msg, null);
+    public static <T> ServerResponseResult<T> errorUserQQ(String msg) {
+        return new <T>ServerResponseResult<T>(556, msg, null);
     }
 
-    public static ServerResponseResult errorUserQQ(String msg) {
-        return new ServerResponseResult(556, msg, null);
-    }
-
-    private ServerResponseResult(Integer status, String msg, Object data) {
+    /** 构造方法 */
+    private ServerResponseResult(Integer status, String msg, T data) {
         this.status = status;
         this.msg = msg;
         this.data = data;
     }
 
-    private ServerResponseResult(Object data) {
+    private ServerResponseResult(T data) {
         this.status = 200;
         this.msg = "OK";
         this.data = data;

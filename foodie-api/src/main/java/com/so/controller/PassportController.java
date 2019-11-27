@@ -64,7 +64,7 @@ public class PassportController {
      */
     @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
     @PostMapping("/register")
-    public ServerResponseResult register(@Validated @RequestBody RegisterUserBO bo, HttpServletRequest request,
+    public ServerResponseResult<Users> register(@Validated @RequestBody RegisterUserBO bo, HttpServletRequest request,
         HttpServletResponse response) {
         // 判断两次密码是否一致
         if (!StringUtils.equals(bo.getPassword(), bo.getConfirmPassword())) {
@@ -95,7 +95,7 @@ public class PassportController {
      */
     @ApiOperation(value = "用户登录", notes = "用户登录", httpMethod = "POST")
     @PostMapping("/login")
-    public ServerResponseResult login(@Validated @RequestBody LoginUserBO bo, HttpServletRequest request,
+    public ServerResponseResult<Users> login(@Validated @RequestBody LoginUserBO bo, HttpServletRequest request,
         HttpServletResponse response) throws Exception {
         String username = bo.getUsername();
         String password = bo.getPassword();
