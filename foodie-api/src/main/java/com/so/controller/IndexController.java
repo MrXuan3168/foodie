@@ -15,6 +15,7 @@ import com.so.service.CarouselService;
 import com.so.service.CategoryService;
 import com.so.utils.Rest;
 import com.so.vo.CategoryVO;
+import com.so.vo.NewItemsVO;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -64,5 +65,16 @@ public class IndexController {
         }
         List<CategoryVO> subCatList = categoryService.getSubCatList(rootCatId);
         return Rest.ok(subCatList);
+    }
+
+    @ApiOperation(value = "查询每个一级分类下的最新6个数据", notes = "查询每个一级分类下的最新6个数据", httpMethod = "GET")
+    @GetMapping("/sixNewItems/{rootCatId}")
+    public Rest<List<NewItemsVO>> getSixNewItems(
+        @ApiParam(name = "rootCatId", value = "一级分类id", required = true) @PathVariable Integer rootCatId) {
+        if (rootCatId == null) {
+            return Rest.errorMsg("分类不存在");
+        }
+        List<NewItemsVO> sixNewItemsLazy = categoryService.getSixNewItemsLazy(rootCatId);
+        return Rest.ok(sixNewItemsLazy);
     }
 }

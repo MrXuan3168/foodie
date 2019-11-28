@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.so.pojo.Category;
 import com.so.vo.CategoryVO;
+import com.so.vo.NewItemsVO;
 
 /**
  * 应用模块名称：分类业务类
@@ -31,4 +32,15 @@ public interface CategoryService {
      * @return java.util.List<com.so.vo.CategoryVO>
      */
     List<CategoryVO> getSubCatList(Integer rootCatId);
+
+    /**
+     * 根据一级分类ID获取最新6个商品
+     * 
+     * @author xuanweiyao
+     * @date 2019/11/28 23:57
+     * @param rootCatId
+     *            一级分类ID
+     * @return java.util.List<com.so.vo.NewItemsVO>
+     */
+    List<NewItemsVO> getSixNewItemsLazy(Integer rootCatId);
 }

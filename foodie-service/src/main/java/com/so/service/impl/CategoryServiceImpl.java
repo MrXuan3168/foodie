@@ -1,6 +1,8 @@
 package com.so.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import com.so.mapper.CategoryMapperCustom;
 import com.so.pojo.Category;
 import com.so.service.CategoryService;
 import com.so.vo.CategoryVO;
+import com.so.vo.NewItemsVO;
 
 import tk.mybatis.mapper.entity.Example;
 
@@ -42,5 +45,13 @@ public class CategoryServiceImpl implements CategoryService {
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
     public List<CategoryVO> getSubCatList(Integer rootCatId) {
         return categoryMapperCustom.getSubCatList(rootCatId);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
+    public List<NewItemsVO> getSixNewItemsLazy(Integer rootCatId) {
+        Map<String, Object> map = new HashMap<>(1);
+        map.put("rootCatId", rootCatId);
+        return categoryMapperCustom.getSixNewItemsLazy(map);
     }
 }
