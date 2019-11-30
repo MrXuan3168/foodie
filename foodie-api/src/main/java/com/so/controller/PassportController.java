@@ -31,6 +31,7 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "注册登录", tags = "用户注册登录的相关接口")
 @RestController
 @RequestMapping("passport")
+@CrossOrigin
 public class PassportController {
     @Autowired
     UserService userService;
