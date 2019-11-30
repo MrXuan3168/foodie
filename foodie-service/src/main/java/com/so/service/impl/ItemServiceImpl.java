@@ -15,6 +15,7 @@ import com.so.enums.CommentLevel;
 import com.so.mapper.*;
 import com.so.pojo.*;
 import com.so.service.ItemService;
+import com.so.utils.DesensitizationUtil;
 import com.so.utils.PagedGridResult;
 import com.so.vo.CommentLevelCountsVO;
 import com.so.vo.ItemCommentVO;
@@ -91,6 +92,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
+    @Override
     public PagedGridResult queryPagedComments(String itemId, Integer level, Integer page, Integer pageSize) {
         Map<String, Object> map = new HashMap<>(2);
         map.put("itemId", itemId);
@@ -100,6 +102,7 @@ public class ItemServiceImpl implements ItemService {
          */
         PageHelper.startPage(page, pageSize);
         List<ItemCommentVO> list = itemsMapperCustom.queryItemComments(map);
+        list.forEach(vo -> vo.setNickname(DesensitizationUtil.commonDisplay(vo.getNickname())));
         return setterPagedGrid(list, page);
     }
 
