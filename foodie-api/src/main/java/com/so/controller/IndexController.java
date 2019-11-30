@@ -2,7 +2,6 @@ package com.so.controller;
 
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,14 +51,13 @@ public class IndexController {
     @GetMapping("/cats")
     public Rest<List<Category>> cats() {
         List<Category> list = categoryService.queryAllRootLevelCat();
-
         return Rest.ok(list);
     }
 
     @ApiOperation(value = "获取商品子分类", notes = "获取商品子分类", httpMethod = "GET")
     @GetMapping("/subCat/{rootCatId}")
-    public Rest<List<CategoryVO>> getSubCatList(
-        @ApiParam(name = "rootCatId", value = "一级分类id", required = true) @PathVariable Integer rootCatId) {
+    public Rest<List<CategoryVO>> getSubCatList(@ApiParam(name = "rootCatId", value = "一级分类id", example = "1",
+        required = true) @PathVariable Integer rootCatId) {
         if (rootCatId == null) {
             return Rest.errorMsg("分类不存在");
         }
@@ -69,8 +67,8 @@ public class IndexController {
 
     @ApiOperation(value = "查询每个一级分类下的最新6个数据", notes = "查询每个一级分类下的最新6个数据", httpMethod = "GET")
     @GetMapping("/sixNewItems/{rootCatId}")
-    public Rest<List<NewItemsVO>> getSixNewItems(
-        @ApiParam(name = "rootCatId", value = "一级分类id", required = true) @PathVariable Integer rootCatId) {
+    public Rest<List<NewItemsVO>> getSixNewItems(@ApiParam(name = "rootCatId", value = "一级分类id", example = "1",
+        required = true) @PathVariable Integer rootCatId) {
         if (rootCatId == null) {
             return Rest.errorMsg("分类不存在");
         }

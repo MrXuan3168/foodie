@@ -2,6 +2,8 @@ package com.so.vo;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
@@ -11,14 +13,22 @@ import lombok.Data;
  * @since 2019/11/28 23:05
  */
 @Data
+@ApiModel(value = "二级分类VO", description = "从数据库返回的对象")
 public class CategoryVO {
+
+    @ApiModelProperty(value = "主键", name = "id", example = "11", required = true)
     private Integer id;
+
+    @ApiModelProperty(value = "分类名称", name = "name", example = "蛋糕", required = true)
     private String name;
+
+    @ApiModelProperty(value = "分类类型", name = "type", example = "2", required = true)
     private String type;
+
+    @ApiModelProperty(value = "父ID", name = "fatherId", example = "1", required = true)
     private String fatherId;
-    /**
-     * 三级分类Vo
-     */
+
+    @ApiModelProperty(value = "三级分类Vo", name = "subCatList", required = true)
     private List<SubCategoryVO> subCatList;
 
 }
