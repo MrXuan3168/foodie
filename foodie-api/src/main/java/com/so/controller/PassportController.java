@@ -45,7 +45,7 @@ public class PassportController {
     /**
      * 判断用户名是否存在
      * 
-     * @author xuanweiyao
+     * @author show
      * @date 2019/11/25 17:43
      * @param username
      *            用户名
@@ -66,7 +66,7 @@ public class PassportController {
     }
 
     /**
-     * @author xuanweiyao
+     * @author show
      * @date 2019/11/25 13:14
      * @param bo
      *            用户注册类
@@ -95,7 +95,7 @@ public class PassportController {
     /**
      * 用户登录
      * 
-     * @author xuanweiyao
+     * @author show
      * @date 2019/11/25 23:18
      * @param bo
      *            用户登录

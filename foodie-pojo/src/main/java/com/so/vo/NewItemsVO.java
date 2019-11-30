@@ -2,6 +2,8 @@ package com.so.vo;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiParam;
 import lombok.Data;
 
 /**
@@ -12,7 +14,9 @@ import lombok.Data;
  */
 @Data
 public class NewItemsVO {
+    @ApiModelProperty(value = "一级分类id", name = "rootCatId", example = "show", required = true)
     private Integer rootCatId;
+    @ApiModelProperty(value = "一级分类名称", name = "rootCatName", example = "show", required = true)
     private String rootCatName;
     private String slogan;
     private String catImage;

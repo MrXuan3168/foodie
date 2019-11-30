@@ -3,7 +3,7 @@ package com.so.enums;
 /**
  * 是否 枚举
  * 
- * @author xuanweiyao
+ * @author show
  * @date 2019/11/25 12:47
  */
 public enum YesOrNo {

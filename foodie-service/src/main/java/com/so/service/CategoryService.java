@@ -16,7 +16,7 @@ public interface CategoryService {
     /**
      * 查询所有一级分类
      *
-     * @author xuanweiyao
+     * @author show
      * @date 2019/11/28 22:47
      * @return java.util.List<com.so.pojo.Category>
      */
@@ -25,7 +25,7 @@ public interface CategoryService {
     /**
      * 根据一级分类ID查询子分类信息
      * 
-     * @author xuanweiyao
+     * @author show
      * @date 2019/11/28 23:16
      * @param rootCatId
      *            一级分类ID
@@ -36,7 +36,7 @@ public interface CategoryService {
     /**
      * 根据一级分类ID获取最新6个商品
      * 
-     * @author xuanweiyao
+     * @author show
      * @date 2019/11/28 23:57
      * @param rootCatId
      *            一级分类ID

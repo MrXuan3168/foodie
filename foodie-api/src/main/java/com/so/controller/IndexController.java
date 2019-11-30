@@ -2,6 +2,7 @@ package com.so.controller;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,6 +52,7 @@ public class IndexController {
     @GetMapping("/cats")
     public Rest<List<Category>> cats() {
         List<Category> list = categoryService.queryAllRootLevelCat();
+
         return Rest.ok(list);
     }
 
