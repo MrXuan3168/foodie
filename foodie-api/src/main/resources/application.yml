@@ -42,13 +42,17 @@ mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-  ############################################################
-  #
-  # mybatis mapper 配置
-  #
-  ############################################################
-  # 通用 Mapper 配置
+############################################################
+#
+# mybatis mapper 配置
+#
+############################################################
+# 通用 Mapper 配置
 mapper:
   mappers: com.so.my.mapper.MyMapper
   not-empty: false
   identity: MARIADB
+# 分页插件配置
+pagehelper:
+  helperDialect: mariadb
+  supportMethodsArguments: true
