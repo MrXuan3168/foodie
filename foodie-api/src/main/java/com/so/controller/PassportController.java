@@ -3,7 +3,6 @@ package com.so.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +21,7 @@ import com.so.vo.UserVO;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 应用模块名称：
@@ -47,13 +47,14 @@ public class PassportController {
     /**
      * 判断用户名是否存在
      *
-     * @param username 用户名
+     * @param username
+     *            用户名
      * @author show
      * @date 2019/11/25 17:43
      */
     @ApiOperation(value = "用户名是否存在", notes = "用户名是否存在", httpMethod = "GET")
     @GetMapping("/usernameIsExist")
-    public Rest usernameIsExist(@RequestParam String username) {
+    public Rest<Object> usernameIsExist(@RequestParam String username) {
         // 1.判断用户名不能为空
         if (StringUtils.isBlank(username)) {
             return Rest.errorMsg("用户名不能为空");
@@ -67,7 +68,8 @@ public class PassportController {
     }
 
     /**
-     * @param bo 用户注册类
+     * @param bo
+     *            用户注册类
      * @author show
      * @date 2019/11/25 13:14
      */
@@ -95,7 +97,8 @@ public class PassportController {
     /**
      * 用户登录
      *
-     * @param bo 用户登录
+     * @param bo
+     *            用户登录
      * @return com.so.utils.ServerResponseResult
      * @author show
      * @date 2019/11/25 23:18

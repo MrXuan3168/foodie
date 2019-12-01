@@ -51,8 +51,8 @@ public class AddressController {
 
     @ApiOperation(value = "新装收货地址", notes = "新装收货地址", httpMethod = "POST")
     @PostMapping("/add")
-    public Rest add(@RequestBody AddressBO addressBo) {
-        Rest checkRes = checkAddress(addressBo);
+    public Rest<Object> add(@RequestBody AddressBO addressBo) {
+        Rest<Object> checkRes = checkAddress(addressBo);
         if (checkRes.getStatus() != 200) {
             return checkRes;
         }
@@ -60,7 +60,7 @@ public class AddressController {
         return Rest.ok();
     }
 
-    private Rest checkAddress(AddressBO addressBo) {
+    private Rest<Object> checkAddress(AddressBO addressBo) {
         String receiver = addressBo.getReceiver();
         if (StringUtils.isBlank(receiver)) {
             return Rest.errorMsg("收货人不能为空");

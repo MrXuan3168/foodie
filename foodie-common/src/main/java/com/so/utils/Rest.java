@@ -55,7 +55,7 @@ public class Rest<T> {
     }
 
     public static <T> Rest<T> errorMsg(String msg) {
-        return new <T>Rest<T>(500, msg, null);
+        return new <T>Rest<T>(500, msg);
     }
 
     public static <T> Rest<T> errorMap(T data) {
@@ -63,15 +63,15 @@ public class Rest<T> {
     }
 
     public static <T> Rest<T> errorTokenMsg(String msg) {
-        return new <T>Rest<T>(502, msg, null);
+        return new <T>Rest<T>(502, msg);
     }
 
     public static <T> Rest<T> errorException(String msg) {
-        return new <T>Rest<T>(555, msg, null);
+        return new <T>Rest<T>(555, msg);
     }
 
     public static <T> Rest<T> errorUserQQ(String msg) {
-        return new <T>Rest<T>(556, msg, null);
+        return new <T>Rest<T>(556, msg);
     }
 
     /** 构造方法 */
@@ -79,6 +79,12 @@ public class Rest<T> {
         this.status = status;
         this.msg = msg;
         this.data = data;
+    }
+
+    private Rest(Integer status, String msg) {
+        this.status = status;
+        this.msg = msg;
+
     }
 
     private Rest(T data) {
