@@ -19,6 +19,7 @@ import com.so.utils.DesensitizationUtil;
 import com.so.utils.PagedGridResult;
 import com.so.vo.CommentLevelCountsVO;
 import com.so.vo.ItemCommentVO;
+import com.so.vo.SearchItemsVO;
 
 import tk.mybatis.mapper.entity.Example;
 
@@ -106,6 +107,16 @@ public class ItemServiceImpl implements ItemService {
         return setterPagedGrid(list, page);
     }
 
+    @Override
+    public PagedGridResult searchItems(String keywords, String sort, Integer page, Integer pageSize) {
+        Map<String, Object> map = new HashMap<>(2);
+        map.put("keywords", keywords);
+        map.put("sort", sort);
+        PageHelper.startPage(page, pageSize);
+        List<SearchItemsVO> list = itemsMapperCustom.searchItems(map);
+        return setterPagedGrid(list, page);
+    }
+
     /**
      * 获取对应商品对应级别评价的数量
      * 
@@ -118,7 +129,7 @@ public class ItemServiceImpl implements ItemService {
      * @return java.lang.Integer
      */
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
-    Integer getCommentCounts(String itemId, Integer level) {
+    private Integer getCommentCounts(String itemId, Integer level) {
         ItemsComments comments = new ItemsComments();
         comments.setItemId(itemId);
         if (level != null) {

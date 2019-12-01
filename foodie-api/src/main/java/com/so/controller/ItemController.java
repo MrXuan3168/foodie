@@ -81,4 +81,24 @@ public class ItemController extends BaseController {
         return Rest.ok(pagedGridResult);
     }
 
+    @ApiOperation(value = "搜索商品列表", notes = "搜索商品列表", httpMethod = "GET")
+    @GetMapping("/search")
+    public Rest<PagedGridResult> searchItems(
+        @ApiParam(name = "keywords", value = "关键字", required = true) @RequestParam String keywords,
+        @ApiParam(name = "sort", value = "排序") @RequestParam String sort,
+        @ApiParam(name = "page", value = "页码") @RequestParam Integer page,
+        @ApiParam(name = "pageSize", value = "页数") @RequestParam Integer pageSize) {
+        if (StringUtils.isBlank(keywords)) {
+            return Rest.errorMsg("搜索关键字不能为空");
+        }
+        if (page == null) {
+            page = COMMENT_PAGE;
+        }
+        if (pageSize == null) {
+            pageSize = PAGE_SIZE;
+        }
+        PagedGridResult pagedGridResult = itemService.searchItems(keywords, sort, page, pageSize);
+        return Rest.ok(pagedGridResult);
+    }
+
 }
