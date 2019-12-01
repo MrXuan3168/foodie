@@ -39,4 +39,17 @@ public class ShopCartController {
         // TODO: 2019/12/1 前端用户在登录的情况下，添加商品到购物车，会同时在后端同步购物车到redis缓存
         return Rest.ok();
     }
+
+    @ApiOperation(value = "从购物车中删除商品", notes = "从购物车中删除商品", httpMethod = "POST")
+    @PostMapping("/del")
+    public Rest del(@RequestParam String userId, @RequestParam String itemSpecId) {
+        if (StringUtils.isBlank(userId)) {
+            return Rest.errorMsg("用户ID不能为空");
+        }
+        if (StringUtils.isBlank(itemSpecId)) {
+            return Rest.errorMsg("规格ID不能为空");
+        }
+        // TODO: 2019/12/1 用户在页面删除购物车中的商品数据，如果此时用户已经登录，则需要同步删除后端购物车中的商品
+        return Rest.ok();
+    }
 }
