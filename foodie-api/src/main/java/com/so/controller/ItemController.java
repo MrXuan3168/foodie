@@ -101,4 +101,24 @@ public class ItemController extends BaseController {
         return Rest.ok(pagedGridResult);
     }
 
+    @ApiOperation(value = "通过分类ID搜索商品列表", notes = "通过分类ID搜索商品列表", httpMethod = "GET")
+    @GetMapping("/catItems")
+    public Rest<PagedGridResult> catItems(
+        @ApiParam(name = "catId", value = "三级分类ID", required = true) @RequestParam Integer catId,
+        @ApiParam(name = "sort", value = "排序") @RequestParam String sort,
+        @ApiParam(name = "page", value = "页码") @RequestParam Integer page,
+        @ApiParam(name = "pageSize", value = "页数") @RequestParam Integer pageSize) {
+        if (catId==null) {
+            return Rest.errorMsg("搜索关键字不能为空");
+        }
+        if (page == null) {
+            page = COMMENT_PAGE;
+        }
+        if (pageSize == null) {
+            pageSize = PAGE_SIZE;
+        }
+        PagedGridResult pagedGridResult = itemService.searchItemsByThirdCat(catId, sort, page, pageSize);
+        return Rest.ok(pagedGridResult);
+    }
+
 }

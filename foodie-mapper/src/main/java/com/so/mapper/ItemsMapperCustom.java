@@ -34,5 +34,14 @@ public interface ItemsMapperCustom {
      * @date 2019/12/1 14:22
      */
     List<SearchItemsVO> searchItems(@Param("paramsMap") Map<String, Object> paramsMap);
+    /**
+     * 根据分类搜索商品列表
+     *
+     * @param paramsMap
+     * @return java.util.List<com.so.vo.SearchItemsVO>
+     * @author show
+     * @date 2019/12/1 14:22
+     */
+    List<SearchItemsVO> searchItemsByThirdCat(@Param("paramsMap") Map<String, Object> paramsMap);
 
 }

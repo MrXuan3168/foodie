@@ -98,15 +98,13 @@ public class ItemServiceImpl implements ItemService {
         Map<String, Object> map = new HashMap<>(2);
         map.put("itemId", itemId);
         map.put("level", level);
-        /**
-         * page: 第几页 pageSize: 每页显示条数
-         */
         PageHelper.startPage(page, pageSize);
         List<ItemCommentVO> list = itemsMapperCustom.queryItemComments(map);
         list.forEach(vo -> vo.setNickname(DesensitizationUtil.commonDisplay(vo.getNickname())));
         return setterPagedGrid(list, page);
     }
 
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
     @Override
     public PagedGridResult searchItems(String keywords, String sort, Integer page, Integer pageSize) {
         Map<String, Object> map = new HashMap<>(2);
@@ -114,6 +112,17 @@ public class ItemServiceImpl implements ItemService {
         map.put("sort", sort);
         PageHelper.startPage(page, pageSize);
         List<SearchItemsVO> list = itemsMapperCustom.searchItems(map);
+        return setterPagedGrid(list, page);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
+    @Override
+    public PagedGridResult searchItemsByThirdCat(Integer catId, String sort, Integer page, Integer pageSize) {
+        Map<String, Object> map = new HashMap<>(2);
+        map.put("catId", catId);
+        map.put("sort", sort);
+        PageHelper.startPage(page, pageSize);
+        List<SearchItemsVO> list = itemsMapperCustom.searchItemsByThirdCat(map);
         return setterPagedGrid(list, page);
     }
 
@@ -128,8 +137,7 @@ public class ItemServiceImpl implements ItemService {
      *            评价等级
      * @return java.lang.Integer
      */
-    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
-    private Integer getCommentCounts(String itemId, Integer level) {
+    Integer getCommentCounts(String itemId, Integer level) {
         ItemsComments comments = new ItemsComments();
         comments.setItemId(itemId);
         if (level != null) {
