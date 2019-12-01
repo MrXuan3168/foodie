@@ -6,8 +6,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.so.bo.AddressBO;
 import com.so.pojo.UserAddress;
 import com.so.service.AddressService;
+import com.so.utils.MobileEmailUtils;
 import com.so.utils.Rest;
 
 import io.swagger.annotations.Api;
@@ -47,4 +49,47 @@ public class AddressController {
         return Rest.ok(list);
     }
 
+    @ApiOperation(value = "新装收货地址", notes = "新装收货地址", httpMethod = "POST")
+    @PostMapping("/add")
+    public Rest add(@RequestBody AddressBO addressBo) {
+        Rest checkRes = checkAddress(addressBo);
+        if (checkRes.getStatus() != 200) {
+            return checkRes;
+        }
+        addressService.addNewUserAddress(addressBo);
+        return Rest.ok();
+    }
+
+    private Rest checkAddress(AddressBO addressBo) {
+        String receiver = addressBo.getReceiver();
+        if (StringUtils.isBlank(receiver)) {
+            return Rest.errorMsg("收货人不能为空");
+        }
+        if (receiver.length() > 12) {
+            return Rest.errorMsg("收货人姓名不能太长");
+        }
+
+        String mobile = addressBo.getMobile();
+        if (StringUtils.isBlank(mobile)) {
+            return Rest.errorMsg("收货人手机号不能为空");
+        }
+        if (mobile.length() != 11) {
+            return Rest.errorMsg("收货人手机号长度不正确");
+        }
+        boolean isMobileOk = MobileEmailUtils.checkMobileIsOk(mobile);
+        if (!isMobileOk) {
+            return Rest.errorMsg("收货人手机号格式不正确");
+        }
+
+        String province = addressBo.getProvince();
+        String city = addressBo.getCity();
+        String district = addressBo.getDistrict();
+        String detail = addressBo.getDetail();
+        if (StringUtils.isBlank(province) || StringUtils.isBlank(city) || StringUtils.isBlank(district)
+            || StringUtils.isBlank(detail)) {
+            return Rest.errorMsg("收货地址信息不能为空");
+        }
+
+        return Rest.ok();
+    }
 }

@@ -2,6 +2,7 @@ package com.so.service;
 
 import java.util.List;
 
+import com.so.bo.AddressBO;
 import com.so.pojo.UserAddress;
 
 /**
@@ -21,4 +22,12 @@ public interface AddressService {
      */
     List<UserAddress> queryAll(String userId);
 
+    /**
+     * 新增或者修改收货地址
+     * 
+     * @author show
+     * @date 2019/12/1 17:00
+     * @param addressBo
+     */
+    void addNewUserAddress(AddressBO addressBo);
 }
