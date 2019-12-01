@@ -22,7 +22,7 @@ import tk.mybatis.mapper.entity.Example;
 @Service
 public class CarouselServiceImpl implements CarouselService {
     @Autowired
-    CarouselMapper carouselMapper;
+    private CarouselMapper carouselMapper;
 
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
     @Override
