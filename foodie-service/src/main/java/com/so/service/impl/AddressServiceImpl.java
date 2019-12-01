@@ -11,9 +11,12 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.so.bo.AddressBO;
+import com.so.enums.YesOrNo;
 import com.so.mapper.UserAddressMapper;
 import com.so.pojo.UserAddress;
 import com.so.service.AddressService;
+
+import tk.mybatis.mapper.entity.Example;
 
 /**
  * 应用模块名称：地址业务层实现类
@@ -54,5 +57,44 @@ public class AddressServiceImpl implements AddressService {
         userAddress.setCreatedTime(new Date());
         userAddress.setUpdatedTime(new Date());
         userAddressMapper.insert(userAddress);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    public void updateUserAddress(AddressBO addressBo) {
+        String addressId = addressBo.getAddressId();
+        UserAddress pendingAddress = new UserAddress();
+        BeanUtils.copyProperties(addressBo, pendingAddress);
+        pendingAddress.setId(addressId);
+        pendingAddress.setUpdatedTime(new Date());
+        userAddressMapper.updateByPrimaryKeySelective(pendingAddress);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    public void deleteUserAddress(String userId, String addressId) {
+        UserAddress userAddress = new UserAddress();
+        userAddress.setId(addressId);
+        userAddress.setUserId(userId);
+        userAddressMapper.delete(userAddress);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    public void updateUserAddressToBeDefault(String userId, String addressId) {
+        // 1.查询默认地址，设置为不默认
+        UserAddress queryAddress = new UserAddress();
+        queryAddress.setIsDefault(YesOrNo.NO.type);
+        Example example = new Example(UserAddress.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("userId", userId);
+        userAddressMapper.updateByExampleSelective(queryAddress, example);
+
+        // 2.根据地址ID修改为默认的地址
+        UserAddress defaultAddress = new UserAddress();
+        defaultAddress.setId(addressId);
+        defaultAddress.setUserId(userId);
+        defaultAddress.setIsDefault(YesOrNo.YES.type);
+        userAddressMapper.updateByPrimaryKeySelective(defaultAddress);
     }
 }

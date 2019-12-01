@@ -30,4 +30,34 @@ public interface AddressService {
      * @param addressBo
      */
     void addNewUserAddress(AddressBO addressBo);
+
+    /**
+     * 用户修改地址
+     * 
+     * @author show
+     * @date 2019/12/1 22:30
+     * @param addressBo
+     * @return void
+     */
+    void updateUserAddress(AddressBO addressBo);
+
+    /**
+     * 用户删除地址
+     * 
+     * @author show
+     * @date 2019/12/1 22:41
+     * @param userId
+     * @param addressId
+     */
+    void deleteUserAddress(String userId, String addressId);
+
+    /**
+     * 设置默认地址
+     *
+     * @author show
+     * @date 2019/12/1 22:41
+     * @param userId
+     * @param addressId
+     */
+    void updateUserAddressToBeDefault(String userId, String addressId);
 }

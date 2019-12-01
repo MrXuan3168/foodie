@@ -60,6 +60,46 @@ public class AddressController {
         return Rest.ok();
     }
 
+    @ApiOperation(value = "用户修改地址", notes = "用户修改地址", httpMethod = "POST")
+    @PostMapping("/update")
+    public Rest<Object> update(@RequestBody AddressBO addressBo) {
+        if (StringUtils.isBlank(addressBo.getAddressId())) {
+            return Rest.errorMsg("修改地址错误：addressId 不能为空");
+        }
+        Rest<Object> checkRes = checkAddress(addressBo);
+        if (checkRes.getStatus() != 200) {
+            return checkRes;
+        }
+        addressService.updateUserAddress(addressBo);
+        return Rest.ok();
+    }
+
+    @ApiOperation(value = "用户删除地址", notes = "用户删除地址", httpMethod = "POST")
+    @PostMapping("/delete")
+    public Rest<Object> delete(@RequestParam String userId, @RequestParam String addressId) {
+        if (StringUtils.isBlank(userId)) {
+            return Rest.errorMsg("用户ID不能为空");
+        }
+        if (StringUtils.isBlank(addressId)) {
+            return Rest.errorMsg("地址Id不能为空");
+        }
+        addressService.deleteUserAddress(userId, addressId);
+        return Rest.ok();
+    }
+
+    @ApiOperation(value = "设置默认地址", notes = "设置默认地址", httpMethod = "POST")
+    @PostMapping("/setDefault")
+    public Rest<Object> setDefault(@RequestParam String userId, @RequestParam String addressId) {
+        if (StringUtils.isBlank(userId)) {
+            return Rest.errorMsg("用户ID不能为空");
+        }
+        if (StringUtils.isBlank(addressId)) {
+            return Rest.errorMsg("地址Id不能为空");
+        }
+        addressService.updateUserAddressToBeDefault(userId, addressId);
+        return Rest.ok();
+    }
+
     private Rest<Object> checkAddress(AddressBO addressBo) {
         String receiver = addressBo.getReceiver();
         if (StringUtils.isBlank(receiver)) {
