@@ -3,6 +3,7 @@ package com.so.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ import io.swagger.annotations.ApiOperation;
 
 /**
  * 应用模块名称：
- * 
+ *
  * @author show
  * @since 2019/11/19 20:16
  */
@@ -32,6 +33,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("passport")
 @CrossOrigin
+@Slf4j
 public class PassportController {
     @Autowired
     UserService userService;
@@ -44,11 +46,10 @@ public class PassportController {
 
     /**
      * 判断用户名是否存在
-     * 
+     *
+     * @param username 用户名
      * @author show
      * @date 2019/11/25 17:43
-     * @param username
-     *            用户名
      */
     @ApiOperation(value = "用户名是否存在", notes = "用户名是否存在", httpMethod = "GET")
     @GetMapping("/usernameIsExist")
@@ -66,10 +67,9 @@ public class PassportController {
     }
 
     /**
+     * @param bo 用户注册类
      * @author show
      * @date 2019/11/25 13:14
-     * @param bo
-     *            用户注册类
      */
     @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
     @PostMapping("/register")
@@ -94,12 +94,11 @@ public class PassportController {
 
     /**
      * 用户登录
-     * 
+     *
+     * @param bo 用户登录
+     * @return com.so.utils.ServerResponseResult
      * @author show
      * @date 2019/11/25 23:18
-     * @param bo
-     *            用户登录
-     * @return com.so.utils.ServerResponseResult
      */
     @ApiOperation(value = "用户登录", notes = "用户登录", httpMethod = "POST")
     @PostMapping("/login")
@@ -114,6 +113,8 @@ public class PassportController {
         BeanUtils.copyProperties(user, userVO);
         // isEncode是否加密
         CookieUtils.setCookie(request, response, "user", JsonUtils.objectToJson(user), true);
+        // TODO: 2019/12/1 生成用户token， 存入redis会话
+        // TODO: 2019/12/1 同步购物车页面
         return Rest.ok(userVO);
 
     }
