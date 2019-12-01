@@ -8,6 +8,7 @@ import com.so.pojo.ItemsParam;
 import com.so.pojo.ItemsSpec;
 import com.so.utils.PagedGridResult;
 import com.so.vo.CommentLevelCountsVO;
+import com.so.vo.ShopCartVO;
 
 /**
  * 应用模块名称：
@@ -104,5 +105,13 @@ public interface ItemService {
      * @date 2019/12/1 14:24
      */
     PagedGridResult searchItemsByThirdCat(Integer catId, String sort, Integer page, Integer pageSize);
+    /**
+     * 根据规格IDS查询最新的购物车中商品数据(用于刷新渲染购物车中的商品数据)
+     * @author show
+     * @date 2019/12/1 15:55 
+     * @param specIds
+     * @return java.util.List<com.so.vo.ShopCartVO>
+     */
+    List<ShopCartVO> queryItemsBySpecIds(String specIds);
 
 }

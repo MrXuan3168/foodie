@@ -15,6 +15,7 @@ import com.so.utils.PagedGridResult;
 import com.so.utils.Rest;
 import com.so.vo.CommentLevelCountsVO;
 import com.so.vo.ItemInfoVO;
+import com.so.vo.ShopCartVO;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -108,7 +109,7 @@ public class ItemController extends BaseController {
         @ApiParam(name = "sort", value = "排序") @RequestParam String sort,
         @ApiParam(name = "page", value = "页码") @RequestParam Integer page,
         @ApiParam(name = "pageSize", value = "页数") @RequestParam Integer pageSize) {
-        if (catId==null) {
+        if (catId == null) {
             return Rest.errorMsg("搜索关键字不能为空");
         }
         if (page == null) {
@@ -119,6 +120,17 @@ public class ItemController extends BaseController {
         }
         PagedGridResult pagedGridResult = itemService.searchItemsByThirdCat(catId, sort, page, pageSize);
         return Rest.ok(pagedGridResult);
+    }
+
+    @ApiOperation(value = "根据商品ids查询最新的商品数据", notes = "用于用户长时间未登录用户，刷新购物车中的数据（主要是商品价格）", httpMethod = "GET")
+    @GetMapping("/refresh")
+    public Rest<List<ShopCartVO>> refresh(@ApiParam(name = "itemSpecIds", value = "拼接的规格ids",
+        example = "1001,1002,1003", required = true) @RequestParam String itemSpecIds) {
+        if (StringUtils.isBlank(itemSpecIds)) {
+            return Rest.ok();
+        }
+        List<ShopCartVO> list = itemService.queryItemsBySpecIds(itemSpecIds);
+        return Rest.ok(list);
     }
 
 }

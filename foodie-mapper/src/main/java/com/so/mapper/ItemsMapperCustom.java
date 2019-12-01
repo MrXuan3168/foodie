@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.so.vo.ItemCommentVO;
 import com.so.vo.SearchItemsVO;
+import com.so.vo.ShopCartVO;
 
 /**
  * 自定义Items
@@ -34,6 +35,7 @@ public interface ItemsMapperCustom {
      * @date 2019/12/1 14:22
      */
     List<SearchItemsVO> searchItems(@Param("paramsMap") Map<String, Object> paramsMap);
+
     /**
      * 根据分类搜索商品列表
      *
@@ -44,4 +46,13 @@ public interface ItemsMapperCustom {
      */
     List<SearchItemsVO> searchItemsByThirdCat(@Param("paramsMap") Map<String, Object> paramsMap);
 
+    /**
+     * 刷新购物车
+     * 
+     * @author show
+     * @date 2019/12/1 15:50
+     * @param specIdsList
+     * @return java.util.List<com.so.vo.ShopCartVO>
+     */
+    List<ShopCartVO> queryItemsBySpecIds(@Param("paramsList") List<String> specIdsList);
 }
