@@ -82,13 +82,21 @@ public class AddressServiceImpl implements AddressService {
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     public void updateUserAddressToBeDefault(String userId, String addressId) {
-        // 1.查询默认地址，设置为不默认
+        // 1.把该用户下所有的地址设置为非默认(减少数据库连接次数)
         UserAddress queryAddress = new UserAddress();
         queryAddress.setIsDefault(YesOrNo.NO.type);
         Example example = new Example(UserAddress.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("userId", userId);
         userAddressMapper.updateByExampleSelective(queryAddress, example);
+
+        // 1. 查找默认地址，设置为不默认(多一次数据库连接数，减少数据库处理压力)
+        // UserAddress queryAddress = new UserAddress();
+        // queryAddress.setUserId(userId);
+        // queryAddress.setIsDefault(YesOrNo.YES.type);
+        // UserAddress ua = userAddressMapper.selectOne(queryAddress);
+        // ua.setIsDefault(YesOrNo.NO.type);
+        // userAddressMapper.updateByPrimaryKeySelective(ua);
 
         // 2.根据地址ID修改为默认的地址
         UserAddress defaultAddress = new UserAddress();
