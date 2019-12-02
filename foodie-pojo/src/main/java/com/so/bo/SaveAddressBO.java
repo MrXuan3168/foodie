@@ -1,13 +1,12 @@
 package com.so.bo;
 
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
 
 /**
  * 应用模块名称： 用户新增地址的BO
@@ -30,7 +29,7 @@ public class SaveAddressBO {
 
     @ApiModelProperty(value = "收件人手机号", name = "mobile", example = "13800138000", required = true)
     @NotBlank(message = "收件人手机号 mobile 不能为空")
-    @Size(min = 11, max = 11, message = "收货人手机号长度不正确")
+    @Pattern(regexp = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17[013678])|(18[0,5-9]))\\d{8}$", message = "手机号码格式错误")
     private String mobile;
 
     @ApiModelProperty(value = "省份", name = "province", example = "广东", required = true)
