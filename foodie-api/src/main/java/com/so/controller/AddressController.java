@@ -11,7 +11,6 @@ import com.so.bo.SaveAddressBO;
 import com.so.bo.UpAddressBO;
 import com.so.pojo.UserAddress;
 import com.so.service.AddressService;
-import com.so.utils.MobileEmailUtils;
 import com.so.utils.Rest;
 
 import io.swagger.annotations.Api;
@@ -54,11 +53,6 @@ public class AddressController {
     @ApiOperation(value = "新装收货地址", notes = "新装收货地址", httpMethod = "POST")
     @PostMapping("/add")
     public Rest<Object> add(@Validated @RequestBody SaveAddressBO bo) {
-        String mobile = bo.getMobile();
-        boolean isMobileOk = MobileEmailUtils.checkMobileIsOk(mobile);
-        if (!isMobileOk) {
-            return Rest.errorMsg("收货人手机号格式不正确");
-        }
         addressService.addNewUserAddress(bo);
         return Rest.ok();
     }
@@ -66,11 +60,6 @@ public class AddressController {
     @ApiOperation(value = "用户修改地址", notes = "用户修改地址", httpMethod = "POST")
     @PostMapping("/update")
     public Rest<Object> update(@Validated @RequestBody UpAddressBO bo) {
-        String mobile = bo.getMobile();
-        boolean isMobileOk = MobileEmailUtils.checkMobileIsOk(mobile);
-        if (!isMobileOk) {
-            return Rest.errorMsg("收货人手机号格式不正确");
-        }
         addressService.updateUserAddress(bo);
         return Rest.ok();
     }
