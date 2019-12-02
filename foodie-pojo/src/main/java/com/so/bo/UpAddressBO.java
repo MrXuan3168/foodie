@@ -2,7 +2,8 @@ package com.so.bo;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,7 +28,7 @@ public class UpAddressBO {
 
     @ApiModelProperty(value = "收件人姓名", name = "receiver", example = "show", required = true)
     @NotBlank(message = "收件人姓名 receiver 不能为空")
-    @Size(max = 12, message = "收货人信息不能超过12位")
+    @Length(max = 12, message = "收货人信息不能超过12位")
     private String receiver;
 
     @ApiModelProperty(value = "收件人手机号", name = "mobile", example = "13800138000", required = true)
