@@ -25,12 +25,12 @@ public class SaveAddressBO {
 
     @ApiModelProperty(value = "收件人姓名", name = "receiver", example = "show", required = true)
     @NotBlank(message = "收件人姓名 receiver 不能为空")
-    @Size(max = 12, message = "收货人信息不能超过12位")
+    @Size(max = 1, message = "收货人信息不能超过12位")
     private String receiver;
 
     @ApiModelProperty(value = "收件人手机号", name = "mobile", example = "13800138000", required = true)
     @NotBlank(message = "收件人手机号 mobile 不能为空")
-    @Size(min = 12, max = 12, message = "收货人手机号长度不正确")
+    @Size(min = 11, max = 11, message = "收货人手机号长度不正确")
     private String mobile;
 
     @ApiModelProperty(value = "省份", name = "province", example = "广东", required = true)
