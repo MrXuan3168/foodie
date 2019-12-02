@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.so.bo.AddressBO;
+import com.so.bo.SaveAddressBO;
+import com.so.bo.UpAddressBO;
 import com.so.enums.YesOrNo;
 import com.so.mapper.UserAddressMapper;
 import com.so.pojo.UserAddress;
@@ -41,17 +42,16 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public void addNewUserAddress(AddressBO addressBo) {
+    public void addNewUserAddress(SaveAddressBO bo) {
         // 1.判断用户是否存在地址，如果没有，则新增为"默认地址"
         int isDefault = 0;
-        List<UserAddress> addressList = this.queryAll(addressBo.getUserId());
+        List<UserAddress> addressList = this.queryAll(bo.getUserId());
         if (addressList == null || addressList.isEmpty()) {
             isDefault = 1;
         }
-
         // 2.保存地址到数据库
         UserAddress userAddress = new UserAddress();
-        BeanUtils.copyProperties(addressBo, userAddress);
+        BeanUtils.copyProperties(bo, userAddress);
         userAddress.setId(sid.nextShort());
         userAddress.setIsDefault(isDefault);
         userAddress.setCreatedTime(new Date());
@@ -61,10 +61,10 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public void updateUserAddress(AddressBO addressBo) {
-        String addressId = addressBo.getAddressId();
+    public void updateUserAddress(UpAddressBO bo) {
+        String addressId = bo.getAddressId();
         UserAddress pendingAddress = new UserAddress();
-        BeanUtils.copyProperties(addressBo, pendingAddress);
+        BeanUtils.copyProperties(bo, pendingAddress);
         pendingAddress.setId(addressId);
         pendingAddress.setUpdatedTime(new Date());
         userAddressMapper.updateByPrimaryKeySelective(pendingAddress);

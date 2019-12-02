@@ -2,7 +2,8 @@ package com.so.service;
 
 import java.util.List;
 
-import com.so.bo.AddressBO;
+import com.so.bo.SaveAddressBO;
+import com.so.bo.UpAddressBO;
 import com.so.pojo.UserAddress;
 
 /**
@@ -27,19 +28,19 @@ public interface AddressService {
      * 
      * @author show
      * @date 2019/12/1 17:00
-     * @param addressBo
+     * @param bo
      */
-    void addNewUserAddress(AddressBO addressBo);
+    void addNewUserAddress(SaveAddressBO bo);
 
     /**
      * 用户修改地址
      * 
      * @author show
      * @date 2019/12/1 22:30
-     * @param addressBo
+     * @param bo
      * @return void
      */
-    void updateUserAddress(AddressBO addressBo);
+    void updateUserAddress(UpAddressBO bo);
 
     /**
      * 用户删除地址

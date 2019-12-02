@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import com.so.bo.AddressBO;
+import com.so.bo.SaveAddressBO;
+import com.so.bo.UpAddressBO;
 import com.so.pojo.UserAddress;
 import com.so.service.AddressService;
 import com.so.utils.MobileEmailUtils;
@@ -51,26 +53,25 @@ public class AddressController {
 
     @ApiOperation(value = "新装收货地址", notes = "新装收货地址", httpMethod = "POST")
     @PostMapping("/add")
-    public Rest<Object> add(@RequestBody AddressBO addressBo) {
-        Rest<Object> checkRes = checkAddress(addressBo);
-        if (checkRes.getStatus() != 200) {
-            return checkRes;
+    public Rest<Object> add(@Validated @RequestBody SaveAddressBO bo) {
+        String mobile = bo.getMobile();
+        boolean isMobileOk = MobileEmailUtils.checkMobileIsOk(mobile);
+        if (!isMobileOk) {
+            return Rest.errorMsg("收货人手机号格式不正确");
         }
-        addressService.addNewUserAddress(addressBo);
+        addressService.addNewUserAddress(bo);
         return Rest.ok();
     }
 
     @ApiOperation(value = "用户修改地址", notes = "用户修改地址", httpMethod = "POST")
     @PostMapping("/update")
-    public Rest<Object> update(@RequestBody AddressBO addressBo) {
-        if (StringUtils.isBlank(addressBo.getAddressId())) {
-            return Rest.errorMsg("修改地址错误：addressId 不能为空");
+    public Rest<Object> update(@Validated @RequestBody UpAddressBO bo) {
+        String mobile = bo.getMobile();
+        boolean isMobileOk = MobileEmailUtils.checkMobileIsOk(mobile);
+        if (!isMobileOk) {
+            return Rest.errorMsg("收货人手机号格式不正确");
         }
-        Rest<Object> checkRes = checkAddress(addressBo);
-        if (checkRes.getStatus() != 200) {
-            return checkRes;
-        }
-        addressService.updateUserAddress(addressBo);
+        addressService.updateUserAddress(bo);
         return Rest.ok();
     }
 
@@ -100,36 +101,4 @@ public class AddressController {
         return Rest.ok();
     }
 
-    private Rest<Object> checkAddress(AddressBO addressBo) {
-        String receiver = addressBo.getReceiver();
-        if (StringUtils.isBlank(receiver)) {
-            return Rest.errorMsg("收货人不能为空");
-        }
-        if (receiver.length() > 12) {
-            return Rest.errorMsg("收货人姓名不能太长");
-        }
-
-        String mobile = addressBo.getMobile();
-        if (StringUtils.isBlank(mobile)) {
-            return Rest.errorMsg("收货人手机号不能为空");
-        }
-        if (mobile.length() != 11) {
-            return Rest.errorMsg("收货人手机号长度不正确");
-        }
-        boolean isMobileOk = MobileEmailUtils.checkMobileIsOk(mobile);
-        if (!isMobileOk) {
-            return Rest.errorMsg("收货人手机号格式不正确");
-        }
-
-        String province = addressBo.getProvince();
-        String city = addressBo.getCity();
-        String district = addressBo.getDistrict();
-        String detail = addressBo.getDetail();
-        if (StringUtils.isBlank(province) || StringUtils.isBlank(city) || StringUtils.isBlank(district)
-            || StringUtils.isBlank(detail)) {
-            return Rest.errorMsg("收货地址信息不能为空");
-        }
-
-        return Rest.ok();
-    }
 }
