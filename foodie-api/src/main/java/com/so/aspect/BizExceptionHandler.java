@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.so.utils.Rest;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * 应用模块名称： Valid参数校验异常处理类
  * <p>
@@ -22,6 +24,7 @@ import com.so.utils.Rest;
  * @since 2019/10/28 20:12
  */
 @RestControllerAdvice
+@Slf4j
 public class BizExceptionHandler {
     /**
      * 处理Get请求中 使用@Valid 验证路径中请求实体校验失败后抛出的异常
@@ -35,8 +38,10 @@ public class BizExceptionHandler {
     @ExceptionHandler(BindException.class)
     @ResponseBody
     public Rest bindExceptionHandler(BindException e) {
+
         String message = e.getBindingResult().getAllErrors().stream()
             .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
+        log.error("参数校验失败，失败原因为：" + message);
         return Rest.errorMsg(message);
     }
 
@@ -54,6 +59,7 @@ public class BizExceptionHandler {
     public Rest constraintViolationExceptionHandler(ConstraintViolationException e) {
         String message =
             e.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.joining());
+        log.error("参数校验失败，失败原因为：" + message);
         return Rest.errorMsg(message);
     }
 
@@ -71,6 +77,7 @@ public class BizExceptionHandler {
     public Rest methodArgumentNotValidException(MethodArgumentNotValidException e) {
         String message = e.getBindingResult().getAllErrors().stream()
             .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
+        log.error("参数校验失败，失败原因为：" + message);
         return Rest.errorMsg(message);
     }
 }
