@@ -41,7 +41,7 @@ public class BizExceptionHandler {
 
         String message = e.getBindingResult().getAllErrors().stream()
             .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
-        log.error("参数校验失败，失败原因为：" + message);
+        log.error("参数校验失败，失败原因为：{}", message);
         return Rest.errorMsg(message);
     }
 
@@ -59,7 +59,7 @@ public class BizExceptionHandler {
     public Rest constraintViolationExceptionHandler(ConstraintViolationException e) {
         String message =
             e.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.joining());
-        log.error("参数校验失败，失败原因为：" + message);
+        log.error("参数校验失败，失败原因为：{}", message);
         return Rest.errorMsg(message);
     }
 
@@ -77,7 +77,7 @@ public class BizExceptionHandler {
     public Rest methodArgumentNotValidException(MethodArgumentNotValidException e) {
         String message = e.getBindingResult().getAllErrors().stream()
             .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
-        log.error("参数校验失败，失败原因为：" + message);
+        log.error("参数校验失败，失败原因为：{}", message);
         return Rest.errorMsg(message);
     }
 }
