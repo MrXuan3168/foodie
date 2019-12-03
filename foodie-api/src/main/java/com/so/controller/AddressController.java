@@ -26,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @Slf4j
 @CrossOrigin
-@Api(value = "地址相关接口Controller", tags = {"地址相关接口相关的api"})
+@Api(value = "地址相关接口Controller", tags = {"地址相关的api"})
 @RequestMapping("address")
 public class AddressController {
     @Autowired

@@ -55,4 +55,13 @@ public interface ItemsMapperCustom {
      * @return java.util.List<com.so.vo.ShopCartVO>
      */
     List<ShopCartVO> queryItemsBySpecIds(@Param("paramsList") List<String> specIdsList);
+
+    /**
+     * 减少库存
+     * 
+     * @param pendingCounts
+     * @param specId
+     * @return int
+     */
+    int decreaseItemSpecStock(@Param("pendingCounts") Integer pendingCounts, @Param("specId") String specId);
 }

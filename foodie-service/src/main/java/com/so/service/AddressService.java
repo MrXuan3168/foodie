@@ -61,4 +61,15 @@ public interface AddressService {
      * @param addressId
      */
     void updateUserAddressToBeDefault(String userId, String addressId);
+
+    /**
+     * 根据用户id和地址id，查询具体的用户地址对象信息
+     * 
+     * @author xuanweiyao
+     * @date 2019/12/3 22:29
+     * @param userId
+     * @param addressId
+     * @return com.so.pojo.UserAddress
+     */
+    UserAddress queryAddress(String userId, String addressId);
 }
