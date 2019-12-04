@@ -14,9 +14,8 @@ import com.so.service.AddressService;
 import com.so.utils.Rest;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -44,7 +43,8 @@ public class AddressController {
      */
     @ApiOperation(value = "查询用户的所有收货地址列表", notes = "查询用户的所有收货地址列表", httpMethod = "POST")
     @PostMapping("/list")
-    public Rest<List<UserAddress>> list(@RequestParam String userId) {
+    public Rest<List<UserAddress>> list(@ApiParam(name = "userId", value = "用户id", required = true,
+        defaultValue = "1908189H7TNWDTXP") @RequestParam String userId) {
         if (StringUtils.isBlank(userId)) {
             return Rest.errorMsg("用户ID不能为空");
         }
@@ -67,13 +67,12 @@ public class AddressController {
     }
 
     @ApiOperation(value = "用户删除地址", notes = "用户删除地址", httpMethod = "POST")
-    @ApiImplicitParams({
-        @ApiImplicitParam(name = "userId", value = "用户id", required = true, defaultValue = "1908189H7TNWDTXP",
-            dataType = "String"),
-        @ApiImplicitParam(name = "addressId", value = "地址Id", required = true, defaultValue = "190825CG3AA14Y3C",
-            dataType = "String")})
     @PostMapping("/delete")
-    public Rest<Object> delete(@RequestParam String userId, @RequestParam String addressId) {
+    public Rest<Object> delete(
+        @ApiParam(name = "userId", value = "用户id", required = true,
+            defaultValue = "1908189H7TNWDTXP") @RequestParam String userId,
+        @ApiParam(name = "addressId", value = "地址Id", required = true,
+            defaultValue = "190825CG3AA14Y3C") @RequestParam String addressId) {
         if (StringUtils.isBlank(userId)) {
             return Rest.errorMsg("用户ID不能为空");
         }
@@ -85,13 +84,12 @@ public class AddressController {
     }
 
     @ApiOperation(value = "设置默认地址", notes = "设置默认地址", httpMethod = "POST")
-    @ApiImplicitParams({
-        @ApiImplicitParam(name = "userId", value = "用户id", required = true, defaultValue = "1908189H7TNWDTXP",
-            dataType = "String"),
-        @ApiImplicitParam(name = "addressId", value = "地址Id", required = true, defaultValue = "190825CG3AA14Y3C",
-            dataType = "String")})
     @PostMapping("/setDefault")
-    public Rest<Object> setDefault(@RequestParam String userId, @RequestParam String addressId) {
+    public Rest<Object> setDefault(
+        @ApiParam(name = "userId", value = "用户id", required = true,
+            defaultValue = "1908189H7TNWDTXP") @RequestParam String userId,
+        @ApiParam(name = "addressId", value = "地址Id", required = true,
+            defaultValue = "190825CG3AA14Y3C") @RequestParam String addressId) {
         if (StringUtils.isBlank(userId)) {
             return Rest.errorMsg("用户ID不能为空");
         }
