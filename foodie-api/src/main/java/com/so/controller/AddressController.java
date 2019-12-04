@@ -14,6 +14,8 @@ import com.so.service.AddressService;
 import com.so.utils.Rest;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
@@ -65,6 +67,11 @@ public class AddressController {
     }
 
     @ApiOperation(value = "用户删除地址", notes = "用户删除地址", httpMethod = "POST")
+    @ApiImplicitParams({
+        @ApiImplicitParam(name = "userId", value = "用户id", required = true, defaultValue = "1908189H7TNWDTXP",
+            dataType = "String"),
+        @ApiImplicitParam(name = "addressId", value = "地址Id", required = true, defaultValue = "190825CG3AA14Y3C",
+            dataType = "String")})
     @PostMapping("/delete")
     public Rest<Object> delete(@RequestParam String userId, @RequestParam String addressId) {
         if (StringUtils.isBlank(userId)) {
@@ -78,6 +85,11 @@ public class AddressController {
     }
 
     @ApiOperation(value = "设置默认地址", notes = "设置默认地址", httpMethod = "POST")
+    @ApiImplicitParams({
+        @ApiImplicitParam(name = "userId", value = "用户id", required = true, defaultValue = "1908189H7TNWDTXP",
+            dataType = "String"),
+        @ApiImplicitParam(name = "addressId", value = "地址Id", required = true, defaultValue = "190825CG3AA14Y3C",
+            dataType = "String")})
     @PostMapping("/setDefault")
     public Rest<Object> setDefault(@RequestParam String userId, @RequestParam String addressId) {
         if (StringUtils.isBlank(userId)) {
