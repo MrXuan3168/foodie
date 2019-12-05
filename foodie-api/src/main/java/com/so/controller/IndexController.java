@@ -15,8 +15,8 @@ import com.so.vo.CategoryVO;
 import com.so.vo.NewItemsVO;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 
 /**
  * 应用模块名称：
@@ -55,9 +55,9 @@ public class IndexController {
     }
 
     @ApiOperation(value = "获取商品子分类", notes = "获取商品子分类", httpMethod = "GET")
+    @ApiImplicitParam(name = "rootCatId", value = "一级分类id", example = "1", required = true)
     @GetMapping("/subCat/{rootCatId}")
-    public Rest<List<CategoryVO>> getSubCatList(@ApiParam(name = "rootCatId", value = "一级分类id", example = "1",
-        required = true) @PathVariable Integer rootCatId) {
+    public Rest<List<CategoryVO>> getSubCatList(@PathVariable Integer rootCatId) {
         if (rootCatId == null) {
             return Rest.errorMsg("分类不存在");
         }
@@ -66,9 +66,9 @@ public class IndexController {
     }
 
     @ApiOperation(value = "查询每个一级分类下的最新6个数据", notes = "查询每个一级分类下的最新6个数据", httpMethod = "GET")
+    @ApiImplicitParam(name = "rootCatId", value = "一级分类id", example = "1", required = true)
     @GetMapping("/sixNewItems/{rootCatId}")
-    public Rest<List<NewItemsVO>> getSixNewItems(@ApiParam(name = "rootCatId", value = "一级分类id", example = "1",
-        required = true) @PathVariable Integer rootCatId) {
+    public Rest<List<NewItemsVO>> getSixNewItems(@PathVariable Integer rootCatId) {
         if (rootCatId == null) {
             return Rest.errorMsg("分类不存在");
         }

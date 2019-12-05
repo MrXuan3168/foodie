@@ -32,7 +32,7 @@ public class NewItemsVO {
     @ApiModelProperty(value = "背景颜色", name = "bgColor", example = "#fe7a65", required = true)
     private String bgColor;
 
-    @ApiModelProperty(value = "最新商品集合", name = "simpleItemList", required = true)
+    @ApiModelProperty(value = "最新商品集合", name = "simpleItemList")
     private List<SimpleItemVO> simpleItemList;
 
 }

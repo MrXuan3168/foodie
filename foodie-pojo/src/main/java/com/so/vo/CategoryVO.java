@@ -28,7 +28,7 @@ public class CategoryVO {
     @ApiModelProperty(value = "父ID", name = "fatherId", example = "1", required = true)
     private String fatherId;
 
-    @ApiModelProperty(value = "三级分类Vo", name = "subCatList", required = true)
+    @ApiModelProperty(value = "三级分类Vo", name = "subCatList")
     private List<SubCategoryVO> subCatList;
 
 }

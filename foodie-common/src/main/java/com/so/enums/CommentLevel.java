@@ -8,7 +8,7 @@ package com.so.enums;
  */
 public enum CommentLevel {
     /** 是否 枚举 */
-    GOOD(0, "好评"), NORMAL(2, "中评"), BAD(3, "差评");
+    GOOD(0, "好评"), NORMAL(1, "中评"), BAD(2, "差评");
 
     public final Integer type;
     public final String value;
