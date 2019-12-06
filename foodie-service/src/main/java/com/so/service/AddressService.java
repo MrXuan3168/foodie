@@ -3,7 +3,6 @@ package com.so.service;
 import java.util.List;
 
 import com.so.bo.AddressBO;
-import com.so.bo.UpAddressBO;
 import com.so.pojo.UserAddress;
 
 /**
