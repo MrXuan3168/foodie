@@ -6,6 +6,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableSwaggerBootstrapUi;
+
 import tk.mybatis.spring.annotation.MapperScan;
 
 /**
@@ -19,6 +21,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication
 @MapperScan(basePackages = "com.so.mapper")
 @ComponentScan(basePackages = {"com.so", "org.n3r.idworker"})
+@EnableSwaggerBootstrapUi
 public class ApiApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(ApiApplication.class, args);

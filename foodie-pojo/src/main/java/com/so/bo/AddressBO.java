@@ -5,6 +5,8 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.so.validation.Update;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -16,8 +18,12 @@ import lombok.Data;
  * @since 2019/12/1 16:56
  */
 @Data
-@ApiModel(value = "用户新增地址的BO", description = "调用接口发送的对象")
-public class SaveAddressBO {
+@ApiModel(value = "新增或者修改收货地址BO", description = "调用接口发送的对象")
+public class AddressBO {
+
+    @ApiModelProperty(value = "地址ID", name = "addressId", example = "190825CG3AA14Y3C", required = true)
+    @NotBlank(message = "地址ID addressId 不能为空", groups = Update.class)
+    private String addressId;
 
     @ApiModelProperty(value = "用户ID", name = "userId", example = "1908189H7TNWDTXP", required = true)
     @NotBlank(message = "用户ID userId 不能为空")

@@ -10,8 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.so.bo.SaveAddressBO;
-import com.so.bo.UpAddressBO;
+import com.so.bo.AddressBO;
 import com.so.enums.YesOrNo;
 import com.so.mapper.UserAddressMapper;
 import com.so.pojo.UserAddress;
@@ -42,7 +41,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public void addNewUserAddress(SaveAddressBO bo) {
+    public void addNewUserAddress(AddressBO bo) {
         // 1.判断用户是否存在地址，如果没有，则新增为"默认地址"
         int isDefault = 0;
         List<UserAddress> addressList = this.queryAll(bo.getUserId());
@@ -61,7 +60,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public void updateUserAddress(UpAddressBO bo) {
+    public void updateUserAddress(AddressBO bo) {
         String addressId = bo.getAddressId();
         UserAddress pendingAddress = new UserAddress();
         BeanUtils.copyProperties(bo, pendingAddress);

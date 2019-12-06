@@ -134,13 +134,13 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.9.2</version>
-        </dependency>
+        <groupId>com.github.xiaoymin</groupId>
+        <artifactId>knife4j-spring-ui</artifactId>
+        <version>1.9.6</version>
+    </dependency>
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
-            <artifactId>swagger-bootstrap-ui</artifactId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
             <version>1.9.6</version>
         </dependency>
         <!--引入日志依赖 抽象层 与 实现层-->

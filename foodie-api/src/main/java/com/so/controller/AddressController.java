@@ -7,11 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import com.so.bo.SaveAddressBO;
-import com.so.bo.UpAddressBO;
+import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
+import com.so.bo.AddressBO;
 import com.so.pojo.UserAddress;
 import com.so.service.AddressService;
 import com.so.utils.Rest;
+import com.so.validation.Update;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -54,15 +55,16 @@ public class AddressController {
     }
 
     @ApiOperation(value = "新装收货地址", notes = "新装收货地址", httpMethod = "POST")
+    @ApiOperationSupport(ignoreParameters = {"addressId"})
     @PostMapping("/add")
-    public Rest<Object> add(@Validated @RequestBody SaveAddressBO bo) {
+    public Rest<Object> add(@Validated @RequestBody AddressBO bo) {
         addressService.addNewUserAddress(bo);
         return Rest.ok();
     }
 
     @ApiOperation(value = "用户修改地址", notes = "用户修改地址", httpMethod = "POST")
     @PostMapping("/update")
-    public Rest<Object> update(@Validated @RequestBody UpAddressBO bo) {
+    public Rest<Object> update(@Validated(Update.class) @RequestBody AddressBO bo) {
         addressService.updateUserAddress(bo);
         return Rest.ok();
     }
