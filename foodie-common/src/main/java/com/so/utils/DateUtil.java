@@ -270,7 +270,7 @@ public class DateUtil {
      * @return Timestamp
      */
     public static java.sql.Timestamp getCurrentTimestamp() {
-        return new java.sql.Timestamp(new Date().getTime());
+        return new java.sql.Timestamp(System.currentTimeMillis());
     }
 
     /**

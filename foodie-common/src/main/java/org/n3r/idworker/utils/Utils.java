@@ -30,17 +30,20 @@ public class Utils {
         } catch (IOException e) {
             return null;
         } finally {
-            if (inputStream != null) try {
-                inputStream.close();
-            } catch (IOException e) {
-                // ignore
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    // ignore
+                }
             }
         }
     }
 
     public static String checkNotEmpty(String param, String name) {
-        if (param == null || param.isEmpty())
+        if (param == null || param.isEmpty()) {
             throw new IllegalArgumentException(name + " is empty");
+        }
 
         return param;
     }
@@ -65,10 +68,10 @@ public class Utils {
     }
 
     public static long decode(String s, String symbols) {
-        final int B = symbols.length();
+        final int b = symbols.length();
         long num = 0;
         for (char ch : s.toCharArray()) {
-            num *= B;
+            num *= b;
             num += symbols.indexOf(ch);
         }
         return num;
@@ -79,11 +82,11 @@ public class Utils {
     }
 
     public static String encode(long num, String symbols) {
-        final int B = symbols.length();
+        final int b = symbols.length();
         StringBuilder sb = new StringBuilder();
         while (num != 0) {
-            sb.append(symbols.charAt((int) (num % B)));
-            num /= B;
+            sb.append(symbols.charAt((int) (num % b)));
+            num /= b;
         }
         return sb.reverse().toString();
     }
@@ -92,7 +95,9 @@ public class Utils {
     static String defaultRange = "0123456789ABCDFGHKMNPRSTWXYZ";
 
     public static String padLeft(String str, int size, char padChar) {
-        if (str.length() >= size) return str;
+        if (str.length() >= size) {
+            return str;
+        }
 
         StringBuilder s = new StringBuilder();
         for (int i = size - str.length(); i > 0; --i) {
@@ -107,7 +112,9 @@ public class Utils {
         String userHome = System.getProperty("user.home");
         File idWorkerHome = new File(userHome + File.separator + DOT_IDWORKERS);
         idWorkerHome.mkdirs();
-        if (idWorkerHome.isDirectory()) return idWorkerHome;
+        if (idWorkerHome.isDirectory()) {
+            return idWorkerHome;
+        }
 
         throw new RuntimeException("failed to create .idworkers at user home");
     }

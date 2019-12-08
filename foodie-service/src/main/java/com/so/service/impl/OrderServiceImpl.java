@@ -5,6 +5,8 @@ import java.util.Date;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.so.bo.SubmitOrderBO;
 import com.so.enums.OrderStatusEnum;
@@ -16,6 +18,8 @@ import com.so.pojo.*;
 import com.so.service.AddressService;
 import com.so.service.ItemService;
 import com.so.service.OrderService;
+import com.so.vo.MerchantOrdersVO;
+import com.so.vo.OrderVO;
 
 /**
  * 应用模块名称：
@@ -38,15 +42,16 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private Sid sid;
 
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
-    public void createOrder(SubmitOrderBO bo) {
+    public OrderVO createOrder(SubmitOrderBO bo) {
         String userId = bo.getUserId();
         String addressId = bo.getAddressId();
         String itemSpecIds = bo.getItemSpecIds();
         Integer payMethod = bo.getPayMethod();
         String leftMsg = bo.getLeftMsg();
         // 包邮费用设置为0
-        Integer postAmount = 0;
+        int postAmount = 0;
         String orderId = sid.nextShort();
         // 1.新订单数据保存
         Orders orders = new Orders();
@@ -67,9 +72,9 @@ public class OrderServiceImpl implements OrderService {
         // 2.循环根据itemSpecIds保存订单商品信息表
         String[] itemSpecIdArr = itemSpecIds.split(",");
         // 商品原价累计
-        Integer totalAmount = 0;
+        int totalAmount = 0;
         // 优化后的时机支付价格累计
-        Integer realPayAmount = 0;
+        int realPayAmount = 0;
         for (String itemSpecId : itemSpecIdArr) {
             // 2.1 根据规格id，查询规格的具体信息，主要获取价格
             ItemsSpec itemsSpec = itemService.queryItemSpecById(itemSpecId);
@@ -108,5 +113,27 @@ public class OrderServiceImpl implements OrderService {
         waitPayOrderStatus.setOrderStatus(OrderStatusEnum.WAIT_PAY.type);
         waitPayOrderStatus.setCreatedTime(new Date());
         orderStatusMapper.insert(waitPayOrderStatus);
+        // 4.构建商户订单，用于传给支付中心
+        MerchantOrdersVO merchantOrdersVO = new MerchantOrdersVO();
+        merchantOrdersVO.setMerchantOrderId(orderId);
+        merchantOrdersVO.setMerchantUserId(userId);
+        merchantOrdersVO.setAmount(realPayAmount + postAmount);
+        merchantOrdersVO.setPayMethod(payMethod);
+        // 5.构建自定义订单vo
+        OrderVO orderVO = new OrderVO();
+        orderVO.setOrderId(orderId);
+        orderVO.setMerchantOrdersVO(merchantOrdersVO);
+        return orderVO;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    @Override
+    public void updateOrderStatus(String orderId, Integer orderStatus) {
+        OrderStatus paidStatus = new OrderStatus();
+        paidStatus.setOrderId(orderId);
+        paidStatus.setOrderStatus(orderStatus);
+        paidStatus.setPayTime(new Date());
+        orderStatusMapper.updateByPrimaryKeySelective(paidStatus);
+
     }
 }
