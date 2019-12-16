@@ -6,7 +6,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.github.xiaoymin.knife4j.spring.annotations.EnableSwaggerBootstrapUi;
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 
 import tk.mybatis.spring.annotation.MapperScan;
 
@@ -14,14 +14,14 @@ import tk.mybatis.spring.annotation.MapperScan;
  * 应用模块名称： api启动类<br>
  * MapperScan 扫描mapper所在包<br>
  * ComponentScan 扫描所有包及相关注解包<br>
- * 
+ *
  * @author show
  * @since 2019/11/12 15:48
  */
 @SpringBootApplication
 @MapperScan(basePackages = "com.so.mapper")
 @ComponentScan(basePackages = {"com.so", "org.n3r.idworker"})
-@EnableSwaggerBootstrapUi
+@EnableKnife4j
 public class ApiApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(ApiApplication.class, args);
