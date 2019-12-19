@@ -50,7 +50,7 @@ public class Swagger2 {
             // 详细信息
             .description("show 吃货 电商平台接口api文档")
             // 文档版本号
-            .version("1.0.1")
+            .version("1.1.0")
             // 网站信息
             .termsOfServiceUrl("https://www.show.com").build();
 
