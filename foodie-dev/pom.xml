@@ -60,7 +60,12 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
-
+        <!--fastJson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.47</version>
+        </dependency>
         <!-- mariaDB 数据库 -->
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
@@ -131,7 +136,7 @@
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
-            <version>2.0.0</version>
+            <version>2.0.1</version>
         </dependency>
         <!--引入日志依赖 抽象层 与 实现层-->
         <dependency>
