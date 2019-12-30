@@ -33,6 +33,8 @@ public class Swagger2 {
     public Docket createRestApi() {
         // 指定API类型为 swagger2
         return new Docket(DocumentationType.SWAGGER_2)
+            // 去除默认的状态码
+            .useDefaultResponseMessages(false)
             // 定义API文档汇总信息
             .apiInfo(apiInfo())
             // 设置扫描包(controller)的信息
