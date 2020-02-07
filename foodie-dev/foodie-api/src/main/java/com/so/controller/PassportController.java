@@ -1,14 +1,5 @@
 package com.so.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
-
 import com.so.bo.LoginUserBO;
 import com.so.bo.RegisterUserBO;
 import com.so.pojo.Users;
@@ -18,10 +9,17 @@ import com.so.utils.JsonUtils;
 import com.so.utils.Md5Utils;
 import com.so.utils.Rest;
 import com.so.vo.UserVO;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 应用模块名称：
@@ -124,7 +122,7 @@ public class PassportController {
 
     @ApiOperation(value = "用户退出登录", notes = "用户退出登录", httpMethod = "POST")
     @PostMapping("/logout")
-    public Rest logout(@RequestParam String userId) {
+    public Rest<Object> logout(@RequestParam String userId) {
         // 清除用户相关的信息的 cookie
         CookieUtils.deleteCookie(request, response, "user");
         // TODO: 2019/11/26 用户退出登录，需要清空购物车

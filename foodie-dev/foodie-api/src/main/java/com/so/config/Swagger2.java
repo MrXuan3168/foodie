@@ -33,6 +33,8 @@ public class Swagger2 {
     public Docket createRestApi() {
         // 指定API类型为 swagger2
         return new Docket(DocumentationType.SWAGGER_2)
+            // 去除默认的状态码
+            .useDefaultResponseMessages(false)
             // 定义API文档汇总信息
             .apiInfo(apiInfo())
             // 设置扫描包(controller)的信息
@@ -46,13 +48,13 @@ public class Swagger2 {
             // 文档页标题
             .title("show 吃货 电商平台接口api")
             // 联系人信息
-            .contact(new Contact("show", "https://www.show.com", "1004108488@qq.com"))
+            .contact(new Contact("show", "https://foodie.xuanweiyao.com", "1004108488@qq.com"))
             // 详细信息
             .description("show 吃货 电商平台接口api文档")
             // 文档版本号
-            .version("1.0.1")
+            .version("1.1.0")
             // 网站信息
-            .termsOfServiceUrl("https://www.show.com").build();
+            .termsOfServiceUrl("https://foodie.xuanweiyao.com").build();
 
     }
 }

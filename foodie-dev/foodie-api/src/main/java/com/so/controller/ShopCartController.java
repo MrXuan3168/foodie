@@ -1,18 +1,16 @@
 package com.so.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.so.bo.ShopCartBO;
+import com.so.utils.Rest;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.so.bo.ShopCartBO;
-import com.so.utils.Rest;
-
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author show
@@ -32,7 +30,7 @@ public class ShopCartController {
 
     @ApiOperation(value = "添加商品到购物车", notes = "添加商品到购物车", httpMethod = "POST")
     @PostMapping("/add")
-    public Rest add(@RequestParam String userId, @RequestBody ShopCartBO shopCartBo) {
+    public Rest<Object> add(@RequestParam String userId, @RequestBody ShopCartBO shopCartBo) {
         if (StringUtils.isBlank(userId)) {
             return Rest.errorMsg("用户ID不能为空");
         }
@@ -42,7 +40,7 @@ public class ShopCartController {
 
     @ApiOperation(value = "从购物车中删除商品", notes = "从购物车中删除商品", httpMethod = "POST")
     @PostMapping("/del")
-    public Rest del(@RequestParam String userId, @RequestParam String itemSpecId) {
+    public Rest<Object> del(@RequestParam String userId, @RequestParam String itemSpecId) {
         if (StringUtils.isBlank(userId)) {
             return Rest.errorMsg("用户ID不能为空");
         }
