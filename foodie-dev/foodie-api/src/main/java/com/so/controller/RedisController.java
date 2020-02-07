@@ -1,11 +1,12 @@
 package com.so.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.so.utils.RedisUtils;
 
 import lombok.extern.slf4j.Slf4j;
 import springfox.documentation.annotations.ApiIgnore;
@@ -24,22 +25,23 @@ import springfox.documentation.annotations.ApiIgnore;
 @RequestMapping("/redis")
 public class RedisController {
     @Autowired
-    private RedisTemplate<String, String> redisTemplate;
+    private RedisUtils redisUtils;
 
     @GetMapping("/set")
     public String set(String key, String value) {
-        redisTemplate.opsForValue().set(key, value);
+        redisUtils.set(key, value);
         return "ok";
     }
 
     @GetMapping("/get")
     public String get(String key) {
-        return redisTemplate.opsForValue().get(key);
+        return redisUtils.get(key);
     }
 
     @GetMapping("/delete")
-    public Boolean delete(String key) {
-        return redisTemplate.delete(key);
+    public String delete(String key) {
+        redisUtils.del(key);
+        return "ok";
     }
 
 }
