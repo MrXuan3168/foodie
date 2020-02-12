@@ -60,7 +60,7 @@
                         <configuration>
                             <tasks>
                                 <concat destfile="target/classes/version.txt">
-                                    ${version}.${env.BUILD_NUMBER}
+                                    ${version}.${env.BUILD_NUMBER}.${env.GIT_COMMIT}
                                 </concat>
                             </tasks>
                         </configuration>
