@@ -37,4 +37,5 @@ public class HelloController {
         session.removeAttribute("userInfo");
         return "ok";
     }
+
 }

@@ -11,7 +11,7 @@
     </parent>
     <groupId>com.so</groupId>
     <artifactId>foodie</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <modules>
         <module>foodie-common</module>
         <module>foodie-pojo</module>
