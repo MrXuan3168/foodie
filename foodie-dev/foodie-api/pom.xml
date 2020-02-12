@@ -40,7 +40,7 @@
                 </includes>
             </resource>
         </resources>
-        <finalName>${artifactId}-${version}.${env.BUILD_NUMBER}</finalName>
+        <finalName>${artifactId}-${version}.${env.BUILD_NUMBER}.${env.GIT_COMMIT}.${GIT_COMMIT}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
