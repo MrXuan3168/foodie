@@ -58,13 +58,18 @@ public class VersionController {
      * @return java.lang.String
      */
     private String readFromInputStream(InputStream inputStream) {
-        StringBuilder sb = new StringBuilder();
+        JSONObject gitJson = new JSONObject();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             while ((line = br.readLine()) != null) {
-                sb.append(line);
+                boolean b = line.contains("git.");
+                if (b) {
+                    line = line.replaceAll("\\\\", "");
+                    String[] split = line.split("=");
+                    gitJson.put(split[0], split[1]);
+                }
             }
-            return sb.toString();
+            return gitJson.toString();
         } catch (IOException e) {
             log.error("读取文件失败", e);
             return "{\"errMessage\":\"读取文件异常\"}";

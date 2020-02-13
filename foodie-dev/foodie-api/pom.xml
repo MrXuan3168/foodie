@@ -60,13 +60,13 @@
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
-                <version>2.1.5</version>
+                <version>4.0.0</version>
                 <executions>
                     <execution>
-                        <phase>initialize</phase>
                         <goals>
                             <goal>revision</goal>
                         </goals>
+                        <phase>initialize</phase>
                     </execution>
                 </executions>
                 <configuration>
@@ -77,13 +77,29 @@
                     <!-- ".git"文件路径;默认值:${project.basedir}/.git;
                       注意： 如果是多模块(多模块)项目，则需要修改到.git文件夹的目录-->
                     <dotGitDirectory>${project.basedir}/../../.git</dotGitDirectory>
+                    <!--
+                          Default (optional):
+                          git
+                          Explanation:
+                          This property will be used as the "namespace" prefix for all exposed/generated properties.
+                          An example the plugin may generate the property `${configured-prefix}.commit.id`.
+                          Such behaviour can be used to generate properties for multiple git repositories (see
+                          https://github.com/git-commit-id/maven-git-commit-id-plugin/issues/137#issuecomment-418144756
+                          for a full example).
+                                      -->
+                    <prefix>git</prefix>
                     <!--若项目打包类型为pom,是否取消构建;默认值:true;-->
                     <skipPoms>false</skipPoms>
                     <!--是否生成"git.properties"文件;默认值:false;-->
-                    <generateGitPropertiesFile>false</generateGitPropertiesFile>
+                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
                     <!--指定"git.properties"文件的存放路径(相对于${project.basedir}的一个路径);
                     注意：该地址决定接口代码是否可以读取到git版本信息，请自行修改-->
                     <generateGitPropertiesFilename>./src/main/resources/git.properties</generateGitPropertiesFilename>
+                    <!--选择输出的字段-->
+                    <includeOnlyProperties>
+                        <includeOnlyProperty>^git.build.time$</includeOnlyProperty>
+                        <includeOnlyProperty>^git.commit.(id.abbrev|id|time)$</includeOnlyProperty>
+                    </includeOnlyProperties>
                     <!--".git"文件夹未找到时,构建是否失败;若设置true,则构建失败;若设置false,则跳过执行该目标;默认值:true;-->
                     <failOnNoGitDirectory>true</failOnNoGitDirectory>
                     <!--git描述配置,可选;由JGit提供实现;-->
@@ -104,35 +120,6 @@
                         <forceLongFormat>false</forceLongFormat>
                     </gitDescribe>
                 </configuration>
-            </plugin>
-            <!--apache maven插件，用于执行ant脚本函数-->
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <!--maven 插件生命周期，我试过用compile 发现打包以后没有git.properties,因为打包的时候，还没有生成
-                        注意，这里改成 initialize 的话， 上面 git-commit-id-plugin 插件对应也该添加 phase 配置，并设置为 initialize
-                         否则你生成的文件，写入的就不会对应的值，而是变量名-->
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo message="compile正在写入"/>
-                                <!--concat 常用于把一些信息写入文件，我这里用于把 git-commit-id-plugin 生成的git环境变量写入文件 -->
-                                <concat resourcename="true" destfile="./src/main/resources/git.properties">
-                                    {
-                                    "git.commit.id.abbrev": "${git.commit.id.abbrev}",
-                                    "git.commit.id": "${git.commit.id}",
-                                    "git.commit.time": "${git.commit.time}",
-                                    "git.build.time": "${git.build.time}"
-                                    }
-                                </concat>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
