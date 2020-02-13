@@ -48,7 +48,6 @@
         -->
         <finalName>${project.artifactId}-${project.version}-${git.commit.id.abbrev}</finalName>
         <plugins>
-
             <!--spring构建插件-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -96,7 +95,7 @@
                         <!--提交操作ID显式字符长度,最大值为:40;默认值:7;
                             0代表特殊意义;后面有解释;
                         -->
-                        <abbrev>7</abbrev>
+                        <abbrev>8</abbrev>
                         <!--构建触发时,代码有修改时(即"dirty state"),添加指定后缀;默认值:"";-->
                         <dirty>-dirty</dirty>
                         <!--always print using the "tag-commits_from_tag-g_commit_id-maybe_dirty" format, even if "on" a tag.
@@ -106,10 +105,14 @@
                     </gitDescribe>
                 </configuration>
             </plugin>
+            <!--apache maven插件，用于执行ant脚本函数-->
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
                     <execution>
+                        <!--maven 插件生命周期，我试过用compile 发现打包以后没有git.properties,因为打包的时候，还没有生成
+                        注意，这里改成 initialize 的话， 上面 git-commit-id-plugin 插件对应也该添加 phase 配置，并设置为 initialize
+                         否则你生成的文件，写入的就不会对应的值，而是变量名-->
                         <phase>initialize</phase>
                         <goals>
                             <goal>run</goal>
@@ -117,6 +120,7 @@
                         <configuration>
                             <tasks>
                                 <echo message="compile正在写入"/>
+                                <!--concat 常用于把一些信息写入文件，我这里用于把 git-commit-id-plugin 生成的git环境变量写入文件 -->
                                 <concat resourcename="true" destfile="./src/main/resources/git.properties">
                                     {
                                     "git.commit.id.abbrev": "${git.commit.id.abbrev}",

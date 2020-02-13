@@ -33,19 +33,19 @@ public class VersionController {
      * 
      * @author xuanweiyao
      * @date 2020/2/12 19:42
-     * @return java.util.Map<java.lang.String,java.lang.String>
+     * @return java.lang.String
      */
     private String readGitProperties() {
         ClassPathResource classPathResource = new ClassPathResource("git.properties");
-        InputStream inputStream = null;
-        try {
-            inputStream = classPathResource.getInputStream();
+        try (InputStream inputStream = classPathResource.getInputStream()) {
+            String s = readFromInputStream(inputStream);
+            // 虽然写入文件的时，就是json格式，但是会带一些换行符，空字符等信息，用fastJson处理一下。
+            Object parse = JSONObject.parse(s);
+            return parse.toString();
         } catch (IOException e) {
             log.error("获取文件异常", e);
+            return "{\"errMessage\":\"获取文件异常\"}";
         }
-        String s = readFromInputStream(inputStream);
-        Object parse = JSONObject.parse(s);
-        return parse.toString();
     }
 
     /**
@@ -55,7 +55,7 @@ public class VersionController {
      * @date 2020/2/12 19:41
      * @param inputStream
      *            文件输入流
-     * @return java.util.Map<java.lang.String,java.lang.String>
+     * @return java.lang.String
      */
     private String readFromInputStream(InputStream inputStream) {
         StringBuilder sb = new StringBuilder();
@@ -64,15 +64,16 @@ public class VersionController {
             while ((line = br.readLine()) != null) {
                 sb.append(line);
             }
+            return sb.toString();
         } catch (IOException e) {
             log.error("读取文件失败", e);
+            return "{\"errMessage\":\"读取文件异常\"}";
         }
-        return sb.toString();
     }
 
-    public static void main(String[] args) {
-        VersionController versionController = new VersionController();
-        String s = versionController.readGitProperties();
-        System.out.println(s);
-    }
+    // public static void main(String[] args) {
+    // VersionController versionController = new VersionController();
+    // String s = versionController.readGitProperties();
+    // System.out.println(s);
+    // }
 }
