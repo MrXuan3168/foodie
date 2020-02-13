@@ -113,7 +113,7 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <tasks>
+                            <target>
                                 <concat destfile="./src/main/resources/git.properties">
                                     {
                                     "git.commit.id.abbrev": "${git.commit.id.abbrev}",
@@ -131,7 +131,7 @@
                                     "git.remote.origin.url": "${git.remote.origin.url}"
                                     }
                                 </concat>
-                            </tasks>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>
