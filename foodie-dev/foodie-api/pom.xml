@@ -41,8 +41,14 @@
                 </includes>
             </resource>
         </resources>
-        <finalName>${artifactId}-${version}.${git.commit.id.abbrev}</finalName>
+        <!--jar包名自定义
+            ${project.artifactId}: 项目名
+            ${project.version}: 项目版本号
+            ${git.commit.id.abbrev}: git推送版本号缩写(默认7位，可通过配置abbrev进行修改，最长40位)
+        -->
+        <finalName>${project.artifactId}-${project.version}-${git.commit.id.abbrev}</finalName>
         <plugins>
+            <!--spring构建插件-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -50,6 +56,7 @@
                     <mainClass>com.so.ApiApplication</mainClass>
                 </configuration>
             </plugin>
+            <!--git-commit-id-plugin 插件，用于实现打包带git版本信息-->
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
@@ -63,20 +70,21 @@
                 </executions>
                 <configuration>
                     <!--日期格式;默认值:dd.MM.yyyy '@' HH:mm:ss z;-->
-                    <dateFormat>yyyyMMddHHmmss</dateFormat>
+                    <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
                     <!--,构建过程中,是否打印详细信息;默认值:false;-->
                     <verbose>true</verbose>
-                    <!-- ".git"文件路径;默认值:${project.basedir}/.git; -->
+                    <!-- ".git"文件路径;默认值:${project.basedir}/.git;
+                      注意： 如果是多模块(多模块)项目，则需要修改到.git文件夹的目录-->
                     <dotGitDirectory>${project.basedir}/../../.git</dotGitDirectory>
                     <!--若项目打包类型为pom,是否取消构建;默认值:true;-->
                     <skipPoms>false</skipPoms>
                     <!--是否生成"git.properties"文件;默认值:false;-->
-                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                    <!--指定"git.properties"文件的存放路径(相对于${project.basedir}的一个路径);-->
+                    <generateGitPropertiesFile>false</generateGitPropertiesFile>
+                    <!--指定"git.properties"文件的存放路径(相对于${project.basedir}的一个路径);
+                    注意：该地址决定接口代码是否可以读取到git版本信息，请自行修改-->
                     <generateGitPropertiesFilename>./src/main/resources/git.properties</generateGitPropertiesFilename>
                     <!--".git"文件夹未找到时,构建是否失败;若设置true,则构建失败;若设置false,则跳过执行该目标;默认值:true;-->
                     <failOnNoGitDirectory>true</failOnNoGitDirectory>
-
                     <!--git描述配置,可选;由JGit提供实现;-->
                     <gitDescribe>
                         <!--是否生成描述属性-->
@@ -95,6 +103,38 @@
                         <forceLongFormat>false</forceLongFormat>
                     </gitDescribe>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <tasks>
+                                <concat destfile="./src/main/resources/git.properties">
+                                    {
+                                    "git.commit.id.abbrev": "${git.commit.id.abbrev}",
+                                    "git.commit.user.email": "${git.commit.user.email}",
+                                    "git.commit.message.full": "${git.commit.message.full}",
+                                    "git.commit.id": "${git.commit.id}",
+                                    "git.commit.message.short": "${git.commit.message.short}",
+                                    "git.commit.user.name": "${git.commit.user.name}",
+                                    "git.build.user.name": "${git.build.user.name}",
+                                    "git.commit.id.describe": "${git.commit.id.describe}",
+                                    "git.build.user.email": "${git.build.user.email}",
+                                    "git.branch": "${git.branch}",
+                                    "git.commit.time": "${git.commit.time}",
+                                    "git.build.time": "${git.build.time}",
+                                    "git.remote.origin.url": "${git.remote.origin.url}"
+                                    }
+                                </concat>
+                            </tasks>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
