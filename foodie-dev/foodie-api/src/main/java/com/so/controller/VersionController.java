@@ -70,9 +70,9 @@ public class VersionController {
         return sb.toString();
     }
 
-    // public static void main(String[] args) {
-    // VersionController versionController = new VersionController();
-    // String s = versionController.readGitProperties();
-    // System.out.println(s);
-    // }
+    public static void main(String[] args) {
+        VersionController versionController = new VersionController();
+        String s = versionController.readGitProperties();
+        System.out.println(s);
+    }
 }
