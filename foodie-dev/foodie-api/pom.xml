@@ -48,6 +48,30 @@
         -->
         <finalName>${project.artifactId}-${project.version}-${git.commit.id.abbrev}</finalName>
         <plugins>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <tasks>
+                                <echo message="compile正在写入"/>
+                                <concat resourcename="true" destfile="./src/main/resources/git.properties">
+                                    {
+                                    "git.commit.id.abbrev": "${git.commit.id.abbrev}",
+                                    "git.commit.id": "${git.commit.id}",
+                                    "git.commit.time": "${git.commit.time}",
+                                    "git.build.time": "${git.build.time}"
+                                    }
+                                </concat>
+                            </tasks>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <!--spring构建插件-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -104,30 +128,7 @@
                     </gitDescribe>
                 </configuration>
             </plugin>
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <inherited>false</inherited>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <concat destfile="./src/main/resources/git.properties">
-                                    {
-                                    "git.commit.id.abbrev": "${git.commit.id.abbrev}",
-                                    "git.commit.id": "${git.commit.id}",
-                                    "git.commit.time": "${git.commit.time}",
-                                    "git.build.time": "${git.build.time}"
-                                    }
-                                </concat>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+
         </plugins>
     </build>
 
