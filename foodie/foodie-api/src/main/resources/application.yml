@@ -53,7 +53,7 @@ mybatis:
 ############################################################
 # 通用 Mapper 配置
 mapper:
-  mappers: com.so.my.mapper.MyMapper
+  mappers: com.foodie.mapper.MyMapper
   not-empty: false
   identity: MARIADB
 # 分页插件配置

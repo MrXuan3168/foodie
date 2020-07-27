@@ -2,343 +2,128 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25ee006d-4637-45cc-8a3c-89d1fef702a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_47.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_5_1_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_spring_boot_autoconfigure_1_2_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_spring_boot_starter_1_2_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_xiaoymin_knife4j_annotations_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_xiaoymin_knife4j_core_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_boot_autoconfigure_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_boot_starter_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_xiaoymin_knife4j_spring_ui_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_20_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_1_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_lettuce_lettuce_core_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_43_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_43_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_43_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_43_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_43_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_43_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_3_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_bean_validators_2_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_22.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_22.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_persistence_api_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_27.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_27.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_27.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_18_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_25_0_GA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_1_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_2_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mariadb_jdbc_mariadb_java_client_2_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_2_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_2_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_2_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_16_18.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_configuration_processor_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_2_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__tk_mybatis_mapper_base_1_1_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__tk_mybatis_mapper_core_1_1_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__tk_mybatis_mapper_extra_1_1_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__tk_mybatis_mapper_spring_1_1_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__tk_mybatis_mapper_spring_boot_autoconfigure_2_1_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__tk_mybatis_mapper_spring_boot_starter_2_1_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__tk_mybatis_mapper_weekend_1_1_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/css/admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/css/amazeui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/css/amazeui.flat.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/css/amazeui.flat.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/css/amazeui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/app-icon72x72@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/examples/admin-chrome.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/examples/admin-firefox.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/examples/admin-ie.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/examples/admin-opera.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/examples/admin-safari.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/examples/adminPage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/examples/blogPage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/examples/landing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/examples/landingPage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/examples/loginPage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/examples/sidebarPage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/i/startup-640x1096.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/js/amazeui.ie8polyfill.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/js/amazeui.ie8polyfill.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/js/amazeui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/js/amazeui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/js/amazeui.widgets.helper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/js/amazeui.widgets.helper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/js/handlebars.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/AmazeUI-2.4.2/assets/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/alipay.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/alipayResult.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/alipayTempTransit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/basic/css/demo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/basic/images/chongzhi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/basic/images/ibar_sprites.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/basic/images/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/basic/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/basic/images/logobar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/basic/images/logobig.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/basic/images/no-img_mid_.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/basic/images/wdsc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/basic/images/weixin_code_145.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/basic/js/jquery-1.7.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/basic/js/jquery-1.9.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/basic/js/quick_links.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/catItems.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/center/address.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/center/center.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/center/comment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/center/commentlist.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/center/information.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/center/order.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/center/orderinfo.暂时先不做吧.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/city.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/components/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/components/VuePaging/Vue_Pagination_demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/components/VuePaging/vue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/components/VuePaging/zpageNav.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/components/VuePaging/zpageNav.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/components/mloading/jquery-1.8.3.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/components/mloading/jquery.mloading.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/components/mloading/jquery.mloading.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/components/scrolllist.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/course/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/course/2019.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/course/alipay.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/course/courses.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/course/douyin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/course/imooc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/course/weixin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/course/zk.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/addstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/appstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/bilstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/blogstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/blstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/bostyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/cartstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/cmstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/colstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/cpstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/dlstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/footstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/hmstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/infstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/item.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/jsstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/lee.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/lostyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/newstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/optstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/orstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/paysuccess.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/personal.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/refstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/seastyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/skin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/sortstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/stepstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/sustyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/systyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/css/wxpay.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/3CoOkxrFOP.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/566fda5cN4b8a1675.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/T13iv.XiFdXXa94Hfd-32-32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/TB1SSK7JpXXXXXCXXXXXXXXXXXX-800-600.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/YXARdXxj5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/addbg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/addicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/addicon1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/addicon2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/cardbg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/checkbox.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/chongzhi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/clockbg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/comment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/coupon2015.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/coupon20150805.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/couponli.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/extra.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/gift_intro_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/gift_stamp_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/gift_stamp_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/gift_stamp_21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/gift_stamp_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/gift_stamp_31.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/header-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/header-bg1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/header-bg2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/header-bg3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/ibar_sprites.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/icon-sale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/iconfont-bad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/iconfont-badon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/iconfont-evaluate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/iconfont-good.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/iconfont-middle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/iconsmall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/index_ico_png32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/kuaidi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/logobig.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/mansmall.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/mask.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/moneysmall.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/mygift_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/navce.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/navsmall.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/pay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/peraddbg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/peraddress.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/peraddressbg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/receive.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/refund.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/send.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/side.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/sprite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/sys_item_selected.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/wangyin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/wdsc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/weizhifu.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/zhifubao.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/images/图标.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/alipay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/banner3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/banner4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/bigcat/cake.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/bigcat/chocolate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/bigcat/cookies.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/bigcat/crab.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/bigcat/duck.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/bigcat/mango.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/bigcat/meat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/bigcat/meat2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/bigcat/nut.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/bigcat/tea.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/cake.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/chocolate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/cookies.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/default-face.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/ep_new_sprites.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/ep_sys_wx_tip.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/food.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/foodie.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/img1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/img2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/img3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/jianguo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/lobster.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/loginpage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/luwei.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/meat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/omg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/registpage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/success.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/sweet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/tea.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/wxpay-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/img/wxpay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/item.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/js/address.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/js/cities.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/js/jquery-1.7.2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/js/jquery.blockUI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/js/jquery.flexslider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/js/jquery.imagezoom.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/js/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/js/jquery.qrcode.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/js/list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/js/moment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/pay.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/shopcart.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/success.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-html/wxpay.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/CarouselMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/CategoryMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/ItemsCommentsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/ItemsImgMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/ItemsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/ItemsParamMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/ItemsSpecMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/OrderItemsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/OrderStatusMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/OrdersMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/PdmanDbVersionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/UserAddressMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/UsersMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/ApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/ApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/aspect/BizExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/aspect/BizExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/aspect/ServiceLogAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/aspect/ServiceLogAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/config/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/config/Swagger2.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/config/Swagger2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/controller/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/AddressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/controller/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/OrdersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/controller/PassportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/PassportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/controller/RedisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/RedisController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/controller/ShopCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/ShopCartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/controller/VersionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/VersionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/so/utils/VersionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/VersionUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/enums/CommentLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/CommentLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/enums/OrderStatusEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/OrderStatusEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/enums/PayMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/PayMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/enums/Sex.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/Sex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/enums/YesOrNo.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/YesOrNo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/utils/CookieUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/CookieUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/utils/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/DateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/utils/DesensitizationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/DesensitizationUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/utils/JsonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/JsonUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/utils/Md5Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/Md5Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/utils/MobileEmailUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/MobileEmailUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/utils/PagedGridResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/PagedGridResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/utils/RedisUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/RedisUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/utils/Rest.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/Rest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/utils/SpringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/SpringUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/validation/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/validation/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/so/validation/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/validation/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/CarouselMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/CategoryMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/CategoryMapperCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/CategoryMapperCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/ItemsCommentsMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/ItemsImgMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/ItemsMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/ItemsMapperCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/ItemsMapperCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/ItemsParamMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/ItemsSpecMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/OrderItemsMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/OrderStatusMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/OrdersMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/PdmanDbVersionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/UserAddressMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/mapper/UsersMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/so/my/mapper/MyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/java/com/foodie/mapper/MyMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/CarouselMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/CarouselMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/CategoryMapperCustom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/CategoryMapperCustom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/ItemsCommentsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/ItemsCommentsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/ItemsImgMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/ItemsImgMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/ItemsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/ItemsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/ItemsMapperCustom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/ItemsMapperCustom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/ItemsParamMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/ItemsParamMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/ItemsSpecMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/ItemsSpecMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/OrderItemsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/OrderItemsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/OrderStatusMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/OrderStatusMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/OrdersMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/OrdersMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/PdmanDbVersionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/PdmanDbVersionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/UserAddressMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/UserAddressMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/UsersMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-mapper/src/main/resources/mapper/UsersMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/bo/AddressBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/bo/AddressBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/bo/LoginUserBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/bo/LoginUserBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/bo/RegisterUserBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/bo/RegisterUserBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/bo/ShopCartBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/bo/ShopCartBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/bo/SubmitOrderBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/bo/SubmitOrderBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/pojo/Carousel.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/Carousel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/pojo/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/pojo/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/Items.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/pojo/ItemsComments.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/ItemsComments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/pojo/ItemsImg.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/ItemsImg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/pojo/ItemsParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/ItemsParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/pojo/ItemsSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/ItemsSpec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/pojo/OrderItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/OrderItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/pojo/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/OrderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/pojo/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/pojo/PdmanDbVersion.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/PdmanDbVersion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/pojo/UserAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/UserAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/pojo/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/vo/CategoryVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/CategoryVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/vo/CommentLevelCountsVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/CommentLevelCountsVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/vo/ItemCommentVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/ItemCommentVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/vo/ItemInfoVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/ItemInfoVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/vo/MerchantOrdersVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/MerchantOrdersVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/vo/NewItemsVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/NewItemsVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/vo/OrderVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/OrderVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/vo/SearchItemsVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/SearchItemsVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/vo/ShopCartVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/ShopCartVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/vo/SimpleItemVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/SimpleItemVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/vo/SubCategoryVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/SubCategoryVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/so/vo/UserVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/UserVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/so/service/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/AddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/so/service/CarouselService.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/CarouselService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/so/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/so/service/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/so/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/so/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/so/service/impl/AddressServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/impl/AddressServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/so/service/impl/CarouselServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/impl/CarouselServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/so/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/so/service/impl/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/impl/ItemServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/so/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/so/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,14 +157,19 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/foodie-html" />
+    <property name="last_opened_file_path" value="D:/Java/P3C/jamie-codestyle.xml" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="ics" />
+    <property name="settings.editor.selected.configurable" value="EclipseFormatter" />
   </component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\show-product\study-product\jamie-imooc-foodie\foodie-html" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="ApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -400,7 +190,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595835115976</updated>
-      <workItem from="1595835117897" duration="802000" />
+      <workItem from="1595835117897" duration="2149000" />
     </task>
     <task id="LOCAL-00001" summary="feat(上传idea开发配置文件):">
       <created>1595835502606</created>
@@ -423,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595835839323</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat(修改项目描述并上传前端代码)">
+      <created>1595836230316</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1595836230316</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,29 +230,34 @@
     <MESSAGE value="feat(上传idea开发配置文件):" />
     <MESSAGE value="feat(修改项目描述):" />
     <MESSAGE value="feat(修改后端项目路径名)" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(修改后端项目路径名)" />
+    <MESSAGE value="feat(修改项目描述并上传前端代码)" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(修改项目描述并上传前端代码)" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="4669" y="618" key="CommitChangelistDialog2" timestamp="1595835834086">
+    <state x="4925" y="967" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1595837137645">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state x="4669" y="618" key="CommitChangelistDialog2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835834086" />
+    <state x="4925" y="967" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595837137645" />
+    <state x="4669" y="618" key="CommitChangelistDialog2" timestamp="1595836228882">
+      <screen x="3840" y="340" width="2560" height="1410" />
+    </state>
+    <state x="4669" y="618" key="CommitChangelistDialog2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595836228882" />
     <state x="4091" y="463" key="DiffContextDialog" timestamp="1595835556410">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
     <state x="4091" y="463" key="DiffContextDialog/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835556410" />
-    <state x="4900" y="734" key="FileChooserDialogImpl" timestamp="1595835407135">
+    <state x="4900" y="734" key="FileChooserDialogImpl" timestamp="1595837295334">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state x="4900" y="734" key="FileChooserDialogImpl/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835407135" />
-    <state x="4600" y="619" key="SettingsEditor" timestamp="1595835735801">
+    <state x="4900" y="734" key="FileChooserDialogImpl/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595837295334" />
+    <state x="4600" y="619" width="1521" height="712" key="SettingsEditor" timestamp="1595837296813">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state x="4600" y="619" key="SettingsEditor/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835735801" />
-    <state x="4712" y="777" key="Vcs.Push.Dialog.v2" timestamp="1595835516017">
+    <state x="4600" y="619" width="1521" height="712" key="SettingsEditor/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595837296812" />
+    <state x="4712" y="777" key="Vcs.Push.Dialog.v2" timestamp="1595836598978">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state x="4712" y="777" key="Vcs.Push.Dialog.v2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835516017" />
+    <state x="4712" y="777" key="Vcs.Push.Dialog.v2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595836598978" />
     <state x="4494" y="705" key="new project wizard" timestamp="1595835145608">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>

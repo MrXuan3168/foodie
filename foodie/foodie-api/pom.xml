@@ -53,7 +53,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.so.ApiApplication</mainClass>
+                    <mainClass>com.foodie.api.ApiApplication</mainClass>
                 </configuration>
             </plugin>
             <!--git-commit-id-plugin 插件，用于实现打包带git版本信息-->

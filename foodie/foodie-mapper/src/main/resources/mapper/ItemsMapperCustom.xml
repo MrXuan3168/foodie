@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.so.mapper.ItemsMapperCustom">
+<mapper namespace="com.foodie.mapper.ItemsMapperCustom">
 
 
-    <select id="queryItemComments" parameterType="map" resultType="com.so.vo.ItemCommentVO">
+    <select id="queryItemComments" parameterType="map" resultType="com.foodie.pojo.vo.ItemCommentVO">
         SELECT
         ic.comment_level AS commentLevel,
         ic.content AS content,
@@ -22,7 +22,7 @@
     </select>
 
 
-    <select id="searchItems" parameterType="map" resultType="com.so.vo.SearchItemsVO">
+    <select id="searchItems" parameterType="map" resultType="com.foodie.pojo.vo.SearchItemsVO">
         SELECT
         i.id AS itemId,
         i.item_name AS itemName,
@@ -66,7 +66,7 @@
     p:根据价格排序
     -->
 
-    <select id="searchItemsByThirdCat" parameterType="map" resultType="com.so.vo.SearchItemsVO">
+    <select id="searchItemsByThirdCat" parameterType="map" resultType="com.foodie.pojo.vo.SearchItemsVO">
         SELECT
         i.id AS itemId,
         i.item_name AS itemName,
@@ -101,7 +101,7 @@
             </otherwise>
         </choose>
     </select>
-    <select id="queryItemsBySpecIds" parameterType="List" resultType="com.so.vo.ShopCartVO">
+    <select id="queryItemsBySpecIds" parameterType="List" resultType="com.foodie.pojo.vo.ShopCartVO">
         SELECT t_items.id AS itemId,
         t_items.item_name AS itemName,
         t_items_img.url AS itemImgUrl,
