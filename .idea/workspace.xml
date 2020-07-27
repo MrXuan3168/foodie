@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25ee006d-4637-45cc-8a3c-89d1fef702a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/foodie-dev/foodie-api/foodie-api.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-dev/foodie-common/foodie-common.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-dev/foodie-mapper/foodie-mapper.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-dev/foodie-pojo/foodie-pojo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-dev/foodie-service/foodie-service.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie-dev/foodie.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +28,7 @@
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -59,18 +54,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595835115976</updated>
-      <workItem from="1595835117897" duration="354000" />
+      <workItem from="1595835117897" duration="434000" />
     </task>
+    <task id="LOCAL-00001" summary="feat(上传idea开发配置文件):">
+      <created>1595835502606</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1595835502606</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat(上传idea开发配置文件):" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(上传idea开发配置文件):" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="4669" y="618" key="CommitChangelistDialog2" timestamp="1595835431375">
+    <state x="4669" y="618" key="CommitChangelistDialog2" timestamp="1595835501635">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state x="4669" y="618" key="CommitChangelistDialog2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835431375" />
+    <state x="4669" y="618" key="CommitChangelistDialog2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835501635" />
     <state x="4900" y="734" key="FileChooserDialogImpl" timestamp="1595835407135">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
@@ -79,6 +86,10 @@
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
     <state x="4600" y="619" key="SettingsEditor/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835409376" />
+    <state x="4712" y="777" key="Vcs.Push.Dialog.v2" timestamp="1595835516017">
+      <screen x="3840" y="340" width="2560" height="1410" />
+    </state>
+    <state x="4712" y="777" key="Vcs.Push.Dialog.v2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835516017" />
     <state x="4494" y="705" key="new project wizard" timestamp="1595835145608">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
