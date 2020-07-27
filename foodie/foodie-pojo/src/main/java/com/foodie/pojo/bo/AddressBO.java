@@ -14,7 +14,7 @@ import lombok.Data;
 /**
  * 应用模块名称： 用户新增地址的BO
  *
- * @author show
+ * @author jamie
  * @since 2019/12/1 16:56
  */
 @Data

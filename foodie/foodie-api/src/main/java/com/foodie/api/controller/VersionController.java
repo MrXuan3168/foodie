@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 应用模块名称：程序版本
  * 
- * @author show
+ * @author jamie
  * @since 2020/2/12 18:55
  */
 @RestController
@@ -53,8 +53,7 @@ public class VersionController {
      * 
      * @author xuanweiyao
      * @date 2020/2/12 19:41
-     * @param inputStream
-     *            文件输入流
+     * @param inputStream 文件输入流
      * @return java.lang.String
      */
     private String readFromInputStream(InputStream inputStream) {

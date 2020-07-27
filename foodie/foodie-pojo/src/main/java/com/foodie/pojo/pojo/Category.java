@@ -10,7 +10,7 @@ import lombok.Data;
 /**
  * 分类
  * 
- * @author show
+ * @author jamie
  * @date 2019/11/28 22:51
  */
 @ApiModel(value = "分类对象", description = "从数据库返回的对象")

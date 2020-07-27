@@ -2,8 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25ee006d-4637-45cc-8a3c-89d1fef702a8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/ApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/ApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/aspect/BizExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/aspect/BizExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/aspect/ServiceLogAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/aspect/ServiceLogAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/config/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/config/Swagger2.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/config/Swagger2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/AddressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/OrdersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/PassportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/PassportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/RedisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/RedisController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/ShopCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/ShopCartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/VersionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/VersionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/CommentLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/CommentLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/Sex.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/Sex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/YesOrNo.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/YesOrNo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/Md5Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/Md5Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/Rest.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/bo/ShopCartBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/bo/ShopCartBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/bo/SubmitOrderBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/bo/SubmitOrderBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/pojo/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/CommentLevelCountsVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/CommentLevelCountsVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/SimpleItemVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/SimpleItemVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/UserVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-pojo/src/main/java/com/foodie/pojo/vo/UserVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +117,7 @@
       <option name="presentableId" value="Default" />
       <updated>1595835115976</updated>
       <workItem from="1595835117897" duration="5286000" />
-      <workItem from="1595841857262" duration="769000" />
+      <workItem from="1595841857262" duration="1858000" />
     </task>
     <task id="LOCAL-00001" summary="feat(上传idea开发配置文件):">
       <created>1595835502606</created>
@@ -155,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595842290027</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix(配置文件优化)">
+      <created>1595842667222</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1595842667222</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,9 +204,14 @@
     <MESSAGE value="feat(上传项目代码格式化文件):" />
     <MESSAGE value="feat(添加数据库pdm文件):" />
     <MESSAGE value="fix(修改mapper类的位置使程序启动成功)" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(修改mapper类的位置使程序启动成功)" />
+    <MESSAGE value="fix(配置文件优化)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(配置文件优化)" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="4746" y="723" key="#Inspections" timestamp="1595843380259">
+      <screen x="3840" y="340" width="2560" height="1410" />
+    </state>
+    <state x="4746" y="723" key="#Inspections/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595843380259" />
     <state x="4574" y="699" width="1174" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595841898986">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
@@ -181,18 +220,18 @@
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
     <state x="4925" y="967" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595837137645" />
-    <state x="4669" y="618" key="CommitChangelistDialog2" timestamp="1595842288787">
+    <state x="4669" y="618" key="CommitChangelistDialog2" timestamp="1595842666201">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state x="4669" y="618" key="CommitChangelistDialog2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595842288787" />
+    <state x="4669" y="618" key="CommitChangelistDialog2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595842666201" />
     <state x="4091" y="463" key="DiffContextDialog" timestamp="1595837349973">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
     <state x="4091" y="463" key="DiffContextDialog/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595837349973" />
-    <state x="4900" y="734" key="FileChooserDialogImpl" timestamp="1595841873031">
+    <state x="4900" y="734" key="FileChooserDialogImpl" timestamp="1595843694100">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state x="4900" y="734" key="FileChooserDialogImpl/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595841873031" />
+    <state x="4900" y="734" key="FileChooserDialogImpl/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595843694100" />
     <state width="2517" height="494" key="GridCell.Tab.0.bottom" timestamp="1595842368017">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
@@ -249,13 +288,21 @@
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
     <state x="4600" y="619" width="1521" height="712" key="SettingsEditor/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595841878450" />
-    <state x="4712" y="777" key="Vcs.Push.Dialog.v2" timestamp="1595842292628">
+    <state x="4712" y="777" key="Vcs.Push.Dialog.v2" timestamp="1595842669166">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state x="4712" y="777" key="Vcs.Push.Dialog.v2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595842292628" />
+    <state x="4712" y="777" key="Vcs.Push.Dialog.v2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595842669166" />
+    <state x="4822" y="777" width="596" height="536" key="find.popup" timestamp="1595843718633">
+      <screen x="3840" y="340" width="2560" height="1410" />
+    </state>
+    <state x="4822" y="777" width="596" height="536" key="find.popup/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595843718633" />
     <state x="4494" y="705" key="new project wizard" timestamp="1595835145608">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
     <state x="4494" y="705" key="new project wizard/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835145608" />
+    <state x="4783" y="657" key="search.everywhere.popup" timestamp="1595843688705">
+      <screen x="3840" y="340" width="2560" height="1410" />
+    </state>
+    <state x="4783" y="657" key="search.everywhere.popup/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595843688705" />
   </component>
 </project>

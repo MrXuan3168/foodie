@@ -10,7 +10,7 @@ import lombok.Data;
 /**
  * 用户表
  * 
- * @author show
+ * @author jamie
  * @date 2019/11/25 11:30
  */
 @Data

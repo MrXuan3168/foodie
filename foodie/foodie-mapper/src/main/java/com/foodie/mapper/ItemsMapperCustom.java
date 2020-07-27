@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Param;
 /**
  * 自定义Items
  *
- * @author show
+ * @author jamie
  * @date 2019/11/30 21:59
  */
 public interface ItemsMapperCustom {
@@ -20,7 +20,7 @@ public interface ItemsMapperCustom {
      *
      * @param paramsMap
      * @return java.util.List<com.so.vo.ItemCommentVO>
-     * @author show
+     * @author jamie
      * @date 2019/11/30 22:15
      */
     List<ItemCommentVO> queryItemComments(@Param("paramsMap") Map<String, Object> paramsMap);
@@ -30,7 +30,7 @@ public interface ItemsMapperCustom {
      * 
      * @param paramsMap
      * @return java.util.List<com.so.vo.SearchItemsVO>
-     * @author show
+     * @author jamie
      * @date 2019/12/1 14:22
      */
     List<SearchItemsVO> searchItems(@Param("paramsMap") Map<String, Object> paramsMap);
@@ -40,7 +40,7 @@ public interface ItemsMapperCustom {
      *
      * @param paramsMap
      * @return java.util.List<com.so.vo.SearchItemsVO>
-     * @author show
+     * @author jamie
      * @date 2019/12/1 14:22
      */
     List<SearchItemsVO> searchItemsByThirdCat(@Param("paramsMap") Map<String, Object> paramsMap);
@@ -48,7 +48,7 @@ public interface ItemsMapperCustom {
     /**
      * 刷新购物车
      * 
-     * @author show
+     * @author jamie
      * @date 2019/12/1 15:50
      * @param specIdsList
      * @return java.util.List<com.so.vo.ShopCartVO>

@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * 应用模块名称：Swagger2配置类
  * 
- * @author show
+ * @author jamie
  * @since 2019/11/25 13:48
  */
 @Configuration
@@ -26,7 +26,7 @@ public class Swagger2 {
      * http://localhost:8088/swagger-ui.html </br>
      * http://localhost:8088/doc.html </br>
      * 
-     * @author show
+     * @author jamie
      * @date 2019/11/25 13:59
      */
     @Bean

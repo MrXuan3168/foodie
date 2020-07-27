@@ -13,7 +13,7 @@ import com.foodie.common.utils.PagedGridResult;
 /**
  * 应用模块名称：
  *
- * @author show
+ * @author jamie
  * @since 2019/11/27 12:39
  */
 public interface ItemService {
@@ -22,7 +22,7 @@ public interface ItemService {
      *
      * @param itemId
      * @return com.so.pojo.Items
-     * @author show
+     * @author jamie
      * @date 2019/11/30 20:54
      */
     Items queryItemById(String itemId);
@@ -32,7 +32,7 @@ public interface ItemService {
      *
      * @param itemId
      * @return java.util.List<com.so.pojo.ItemsImg>
-     * @author show
+     * @author jamie
      * @date 2019/11/30 20:56
      */
     List<ItemsImg> queryItemImgList(String itemId);
@@ -42,7 +42,7 @@ public interface ItemService {
      *
      * @param itemId
      * @return java.util.List<com.so.pojo.ItemsSpec>
-     * @author show
+     * @author jamie
      * @date 2019/11/30 20:56
      */
     List<ItemsSpec> queryItemSpecList(String itemId);
@@ -52,7 +52,7 @@ public interface ItemService {
      *
      * @param itemId
      * @return com.so.pojo.ItemsParam
-     * @author show
+     * @author jamie
      * @date 2019/11/30 20:57
      */
     ItemsParam queryItemParam(String itemId);
@@ -62,7 +62,7 @@ public interface ItemService {
      *
      * @param itemId
      * @return com.so.vo.CommentLevelCountsVO
-     * @author show
+     * @author jamie
      * @date 2019/11/30 21:32
      */
     CommentLevelCountsVO queryCommentCounts(String itemId);
@@ -75,7 +75,7 @@ public interface ItemService {
      * @param page
      * @param pageSize
      * @return java.util.List<com.so.vo.ItemCommentVO>
-     * @author show
+     * @author jamie
      * @date 2019/11/30 22:11
      */
     PagedGridResult queryPagedComments(String itemId, Integer level, Integer page, Integer pageSize);
@@ -88,7 +88,7 @@ public interface ItemService {
      * @param page
      * @param pageSize
      * @return com.so.utils.PagedGridResult
-     * @author show
+     * @author jamie
      * @date 2019/12/1 14:24
      */
     PagedGridResult searchItems(String keywords, String sort, Integer page, Integer pageSize);
@@ -101,7 +101,7 @@ public interface ItemService {
      * @param page
      * @param pageSize
      * @return com.so.utils.PagedGridResult
-     * @author show
+     * @author jamie
      * @date 2019/12/1 14:24
      */
     PagedGridResult searchItemsByThirdCat(Integer catId, String sort, Integer page, Integer pageSize);
@@ -111,7 +111,7 @@ public interface ItemService {
      *
      * @param specIds
      * @return java.util.List<com.so.vo.ShopCartVO>
-     * @author show
+     * @author jamie
      * @date 2019/12/1 15:55
      */
     List<ShopCartVO> queryItemsBySpecIds(String specIds);
@@ -121,7 +121,7 @@ public interface ItemService {
      *
      * @param specId
      * @return com.so.pojo.ItemsSpec
-     * @author show
+     * @author jamie
      * @date 2019/12/3 22:53
      */
     ItemsSpec queryItemSpecById(String specId);
@@ -129,7 +129,7 @@ public interface ItemService {
     /**
      * 根据商品id获得商品图片主图url
      * 
-     * @author show
+     * @author jamie
      * @date 2019/12/3 22:59
      * @param itemId
      * @return java.lang.String
@@ -139,7 +139,7 @@ public interface ItemService {
     /**
      * 减少库存
      * 
-     * @author show
+     * @author jamie
      * @date 2019/12/3 23:15
      * @param specId
      * @param buyCounts

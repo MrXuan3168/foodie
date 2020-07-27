@@ -15,7 +15,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  * MapperScan 扫描mapper所在包<br>
  * ComponentScan 扫描所有包及相关注解包<br>
  *
- * @author show
+ * @author jamie
  * @since 2019/11/12 15:48
  */
 @SpringBootApplication

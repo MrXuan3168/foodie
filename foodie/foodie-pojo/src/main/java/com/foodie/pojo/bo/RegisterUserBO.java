@@ -10,7 +10,7 @@ import lombok.Data;
 /**
  * 应用模块名称：用户注册对象BO
  *
- * @author show
+ * @author jamie
  * @since 2019/11/25 12:25
  */
 @ApiModel(value = "用户注册对象BO", description = "从客户端，由用户传入的数据封装在此entity中")

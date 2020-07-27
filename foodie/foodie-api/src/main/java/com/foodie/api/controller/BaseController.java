@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 /**
  * 应用模块名称：通用controller
  * 
- * @author show
+ * @author jamie
  * @since 2019/11/30 22:32
  */
 @Controller

@@ -9,7 +9,7 @@ import lombok.Data;
 /**
  * 应用模块名称：最新商品
  * 
- * @author show
+ * @author jamie
  * @since 2019/11/28 23:05
  */
 @Data

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 /**
  * 用户表
  * 
- * @author show
+ * @author jamie
  * @date 2019/11/25 11:30
  */
 @ApiModel(value = "登录成功返回对象", description = "登录成功返回对象")

@@ -16,7 +16,7 @@ import tk.mybatis.mapper.entity.Example;
 /**
  * 应用模块名称：商品业务层实现类
  * 
- * @author show
+ * @author jamie
  * @since 2019/11/27 12:40
  */
 @Service

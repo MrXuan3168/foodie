@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
  * 4.异常通知：如果在方法调用过程中发生异常，则通知<br>
  * 5.最终通知：在方法调用之后通知<br>
  * 
- * @author show
+ * @author jamie
  * @since 2019/11/25 23:43
  */
 @Component
@@ -35,10 +35,10 @@ public class ServiceLogAspect {
      * 第四处 * 代表类名，*代表所有类<br>
      * 第五处 *(..) *代表类中的方法名，(..)表示方法中的任何参数<br>
      * 
-     * @author show
+     * @author jamie
      * @date 2019/11/25 23:53
      */
-    @Around("execution(* com.so.service.impl..*.*(..))")
+    @Around("execution(* com.foodie.service.impl..*.*(..))")
     public Object recordTimeLog(ProceedingJoinPoint joinPoint) throws Throwable {
         log.info("===== 开始执行{}.{} =====", joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
         // 记录开始时间

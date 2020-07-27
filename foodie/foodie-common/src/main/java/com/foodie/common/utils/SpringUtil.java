@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * 提供手动获取被spring管理的bean对象
  * 
- * @author show
+ * @author jamie
  */
 @Component
 public class SpringUtil implements ApplicationContextAware {

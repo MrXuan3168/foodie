@@ -6,14 +6,14 @@ import com.foodie.pojo.vo.OrderVO;
 /**
  * 应用模块名称：订单业务层
  * 
- * @author show
+ * @author jamie
  * @since 2019/11/27 12:39
  */
 public interface OrderService {
     /**
      * 用于创建订单
      * 
-     * @author show
+     * @author jamie
      * @date 2019/12/3 22:23
      * @param bo
      * @return void
@@ -23,7 +23,7 @@ public interface OrderService {
     /**
      * 修改订单状态
      * 
-     * @author show
+     * @author jamie
      * @date 2019/12/8 20:46
      * @param orderId
      * @param orderStatus

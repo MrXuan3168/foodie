@@ -7,13 +7,12 @@ import org.apache.tomcat.util.codec.binary.Base64;
 /**
  * MD5工具类
  * 
- * @author show
+ * @author jamie
  * @date 2019/11/25 12:29
  */
 public class Md5Utils {
 
     /**
-     * 
      * @Title: MD5Utils.java
      * @Package com.imooc.utils
      * @Description: 对字符串进行md5加密

@@ -21,7 +21,7 @@ import tk.mybatis.mapper.entity.Example;
 /**
  * 应用模块名称： 用户处理类
  * 
- * @author show
+ * @author jamie
  * @since 2019/11/25 11:01
  */
 @Service

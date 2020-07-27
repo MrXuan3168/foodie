@@ -7,7 +7,7 @@ import lombok.Data;
 /**
  * 应用模块名称： 用户展示商品评价的VO
  * 
- * @author show
+ * @author jamie
  * @since 2019/11/30 22:05
  */
 @Data

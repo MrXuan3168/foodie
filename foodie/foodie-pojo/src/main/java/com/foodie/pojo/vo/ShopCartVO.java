@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 应用模块名称：购物车对象
  *
- * @author show
+ * @author jamie
  * @since 2019/12/1 15:18
  */
 @Data

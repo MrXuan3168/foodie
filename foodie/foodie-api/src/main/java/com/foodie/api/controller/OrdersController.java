@@ -7,7 +7,7 @@ import com.foodie.pojo.vo.OrderVO;
 import com.foodie.common.enums.OrderStatusEnum;
 import com.foodie.common.enums.PayMethod;
 import com.foodie.common.utils.CookieUtils;
-import com.foodie.common.utils.Rest;
+import com.foodie.common.utils.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 应用模块名称：订单</br>
  *
- * @author show
+ * @author jamie
  * @since 2019/11/12 16:13
  */
 @RestController
@@ -39,10 +39,10 @@ public class OrdersController extends BaseController {
 
     @ApiOperation(value = "用户下单", notes = "用户下单", httpMethod = "POST")
     @PostMapping("/create")
-    public Rest<String> create(@RequestBody SubmitOrderBO bo) {
+    public R<String> create(@RequestBody SubmitOrderBO bo) {
         Integer payMethod = bo.getPayMethod();
         if (!PayMethod.WE_CHAT.type.equals(payMethod) && !PayMethod.ALI_PAY.type.equals(payMethod)) {
-            return Rest.errorMsg("支付方式不支持");
+            return R.errorMsg("支付方式不支持");
         }
         // 1.创建订单
         OrderVO order = orderService.createOrder(bo);
@@ -54,8 +54,7 @@ public class OrdersController extends BaseController {
         MerchantOrdersVO merchantOrdersVO = order.getMerchantOrdersVO();
         merchantOrdersVO.setReturnUrl(payReturnUrl);
 
-
-        return Rest.ok(orderId);
+        return R.ok(orderId);
     }
 
     /**

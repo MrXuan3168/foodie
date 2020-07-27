@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.foodie.common.enums.YesOrNo;
 import com.foodie.pojo.pojo.Category;
-import com.foodie.common.utils.Rest;
+import com.foodie.common.utils.R;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiOperation;
 /**
  * 应用模块名称：
  * 
- * @author show
+ * @author jamie
  * @since 2019/11/19 20:16
  */
 @Api(value = "首页", tags = "首页展示的相关接口")
@@ -37,9 +37,9 @@ public class IndexController {
 
     @ApiOperation(value = "获取首页轮播图列表", notes = "获取首页轮播图列表", httpMethod = "GET")
     @GetMapping("/carousel")
-    public Rest<List<Carousel>> carousel() {
+    public R<List<Carousel>> carousel() {
         List<Carousel> list = carouselService.queryAll(YesOrNo.YES.type);
-        return Rest.ok(list);
+        return R.ok(list);
     }
 
     /**
@@ -49,30 +49,30 @@ public class IndexController {
      */
     @ApiOperation(value = "获取商品分类(一级分类)", notes = "获取商品分类(一级分类)", httpMethod = "GET")
     @GetMapping("/cats")
-    public Rest<List<Category>> cats() {
+    public R<List<Category>> cats() {
         List<Category> list = categoryService.queryAllRootLevelCat();
-        return Rest.ok(list);
+        return R.ok(list);
     }
 
     @ApiOperation(value = "获取商品子分类", notes = "获取商品子分类", httpMethod = "GET")
     @ApiImplicitParam(name = "rootCatId", value = "一级分类id", example = "1", required = true)
     @GetMapping("/subCat/{rootCatId}")
-    public Rest<List<CategoryVO>> getSubCatList(@PathVariable Integer rootCatId) {
+    public R<List<CategoryVO>> getSubCatList(@PathVariable Integer rootCatId) {
         if (rootCatId == null) {
-            return Rest.errorMsg("分类不存在");
+            return R.errorMsg("分类不存在");
         }
         List<CategoryVO> subCatList = categoryService.getSubCatList(rootCatId);
-        return Rest.ok(subCatList);
+        return R.ok(subCatList);
     }
 
     @ApiOperation(value = "查询每个一级分类下的最新6个数据", notes = "查询每个一级分类下的最新6个数据", httpMethod = "GET")
     @ApiImplicitParam(name = "rootCatId", value = "一级分类id", example = "1", required = true)
     @GetMapping("/sixNewItems/{rootCatId}")
-    public Rest<List<NewItemsVO>> getSixNewItems(@PathVariable Integer rootCatId) {
+    public R<List<NewItemsVO>> getSixNewItems(@PathVariable Integer rootCatId) {
         if (rootCatId == null) {
-            return Rest.errorMsg("分类不存在");
+            return R.errorMsg("分类不存在");
         }
         List<NewItemsVO> sixNewItemsLazy = categoryService.getSixNewItemsLazy(rootCatId);
-        return Rest.ok(sixNewItemsLazy);
+        return R.ok(sixNewItemsLazy);
     }
 }

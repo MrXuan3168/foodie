@@ -14,7 +14,7 @@ import lombok.Data;
 /**
  * 数据库轮播图对象
  * 
- * @author show
+ * @author jamie
  * @date 2019/11/27 14:15
  */
 @ApiModel(value = "数据库轮播图对象", description = "从数据库返回的对象")

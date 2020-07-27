@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 /**
  * 应用模块名称：商品详情VO
  * 
- * @author show
+ * @author jamie
  * @since 2019/11/28 23:08
  */
 @Data
