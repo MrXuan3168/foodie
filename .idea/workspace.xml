@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="25ee006d-4637-45cc-8a3c-89d1fef702a8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/foodie-dev/foodie-api/foodie-api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie-dev/foodie-common/foodie-common.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie-dev/foodie-mapper/foodie-mapper.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie-dev/foodie-pojo/foodie-pojo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie-dev/foodie-service/foodie-service.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foodie-dev/foodie.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1fGCbkWFpzG2y9n4EqU6pNdmCj8" />
+  <component name="ProjectViewState">
+    <option name="abbreviatePackageNames" value="true" />
+    <option name="compactDirectories" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showModules" value="false" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="11" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/foodie-dev/pom.xml" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="ics" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="25ee006d-4637-45cc-8a3c-89d1fef702a8" name="Default Changelist" comment="" />
+      <created>1595835115976</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595835115976</updated>
+      <workItem from="1595835117897" duration="354000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="4669" y="618" key="CommitChangelistDialog2" timestamp="1595835431375">
+      <screen x="3840" y="340" width="2560" height="1410" />
+    </state>
+    <state x="4669" y="618" key="CommitChangelistDialog2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835431375" />
+    <state x="4900" y="734" key="FileChooserDialogImpl" timestamp="1595835407135">
+      <screen x="3840" y="340" width="2560" height="1410" />
+    </state>
+    <state x="4900" y="734" key="FileChooserDialogImpl/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835407135" />
+    <state x="4600" y="619" key="SettingsEditor" timestamp="1595835409376">
+      <screen x="3840" y="340" width="2560" height="1410" />
+    </state>
+    <state x="4600" y="619" key="SettingsEditor/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835409376" />
+    <state x="4494" y="705" key="new project wizard" timestamp="1595835145608">
+      <screen x="3840" y="340" width="2560" height="1410" />
+    </state>
+    <state x="4494" y="705" key="new project wizard/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595835145608" />
+  </component>
+</project>
