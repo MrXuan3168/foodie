@@ -17,7 +17,6 @@ import com.foodie.common.enums.YesOrNo;
 import com.foodie.mapper.OrderItemsMapper;
 import com.foodie.mapper.OrderStatusMapper;
 import com.foodie.mapper.OrdersMapper;
-import com.so.pojo.*;
 import com.foodie.service.ItemService;
 import com.foodie.pojo.vo.MerchantOrdersVO;
 import com.foodie.pojo.vo.OrderVO;

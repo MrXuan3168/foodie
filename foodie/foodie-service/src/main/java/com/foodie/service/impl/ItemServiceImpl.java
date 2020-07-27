@@ -14,8 +14,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.foodie.common.enums.CommentLevel;
 import com.foodie.common.enums.YesOrNo;
-import com.so.mapper.*;
-import com.so.pojo.*;
 import com.foodie.service.ItemService;
 import com.foodie.common.utils.DesensitizationUtil;
 import com.foodie.common.utils.PagedGridResult;
@@ -174,10 +172,8 @@ public class ItemServiceImpl implements ItemService {
      * 
      * @author xuanweiyao
      * @date 2019/11/30 21:36
-     * @param itemId
-     *            商品ID
-     * @param level
-     *            评价等级
+     * @param itemId 商品ID
+     * @param level 评价等级
      * @return java.lang.Integer
      */
     Integer getCommentCounts(String itemId, Integer level) {
