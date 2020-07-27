@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/foodie-dev/foodie.iml" filepath="$PROJECT_DIR$/foodie-dev/foodie.iml" />
-      <module fileurl="file://$PROJECT_DIR$/foodie-dev/foodie-api/foodie-api.iml" filepath="$PROJECT_DIR$/foodie-dev/foodie-api/foodie-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/foodie-dev/foodie-common/foodie-common.iml" filepath="$PROJECT_DIR$/foodie-dev/foodie-common/foodie-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/foodie-dev/foodie-mapper/foodie-mapper.iml" filepath="$PROJECT_DIR$/foodie-dev/foodie-mapper/foodie-mapper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/foodie-dev/foodie-pojo/foodie-pojo.iml" filepath="$PROJECT_DIR$/foodie-dev/foodie-pojo/foodie-pojo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/foodie-dev/foodie-service/foodie-service.iml" filepath="$PROJECT_DIR$/foodie-dev/foodie-service/foodie-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foodie/foodie.iml" filepath="$PROJECT_DIR$/foodie/foodie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foodie/foodie-api/foodie-api.iml" filepath="$PROJECT_DIR$/foodie/foodie-api/foodie-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foodie/foodie-common/foodie-common.iml" filepath="$PROJECT_DIR$/foodie/foodie-common/foodie-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foodie/foodie-mapper/foodie-mapper.iml" filepath="$PROJECT_DIR$/foodie/foodie-mapper/foodie-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foodie/foodie-pojo/foodie-pojo.iml" filepath="$PROJECT_DIR$/foodie/foodie-pojo/foodie-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foodie/foodie-service/foodie-service.iml" filepath="$PROJECT_DIR$/foodie/foodie-service/foodie-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/jamie-imooc-foodie.iml" filepath="$PROJECT_DIR$/.idea/jamie-imooc-foodie.iml" />
     </modules>
   </component>
