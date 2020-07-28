@@ -7,8 +7,12 @@ package com.foodie.common.enums;
  * @date 2019/11/25 12:47
  */
 public enum Sex {
-    /** 性别 枚举 */
-    woman(0, "女"), man(1, "男"), secret(2, "保密");
+    /** 女 */
+    woman(0, "女"),
+    /** 男 */
+    man(1, "男"),
+    /** 保密 */
+    secret(2, "保密");
 
     public final Integer type;
     public final String value;

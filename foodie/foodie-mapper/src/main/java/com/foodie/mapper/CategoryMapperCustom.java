@@ -19,8 +19,7 @@ public interface CategoryMapperCustom {
      *
      * @author jamie
      * @date 2019/11/28 23:04
-     * @param rootCatId
-     *            一级分类ID
+     * @param rootCatId 一级分类ID
      * @return java.util.List
      */
     List<CategoryVO> getSubCatList(Integer rootCatId);
@@ -30,8 +29,7 @@ public interface CategoryMapperCustom {
      * 
      * @author jamie
      * @date 2019/11/28 23:43
-     * @param map
-     *            一级分类ID
+     * @param map 一级分类ID
      * @return java.util.List
      */
     List<NewItemsVO> getSixNewItemsLazy(@Param("paramsMap") Map<String, Object> map);

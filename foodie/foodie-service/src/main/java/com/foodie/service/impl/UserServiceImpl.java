@@ -1,22 +1,20 @@
 package com.foodie.service.impl;
 
-import java.util.Date;
-
+import com.foodie.common.enums.Sex;
+import com.foodie.common.utils.DateUtil;
+import com.foodie.common.utils.Md5Utils;
+import com.foodie.mapper.UsersMapper;
+import com.foodie.pojo.bo.RegisterUserBO;
+import com.foodie.pojo.pojo.Users;
+import com.foodie.service.UserService;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.foodie.pojo.bo.RegisterUserBO;
-import com.foodie.common.enums.Sex;
-import com.foodie.mapper.UsersMapper;
-import com.foodie.pojo.pojo.Users;
-import com.foodie.service.UserService;
-import com.foodie.common.utils.DateUtil;
-import com.foodie.common.utils.Md5Utils;
-
 import tk.mybatis.mapper.entity.Example;
+
+import java.util.Date;
 
 /**
  * 应用模块名称： 用户处理类
@@ -44,17 +42,19 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
-    public Users createUser(RegisterUserBO registerUserBo) {
+    public Users createUser(RegisterUserBO bo) {
+        String username = bo.getUsername();
+        String password = bo.getPassword();
         Users users = new Users();
         users.setId(sid.nextShort());
-        users.setUsername(registerUserBo.getUsername());
+        users.setUsername(username);
         try {
-            users.setPassword(Md5Utils.getMd5Str(registerUserBo.getPassword()));
+            users.setPassword(Md5Utils.getMd5Str(password));
         } catch (Exception e) {
             e.printStackTrace();
         }
         // 默认用户昵称同用户名
-        users.setNickname(registerUserBo.getUsername());
+        users.setNickname(username);
         // 默认头像
         users.setFace(USER_FACE);
         // 默认性别为 保密

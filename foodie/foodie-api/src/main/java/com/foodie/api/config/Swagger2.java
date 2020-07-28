@@ -48,7 +48,7 @@ public class Swagger2 {
             // 文档页标题
             .title("jamie 吃货 电商平台接口api")
             // 联系人信息
-            .contact(new Contact("show", "https://foodie.xuanweiyao.com", "1004108488@qq.com"))
+            .contact(new Contact("jamie", "https://foodie.xuanweiyao.com", "1004108488@qq.com"))
             // 详细信息
             .description("jamie 吃货 电商平台接口api文档")
             // 文档版本号
