@@ -10,6 +10,7 @@ import com.foodie.pojo.pojo.Users;
 import com.foodie.pojo.vo.UserVO;
 import com.foodie.service.UserService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -27,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author jamie
  * @since 2019/11/19 20:16
  */
-@Api(value = "注册登录", tags = "用户注册登录的相关接口")
+@Api(tags = "用户注册登录的相关API")
 @RestController
 @RequestMapping("passport")
 @CrossOrigin
@@ -49,7 +50,8 @@ public class PassportController {
      * @author jamie
      * @date 2019/11/25 17:43
      */
-    @ApiOperation(value = "用户名是否存在", notes = "用户名是否存在", httpMethod = "GET")
+    @ApiOperation(value = "用户名是否存在", notes = "判断用户名是否存在", httpMethod = "GET")
+    @ApiImplicitParam(name = "username", value = "用户名", required = true)
     @GetMapping("/usernameIsExist")
     public R<Void> usernameIsExist(@RequestParam String username) {
         // 1.判断用户名不能为空

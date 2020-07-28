@@ -1,27 +1,25 @@
 package com.foodie.api.controller;
 
-import java.util.List;
-
+import com.foodie.common.utils.R;
+import com.foodie.common.validation.Update;
 import com.foodie.pojo.bo.AddressBO;
 import com.foodie.pojo.pojo.UserAddress;
 import com.foodie.service.AddressService;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
-
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
-import com.foodie.common.utils.R;
-import com.foodie.common.validation.Update;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
- * 应用模块名称：地址</br>
+ * 应用模块名称：地址
  *
  * @author jamie
  * @since 2019/11/12 16:13
@@ -29,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @Slf4j
 @CrossOrigin
-@Api(value = "地址相关接口Controller", tags = {"地址相关的api"})
+@Api(tags = "地址相关的API")
 @RequestMapping("address")
 public class AddressController {
     @Autowired

@@ -1,11 +1,11 @@
 package com.foodie.pojo.bo;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 /**
  * 应用模块名称：用户注册对象BO
@@ -13,7 +13,7 @@ import lombok.Data;
  * @author jamie
  * @since 2019/11/25 12:25
  */
-@ApiModel(value = "用户注册对象BO", description = "从客户端，由用户传入的数据封装在此entity中")
+@ApiModel(value = "用户注册对象BO")
 @Data
 public class RegisterUserBO {
     @ApiModelProperty(value = "用户名", name = "username", example = "1004108488@qq.com", required = true)

@@ -1,10 +1,7 @@
 package com.foodie.api.aspect;
 
-import java.util.stream.Collectors;
-
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-
+import com.foodie.common.utils.R;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -12,13 +9,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.foodie.common.utils.R;
-
-import lombok.extern.slf4j.Slf4j;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import java.util.stream.Collectors;
 
 /**
  * 应用模块名称： Valid参数校验异常处理类
- * <p>
  * 
  * @author jamie
  * @since 2019/10/28 20:12
@@ -26,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestControllerAdvice
 @Slf4j
 public class BizExceptionHandler {
+
     /**
      * 处理Get请求中 使用@Valid 验证路径中请求实体校验失败后抛出的异常
      * 
@@ -36,8 +33,7 @@ public class BizExceptionHandler {
      */
     @ExceptionHandler(BindException.class)
     @ResponseBody
-    public R bindExceptionHandler(BindException e) {
-
+    public R<String> bindExceptionHandler(BindException e) {
         String message = e.getBindingResult().getAllErrors().stream()
             .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
         log.error("参数校验失败，失败原因为：{}", message);
@@ -54,7 +50,7 @@ public class BizExceptionHandler {
      */
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseBody
-    public R constraintViolationExceptionHandler(ConstraintViolationException e) {
+    public R<String> constraintViolationExceptionHandler(ConstraintViolationException e) {
         String message =
             e.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.joining());
         log.error("参数校验失败，失败原因为：{}", message);
@@ -71,7 +67,7 @@ public class BizExceptionHandler {
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
-    public R methodArgumentNotValidException(MethodArgumentNotValidException e) {
+    public R<String> methodArgumentNotValidException(MethodArgumentNotValidException e) {
         String message = e.getBindingResult().getAllErrors().stream()
             .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
         log.error("参数校验失败，失败原因为：{}", message);
