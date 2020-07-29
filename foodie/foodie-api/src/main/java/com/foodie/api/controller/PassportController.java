@@ -1,7 +1,7 @@
 package com.foodie.api.controller;
 
 import com.foodie.common.utils.CookieUtils;
-import com.foodie.common.utils.JsonUtils;
+import com.foodie.common.utils.JacksonUtils;
 import com.foodie.common.utils.Md5Utils;
 import com.foodie.common.utils.R;
 import com.foodie.pojo.bo.LoginUserBO;
@@ -91,7 +91,7 @@ public class PassportController {
         UserVO userVO = UserVO.builder().build();
         BeanUtils.copyProperties(user, userVO);
         // isEncode是否加密
-        CookieUtils.setCookie(request, response, "user", JsonUtils.objectToJson(user), true);
+        CookieUtils.setCookie(request, response, "user", JacksonUtils.objectToJson(userVO), true);
         // 3.请求成功，用户名没有重复
         return R.ok(userVO);
     }
@@ -116,7 +116,7 @@ public class PassportController {
         UserVO userVO = UserVO.builder().build();
         BeanUtils.copyProperties(user, userVO);
         // isEncode是否加密
-        CookieUtils.setCookie(request, response, "user", JsonUtils.objectToJson(user), true);
+        CookieUtils.setCookie(request, response, "user", JacksonUtils.objectToJson(userVO), true);
         // TODO: 2019/12/1 生成用户token， 存入redis会话
         // TODO: 2019/12/1 同步购物车页面
         return R.ok(userVO);

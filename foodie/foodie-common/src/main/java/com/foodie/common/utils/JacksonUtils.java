@@ -1,20 +1,18 @@
 package com.foodie.common.utils;
 
-import java.util.List;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.util.List;
+
 /**
+ * jackson工具类
  * 
- * @Title: JsonUtils.java
- * @Package com.imooc.utils
- * @Description: json转换类 Copyright: Copyright (c) Company: www.imooc.com
- * 
- * @author imooc
+ * @author jamie
+ * @date 2020/7/29 9:38
  */
-public class JsonUtils {
+public class JacksonUtils {
 
     // 定义jackson对象
     private static final ObjectMapper MAPPER = new ObjectMapper();
@@ -22,13 +20,11 @@ public class JsonUtils {
     /**
      * 将对象转换成json字符串。
      * 
-     * @param data
-     * @return
+     * @param data 对象
      */
     public static String objectToJson(Object data) {
         try {
-            String string = MAPPER.writeValueAsString(data);
-            return string;
+            return MAPPER.writeValueAsString(data);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
@@ -38,16 +34,12 @@ public class JsonUtils {
     /**
      * 将json结果集转化为对象
      * 
-     * @param jsonData
-     *            json数据
-     * @param beanType
-     *            对象中的object类型
-     * @return
+     * @param jsonData json数据
+     * @param beanType 对象中的object类型
      */
     public static <T> T jsonToPojo(String jsonData, Class<T> beanType) {
         try {
-            T t = MAPPER.readValue(jsonData, beanType);
-            return t;
+            return MAPPER.readValue(jsonData, beanType);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,19 +49,16 @@ public class JsonUtils {
     /**
      * 将json数据转换成pojo对象list
      * 
-     * @param jsonData
-     * @param beanType
-     * @return
+     * @param jsonData json字符串
+     * @param beanType 对象中的object类型
      */
     public static <T> List<T> jsonToList(String jsonData, Class<T> beanType) {
         JavaType javaType = MAPPER.getTypeFactory().constructParametricType(List.class, beanType);
         try {
-            List<T> list = MAPPER.readValue(jsonData, javaType);
-            return list;
+            return MAPPER.readValue(jsonData, javaType);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
 

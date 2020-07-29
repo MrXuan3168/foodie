@@ -23,7 +23,9 @@ import lombok.extern.slf4j.Slf4j;
 @Aspect
 @Slf4j
 public class ServiceLogAspect {
+    /** 异常时间 执行方法超过该时间发出错误日志 */
     private static final long ERROR_TAKE_TIME = 3000;
+    /** 警告时间 执行方法超过该时间发出警告日志 */
     private static final long WARN_TAKE_TIME = 2000;
 
     /**
@@ -40,21 +42,26 @@ public class ServiceLogAspect {
      */
     @Around("execution(* com.foodie.service.impl..*.*(..))")
     public Object recordTimeLog(ProceedingJoinPoint joinPoint) throws Throwable {
-        log.info("===== 开始执行{}.{} =====", joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
+        // 执行的类名
+        Class<?> aClass = joinPoint.getTarget().getClass();
+        // 执行的方法名
+        String name = joinPoint.getSignature().getName();
+        log.info("===== 开始执行{}.{} =====", aClass, name);
         // 记录开始时间
         long begin = System.currentTimeMillis();
-
         // 执行目标 service
         Object result = joinPoint.proceed();
-        // 记录开始时间
+        // 记录结束时间
         long end = System.currentTimeMillis();
+        // 计算花费时间
         long takeTime = end - begin;
+        String out = "===== 执行结束" + aClass + "." + name + " 耗时：" + takeTime + "毫秒 =====";
         if (takeTime > ERROR_TAKE_TIME) {
-            log.error("===== 执行结束，耗时：{}毫秒 =====", takeTime);
+            log.error(out);
         } else if (takeTime > WARN_TAKE_TIME) {
-            log.warn("===== 执行结束，耗时：{}毫秒 =====", takeTime);
+            log.warn(out);
         } else {
-            log.info("===== 执行结束，耗时：{}毫秒 =====", takeTime);
+            log.info(out);
         }
         return result;
     }
