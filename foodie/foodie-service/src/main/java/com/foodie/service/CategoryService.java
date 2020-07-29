@@ -1,10 +1,10 @@
 package com.foodie.service;
 
-import java.util.List;
-
-import com.foodie.pojo.vo.CategoryVO;
 import com.foodie.pojo.pojo.Category;
+import com.foodie.pojo.vo.CategoryVO;
 import com.foodie.pojo.vo.NewItemsVO;
+
+import java.util.List;
 
 /**
  * 应用模块名称：分类业务类
@@ -27,8 +27,7 @@ public interface CategoryService {
      * 
      * @author jamie
      * @date 2019/11/28 23:16
-     * @param rootCatId
-     *            一级分类ID
+     * @param rootCatId 一级分类ID
      * @return java.util.List<com.so.vo.CategoryVO>
      */
     List<CategoryVO> getSubCatList(Integer rootCatId);
@@ -38,8 +37,7 @@ public interface CategoryService {
      * 
      * @author jamie
      * @date 2019/11/28 23:57
-     * @param rootCatId
-     *            一级分类ID
+     * @param rootCatId 一级分类ID
      * @return java.util.List<com.so.vo.NewItemsVO>
      */
     List<NewItemsVO> getSixNewItemsLazy(Integer rootCatId);

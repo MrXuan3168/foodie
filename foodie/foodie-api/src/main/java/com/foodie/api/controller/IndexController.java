@@ -1,22 +1,20 @@
 package com.foodie.api.controller;
 
-import java.util.List;
-
+import com.foodie.common.enums.YesOrNo;
+import com.foodie.common.utils.R;
 import com.foodie.pojo.pojo.Carousel;
-import com.foodie.service.CarouselService;
-import com.foodie.service.CategoryService;
+import com.foodie.pojo.pojo.Category;
 import com.foodie.pojo.vo.CategoryVO;
 import com.foodie.pojo.vo.NewItemsVO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import com.foodie.common.enums.YesOrNo;
-import com.foodie.pojo.pojo.Category;
-import com.foodie.common.utils.R;
-
+import com.foodie.service.CarouselService;
+import com.foodie.service.CategoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 应用模块名称：
@@ -24,10 +22,10 @@ import io.swagger.annotations.ApiOperation;
  * @author jamie
  * @since 2019/11/19 20:16
  */
-@Api(value = "首页", tags = "首页展示的相关接口")
-@RestController
-@RequestMapping("index")
 @CrossOrigin
+@Api(tags = "首页展示的相关接口")
+@RestController
+@RequestMapping("/index")
 public class IndexController {
     @Autowired
     private CarouselService carouselService;

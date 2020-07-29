@@ -1,10 +1,10 @@
 package com.foodie.pojo.vo;
 
-import java.util.List;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * 应用模块名称：二级分类VO
@@ -26,7 +26,7 @@ public class CategoryVO {
     private String type;
 
     @ApiModelProperty(value = "父ID", name = "fatherId", example = "1", required = true)
-    private String fatherId;
+    private Integer fatherId;
 
     @ApiModelProperty(value = "三级分类Vo", name = "subCatList")
     private List<SubCategoryVO> subCatList;

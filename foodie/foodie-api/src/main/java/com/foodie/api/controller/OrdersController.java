@@ -53,7 +53,6 @@ public class OrdersController extends BaseController {
         // 3.向支付中心发送当前订单，用于保存支付中心的订单数据
         MerchantOrdersVO merchantOrdersVO = order.getMerchantOrdersVO();
         merchantOrdersVO.setReturnUrl(payReturnUrl);
-
         return R.ok(orderId);
     }
 

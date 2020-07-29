@@ -24,6 +24,6 @@ public class SubCategoryVO {
     private String subType;
 
     @ApiModelProperty(value = "父ID", name = "subFatherId", example = "11", required = true)
-    private String subFatherId;
+    private Integer subFatherId;
 
 }
