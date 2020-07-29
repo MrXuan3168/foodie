@@ -1,17 +1,18 @@
 package com.foodie.api.controller;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
+import com.alibaba.fastjson.JSONObject;
+import com.foodie.common.utils.R;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alibaba.fastjson.JSONObject;
-
-import lombok.extern.slf4j.Slf4j;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  * 应用模块名称：程序版本
@@ -21,40 +22,34 @@ import lombok.extern.slf4j.Slf4j;
  */
 @RestController
 @Slf4j
+@Api(tags = {"代码版本api"})
 public class VersionController {
-
+    @ApiOperation(value = "获取代码版本", notes = "获取代码版本", httpMethod = "GET")
     @GetMapping("/version")
-    public String versionInformation() {
+    public R<Object> versionInformation() {
         return readGitProperties();
     }
 
     /**
      * 读取文件
-     * 
-     * @author xuanweiyao
-     * @date 2020/2/12 19:42
-     * @return java.lang.String
      */
-    private String readGitProperties() {
+    private R<Object> readGitProperties() {
         ClassPathResource classPathResource = new ClassPathResource("git.properties");
         try (InputStream inputStream = classPathResource.getInputStream()) {
             String s = readFromInputStream(inputStream);
             // 虽然写入文件的时，就是json格式，但是会带一些换行符，空字符等信息，用fastJson处理一下。
             Object parse = JSONObject.parse(s);
-            return parse.toString();
+            return R.ok(parse);
         } catch (IOException e) {
             log.error("获取文件异常", e);
-            return "{\"errMessage\":\"获取文件异常\"}";
+            throw new RuntimeException("获取版本号,获取文件异常");
         }
     }
 
     /**
      * 读取文件里面的值
      * 
-     * @author xuanweiyao
-     * @date 2020/2/12 19:41
      * @param inputStream 文件输入流
-     * @return java.lang.String
      */
     private String readFromInputStream(InputStream inputStream) {
         JSONObject gitJson = new JSONObject();
@@ -71,13 +66,13 @@ public class VersionController {
             return gitJson.toString();
         } catch (IOException e) {
             log.error("读取文件失败", e);
-            return "{\"errMessage\":\"读取文件异常\"}";
+            throw new RuntimeException("获取版本号,读取文件失败异常");
         }
     }
 
     // public static void main(String[] args) {
     // VersionController versionController = new VersionController();
-    // String s = versionController.readGitProperties();
-    // System.out.println(s);
+    // R<Object> objectR = versionController.readGitProperties();
+    // System.out.println(objectR);
     // }
 }
