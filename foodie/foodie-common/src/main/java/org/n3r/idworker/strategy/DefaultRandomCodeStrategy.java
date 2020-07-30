@@ -1,17 +1,17 @@
 package org.n3r.idworker.strategy;
 
+import org.n3r.idworker.Id;
+import org.n3r.idworker.RandomCodeStrategy;
+import org.n3r.idworker.utils.Utils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.ArrayDeque;
 import java.util.BitSet;
 import java.util.Queue;
-
-import org.n3r.idworker.Id;
-import org.n3r.idworker.RandomCodeStrategy;
-import org.n3r.idworker.utils.Utils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class DefaultRandomCodeStrategy implements RandomCodeStrategy {
     public static final int MAX_BITS = 1000000;
@@ -191,12 +191,12 @@ public class DefaultRandomCodeStrategy implements RandomCodeStrategy {
         return codesFilter.get(code);
     }
 
-
     private int max(int size) {
         switch (size) {
-            case 1: // fall through
-            case 2: // fall through
-            case 3: // fall through
+            // fall through
+            case 1:
+            case 2:
+            case 3:
             case 4:
                 return 10000;
             case 5:

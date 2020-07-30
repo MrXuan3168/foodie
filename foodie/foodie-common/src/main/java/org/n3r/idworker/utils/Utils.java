@@ -14,11 +14,9 @@ public class Utils {
         return contextClassLoader != null ? contextClassLoader : Utils.class.getClassLoader();
     }
 
-
     public static InputStream classResourceToStream(String resourceName) {
         return getClassLoader().getResourceAsStream(resourceName);
     }
-
 
     public static String firstLine(String classResourceName) {
         InputStream inputStream = null;
@@ -47,7 +45,6 @@ public class Utils {
 
         return param;
     }
-
 
     public static long midnightMillis() {
         // today
@@ -85,13 +82,13 @@ public class Utils {
         final int b = symbols.length();
         StringBuilder sb = new StringBuilder();
         while (num != 0) {
-            sb.append(symbols.charAt((int) (num % b)));
+            sb.append(symbols.charAt((int)(num % b)));
             num /= b;
         }
         return sb.reverse().toString();
     }
 
-    // all un-clearly-recognized letters are skiped.
+    /** all un-clearly-recognized letters are skiped. */
     static String defaultRange = "0123456789ABCDFGHKMNPRSTWXYZ";
 
     public static String padLeft(String str, int size, char padChar) {

@@ -1,11 +1,7 @@
 package org.n3r.idworker.strategy;
 
-import java.io.File;
-import java.io.IOException;
-import java.security.SecureRandom;
-import java.util.Properties;
-import java.util.Random;
-
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import lombok.extern.slf4j.Slf4j;
 import org.n3r.idworker.WorkerIdStrategy;
 import org.n3r.idworker.utils.HttpReq;
 import org.n3r.idworker.utils.Ip;
@@ -14,17 +10,23 @@ import org.n3r.idworker.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.io.IOException;
+import java.security.SecureRandom;
+import java.util.Properties;
+import java.util.Random;
+import java.util.concurrent.*;
+
+@Slf4j
 public class DefaultWorkerIdStrategy implements WorkerIdStrategy {
     static long workerIdBits = 10L;
-    static long maxWorkerId = -1L ^ (-1L << workerIdBits);
+    static long maxWorkerId = ~(-1L << workerIdBits);
     static Random random = new SecureRandom();
 
     public static final WorkerIdStrategy INSTANCE = new DefaultWorkerIdStrategy();
 
-    private final Properties props =
-            Props.tryProperties("idworker-client.properties", Utils.DOT_IDWORKERS);
-    private final String idWorkerServerUrl =
-            props.getProperty("server.address", "http://id.worker.server:18001");
+    private final Properties props = Props.tryProperties("idworker-client.properties", Utils.DOT_IDWORKERS);
+    private final String idWorkerServerUrl = props.getProperty("server.address", "http://id.worker.server:18001");
 
     String userName = System.getProperty("user.name");
 
@@ -36,7 +38,6 @@ public class DefaultWorkerIdStrategy implements WorkerIdStrategy {
 
     Logger logger = LoggerFactory.getLogger(DefaultWorkerIdStrategy.class);
     private boolean inited;
-
 
     private void init() {
         workerId = findAvailWorkerId();
@@ -70,14 +71,17 @@ public class DefaultWorkerIdStrategy implements WorkerIdStrategy {
     }
 
     private void startSyncThread() {
-        new Thread(this::syncWithWorkerIdServer).start();
+        // 替换成线程池
+        ThreadFactory namedThreadFactory =
+            new ThreadFactoryBuilder().setNameFormat("DefaultWorkerIdStrategy-pool-%d").build();
+        ExecutorService pool = new ThreadPoolExecutor(5, 200, 0L, TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+        pool.execute(this::syncWithWorkerIdServer);
+        // new Thread(this::syncWithWorkerIdServer).start();
     }
 
     private long increaseWithWorkerIdServer() {
-        String incId = HttpReq.get(idWorkerServerUrl)
-                .req("/inc")
-                .param("ipu", ipDotUsername)
-                .exec();
+        String incId = HttpReq.get(idWorkerServerUrl).req("/inc").param("ipu", ipDotUsername).exec();
         if (incId == null || incId.trim().isEmpty()) {
             return -1L;
         }
@@ -98,7 +102,7 @@ public class DefaultWorkerIdStrategy implements WorkerIdStrategy {
         long tryTimes = -1;
 
         while (avaiWorkerId < 0 && ++tryTimes < maxWorkerId) {
-            long wid = Ip.lip & random.nextInt((int) maxWorkerId);
+            long wid = Ip.lip & random.nextInt((int)maxWorkerId);
 
             avaiWorkerId = checkAvail(wid);
         }
@@ -119,9 +123,8 @@ public class DefaultWorkerIdStrategy implements WorkerIdStrategy {
     }
 
     private void syncWithWorkerIdServer() {
-        String syncIds = HttpReq.get(idWorkerServerUrl).req("/sync")
-                .param("ipu", ipDotUsername).param("ids", buildWorkerIdsOfCurrentIp())
-                .exec();
+        String syncIds = HttpReq.get(idWorkerServerUrl).req("/sync").param("ipu", ipDotUsername)
+            .param("ids", buildWorkerIdsOfCurrentIp()).exec();
         if (syncIds == null || syncIds.trim().isEmpty()) {
             return;
         }
@@ -159,7 +162,6 @@ public class DefaultWorkerIdStrategy implements WorkerIdStrategy {
 
         return sb.toString();
     }
-
 
     /**
      * Find the local available worker id.

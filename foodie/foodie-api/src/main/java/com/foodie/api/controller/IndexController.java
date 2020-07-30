@@ -57,7 +57,7 @@ public class IndexController {
     @GetMapping("/subCat/{rootCatId}")
     public R<List<CategoryVO>> getSubCatList(@PathVariable Integer rootCatId) {
         if (rootCatId == null) {
-            return R.errorMsg("分类不存在");
+            return R.errorMsg("分类Id rootCatId 不能为空");
         }
         List<CategoryVO> subCatList = categoryService.getSubCatList(rootCatId);
         return R.ok(subCatList);
@@ -68,7 +68,7 @@ public class IndexController {
     @GetMapping("/sixNewItems/{rootCatId}")
     public R<List<NewItemsVO>> getSixNewItems(@PathVariable Integer rootCatId) {
         if (rootCatId == null) {
-            return R.errorMsg("分类不存在");
+            return R.errorMsg("分类Id rootCatId 不能为空");
         }
         List<NewItemsVO> sixNewItemsLazy = categoryService.getSixNewItemsLazy(rootCatId);
         return R.ok(sixNewItemsLazy);

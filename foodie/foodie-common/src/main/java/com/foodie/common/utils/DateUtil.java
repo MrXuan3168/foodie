@@ -2,11 +2,8 @@ package com.foodie.common.utils;
 
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
 
 public class DateUtil {
 
@@ -43,22 +40,18 @@ public class DateUtil {
         return result.toString();
     }
 
-    protected static final float normalizedJulian(float JD) {
-
-        float f = Math.round(JD + 0.5f) - 0.5f;
-
-        return f;
+    protected static float normalizedJulian(float jd) {
+        return Math.round(jd + 0.5f) - 0.5f;
     }
 
     /**
      * Returns the Date from a julian. The Julian date will be converted to noon GMT, such that it matches the nearest
      * half-integer (i.e., a julian date of 1.4 gets changed to 1.5, and 0.9 gets changed to 0.5.)
      *
-     * @param JD
-     *            the Julian date
+     * @param jd the Julian date
      * @return the Gregorian date
      */
-    public static final Date toDate(float JD) {
+    public static final Date toDate(float jd) {
 
         /* To convert a Julian Day Number to a Gregorian date, assume that it is for 0 hours, Greenwich time (so
          * that it ends in 0.5). Do the following calculations, again dropping the fractional part of all
@@ -66,7 +59,7 @@ public class DateUtil {
          * Gregorian Proleptic Calendar, i.e., the calendar you get by extending the Gregorian
          * calendar backwards to years earlier than 1582. using the Gregorian leap year
          * rules. In particular, the method fails if Y<400. */
-        float Z = (normalizedJulian(JD)) + 0.5f;
+        float Z = (normalizedJulian(jd)) + 0.5f;
         float W = (int)((Z - 1867216.25f) / 36524.25f);
         float X = (int)(W / 4f);
         float A = Z + 1 + W - X;
@@ -100,10 +93,8 @@ public class DateUtil {
      * Returns the days between two dates. Positive values indicate that the second date is after the first, and
      * negative values indicate, well, the opposite. Relying on specific times is problematic.
      *
-     * @param early
-     *            the "first date"
-     * @param late
-     *            the "second date"
+     * @param early the "first date"
+     * @param late the "second date"
      * @return the days between the two dates
      */
     public static final int daysBetween(Date early, Date late) {
@@ -134,8 +125,7 @@ public class DateUtil {
      * <a href="http://quasar.as.utexas.edu/BillInfo/JulianDatesG.html">Julian Day Calculations (Gregorian
      * Calendar)</a>, provided by Bill Jeffrys.
      * 
-     * @param c
-     *            a calendar instance
+     * @param c a calendar instance
      * @return the julian day number
      */
     public static final float toJulian(Calendar c) {
@@ -172,8 +162,7 @@ public class DateUtil {
     /**
      * @param isoString
      * @param fmt
-     * @param field
-     *            Calendar.YEAR/Calendar.MONTH/Calendar.DATE
+     * @param field Calendar.YEAR/Calendar.MONTH/Calendar.DATE
      * @param amount
      * @return
      * @throws ParseException
@@ -196,14 +185,10 @@ public class DateUtil {
      * Time Field Rolling function. Rolls (up/down) a single unit of time on the given time field.
      *
      * @param isoString
-     * @param field
-     *            the time field.
-     * @param up
-     *            Indicates if rolling up or rolling down the field value.
-     * @param expanded
-     *            use formating char's
-     * @exception ParseException
-     *                if an unknown field value is given.
+     * @param field the time field.
+     * @param up Indicates if rolling up or rolling down the field value.
+     * @param fmt use formating char's
+     * @exception ParseException if an unknown field value is given.
      */
     public static final String roll(String isoString, String fmt, int field, boolean up) throws ParseException {
 
@@ -218,12 +203,9 @@ public class DateUtil {
      * Time Field Rolling function. Rolls (up/down) a single unit of time on the given time field.
      *
      * @param isoString
-     * @param field
-     *            the time field.
-     * @param up
-     *            Indicates if rolling up or rolling down the field value.
-     * @exception ParseException
-     *                if an unknown field value is given.
+     * @param field the time field.
+     * @param up Indicates if rolling up or rolling down the field value.
+     * @exception ParseException if an unknown field value is given.
      */
     public static final String roll(String isoString, int field, boolean up) throws ParseException {
 
@@ -239,14 +221,10 @@ public class DateUtil {
      * @return
      */
     public static Date stringToDate(String dateText, String format, boolean lenient) {
-
         if (dateText == null) {
-
             return null;
         }
-
         DateFormat df = null;
-
         try {
 
             if (format == null) {
@@ -258,10 +236,8 @@ public class DateUtil {
             // setLenient avoids allowing dates like 9/32/2001
             // which would otherwise parse to 10/2/2001
             df.setLenient(false);
-
             return df.parse(dateText);
         } catch (ParseException e) {
-
             return null;
         }
     }
@@ -276,7 +252,7 @@ public class DateUtil {
     /**
      * java.util.Date
      * 
-     * @param dateText
+     * @param dateString
      * @param format
      * @return
      */
@@ -288,7 +264,7 @@ public class DateUtil {
     /**
      * java.util.Date
      * 
-     * @param dateText
+     * @param dateString
      */
     public static Date stringToDate(String dateString) {
         return stringToDate(dateString, ISO_EXPANDED_DATE_FORMAT, LENIENT_DATE);
@@ -339,7 +315,6 @@ public class DateUtil {
     }
 
     /**
-     * 
      * @param pattern
      * @return
      */
@@ -359,11 +334,9 @@ public class DateUtil {
     /**
      * 返回固定格式的当前时间 yyyy-MM-dd hh:mm:ss
      * 
-     * @param date
      * @return
      */
     public static String dateToStringWithTime() {
-
         return dateToString(new Date(), DATETIME_PATTERN);
     }
 
@@ -379,7 +352,6 @@ public class DateUtil {
     }
 
     /**
-     * 
      * @param date
      * @param days
      * @return java.util.Date
@@ -394,22 +366,18 @@ public class DateUtil {
     }
 
     /**
-     * 
      * @param date
      * @param days
      * @return java.util.Date
      */
-    public static Date dateIncreaseByMonth(Date date, int mnt) {
-
+    public static Date dateIncreaseByMonth(Date date, int days) {
         Calendar cal = GregorianCalendar.getInstance(TimeZone.getTimeZone("GMT"));
         cal.setTime(date);
-        cal.add(Calendar.MONTH, mnt);
-
+        cal.add(Calendar.MONTH, days);
         return cal.getTime();
     }
 
     /**
-     * 
      * @param date
      * @param mnt
      * @return java.util.Date
@@ -424,9 +392,7 @@ public class DateUtil {
     }
 
     /**
-     * 
-     * @param date
-     *            yyyy-MM-dd
+     * @param date yyyy-MM-dd
      * @param days
      * @return yyyy-MM-dd
      */
@@ -445,7 +411,6 @@ public class DateUtil {
     }
 
     /**
-     * 
      * @param src
      * @param srcfmt
      * @param desfmt
@@ -456,7 +421,6 @@ public class DateUtil {
     }
 
     /**
-     * 
      * @param date
      * @return string
      */
@@ -467,7 +431,6 @@ public class DateUtil {
     }
 
     /**
-     * 
      * @param date
      * @return string
      */
@@ -515,10 +478,8 @@ public class DateUtil {
      * Function to convert String to Date Object. If invalid input then current or next day date is returned (Added by
      * Ali Naqvi on 2006-5-16).
      * 
-     * @param str
-     *            String input in YYYY-MM-DD HH:MM[:SS] format.
-     * @param isExpiry
-     *            boolean if set and input string is invalid then next day date is returned
+     * @param str String input in YYYY-MM-DD HH:MM[:SS] format.
+     * @param isExpiry boolean if set and input string is invalid then next day date is returned
      * @return Date
      */
     public static Date convertToDate(String str, boolean isExpiry) {
@@ -571,10 +532,8 @@ public class DateUtil {
     }
 
     /**
-     * 
      * @Description: 获得本月的第一天日期
      * @return
-     * 
      * @author leechenxiang
      * @date 2017年5月31日 下午1:37:34
      */
@@ -592,10 +551,8 @@ public class DateUtil {
     }
 
     /**
-     * 
      * @Description: 获得本月的最后一天日期
      * @return
-     * 
      * @author leechenxiang
      * @date 2017年5月31日 下午1:37:50
      */
@@ -608,41 +565,6 @@ public class DateUtil {
 
         String lastDate = format.format(calendarLast.getTime());
         return lastDate;
-    }
-
-    /**
-     * @Description: 判断字符串日期是否匹配指定的格式化日期
-     */
-    public static boolean isValidDate(String strDate, String formatter) {
-        SimpleDateFormat sdf = null;
-        ParsePosition pos = new ParsePosition(0);
-
-        if (StringUtils.isBlank(strDate) || StringUtils.isBlank(formatter)) {
-            return false;
-        }
-        try {
-            sdf = new SimpleDateFormat(formatter);
-            sdf.setLenient(false);
-            Date date = sdf.parse(strDate, pos);
-            if (date == null) {
-                return false;
-            } else {
-                if (pos.getIndex() > sdf.format(date).length()) {
-                    return false;
-                }
-                return true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public static void main(String[] args) {
-        // String timeDir=DateUtil.dateToString(new Date(),DateUtil.ISO_EXPANDED_DATE_FORMAT);
-        // System.out.println(timeDir);
-        boolean flag = DateUtil.isValidDate("1990-10-32", DateUtil.ISO_EXPANDED_DATE_FORMAT);
-        System.out.println(flag);
     }
 
 }

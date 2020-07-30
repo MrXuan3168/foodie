@@ -1,13 +1,13 @@
 package org.n3r.idworker.utils;
 
-import static java.io.File.separator;
-import static org.n3r.idworker.utils.Serializes.closeQuietly;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.Properties;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static java.io.File.separator;
+import static org.n3r.idworker.utils.Serializes.closeQuietly;
 
 public class Props {
     static Logger log = LoggerFactory.getLogger(Props.class);
@@ -29,8 +29,10 @@ public class Props {
         return properties;
     }
 
-
-    enum Silent {ON, OFF}
+    /** ON OFF */
+    enum Silent {
+        ON, OFF
+    }
 
     public static InputStream tryResource(String propertiesFileName, String userHomeBasePath, Silent silent) {
         InputStream is = currentDirResource(new File(propertiesFileName));

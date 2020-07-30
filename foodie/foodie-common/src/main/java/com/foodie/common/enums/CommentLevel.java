@@ -1,7 +1,7 @@
 package com.foodie.common.enums;
 
 /**
- * 商品评价等级 枚举
+ * 商品评价等级 枚举。
  * 
  * @author jamie
  * @date 2019/11/25 12:47

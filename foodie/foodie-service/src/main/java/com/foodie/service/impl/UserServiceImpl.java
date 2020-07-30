@@ -1,7 +1,7 @@
 package com.foodie.service.impl;
 
 import com.foodie.common.enums.Sex;
-import com.foodie.common.utils.DateUtil;
+import com.foodie.common.utils.JamieDateUtils;
 import com.foodie.common.utils.Md5Utils;
 import com.foodie.mapper.UsersMapper;
 import com.foodie.pojo.bo.RegisterUserBO;
@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
         // 默认性别为 保密
         users.setSex(Sex.secret.type);
         // 设置默认生日
-        users.setBirthday(DateUtil.stringToDate("1900-01-01"));
+        users.setBirthday(JamieDateUtils.string2Date("1900-01-01", JamieDateUtils.DATE_FORMATTER_STR));
         users.setCreatedTime(new Date());
         users.setUpdatedTime(new Date());
         usersMapper.insert(users);
@@ -76,4 +76,5 @@ public class UserServiceImpl implements UserService {
         userCriteria.andEqualTo("password", password);
         return usersMapper.selectOneByExample(userExample);
     }
+
 }

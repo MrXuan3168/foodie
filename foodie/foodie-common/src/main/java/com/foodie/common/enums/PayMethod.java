@@ -1,7 +1,10 @@
 package com.foodie.common.enums;
 
 /**
- * @Description: 支付方式 枚举
+ * 支付方式 枚举
+ * 
+ * @author jamie
+ * @date 2020/7/30 12:32
  */
 public enum PayMethod {
     /** 支付方式 */
