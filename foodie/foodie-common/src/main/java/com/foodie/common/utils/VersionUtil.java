@@ -1,13 +1,14 @@
 package com.foodie.common.utils;
 
-import java.io.*;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ResourceUtils;
 
-import lombok.extern.slf4j.Slf4j;
+import java.io.*;
 
 /**
  * 版本号读取工具类
+ * 
+ * @author jamie
  */
 @Slf4j
 public class VersionUtil {

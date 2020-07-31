@@ -11,26 +11,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25ee006d-4637-45cc-8a3c-89d1fef702a8" name="Default Changelist" comment="refactor(优化商品分类代码)">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/JamieDateUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="25ee006d-4637-45cc-8a3c-89d1fef702a8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/RegexUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-api/src/main/java/com/foodie/api/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/CommentLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/CommentLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/OrderStatusEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/OrderStatusEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/PayMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/enums/PayMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/CookieUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/CookieUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/DateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/org/n3r/idworker/Sid.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/org/n3r/idworker/Sid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/org/n3r/idworker/strategy/DefaultRandomCodeStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/org/n3r/idworker/strategy/DefaultRandomCodeStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/org/n3r/idworker/strategy/DefaultWorkerIdStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/org/n3r/idworker/strategy/DefaultWorkerIdStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/org/n3r/idworker/utils/Props.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/org/n3r/idworker/utils/Props.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/org/n3r/idworker/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/org/n3r/idworker/utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-service/src/main/java/com/foodie/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodie/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/Md5Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/Md5Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/MobileEmailUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/SpringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/SpringUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/VersionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie/foodie-common/src/main/java/com/foodie/common/utils/VersionUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,26 +94,13 @@
       <recent name="E:\show-product\study-product\jamie-imooc-foodie\foodie-html" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserServiceImpl">
+  <component name="RunManager">
     <configuration name="DateUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.foodie.common.utils.DateUtil" />
       <module name="foodie-common" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.foodie.common.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DefaultWorkerIdStrategy" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.n3r.idworker.strategy.DefaultWorkerIdStrategy" />
-      <module name="foodie-common" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.n3r.idworker.strategy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -147,12 +121,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sid" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.n3r.idworker.Sid" />
+    <configuration name="Md5Utils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.foodie.common.utils.Md5Utils" />
       <module name="foodie-common" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.n3r.idworker.*" />
+          <option name="PATTERN" value="com.foodie.common.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegexUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.foodie.common.utils.RegexUtils" />
+      <module name="foodie-common" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.foodie.common.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -193,11 +180,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RegexUtils" />
+        <item itemvalue="Application.Md5Utils" />
         <item itemvalue="Application.UserServiceImpl" />
         <item itemvalue="Application.JamieDateUtils" />
         <item itemvalue="Application.DateUtil" />
-        <item itemvalue="Application.DefaultWorkerIdStrategy" />
-        <item itemvalue="Application.Sid" />
       </list>
     </recent_temporary>
   </component>
@@ -218,7 +205,7 @@
       <workItem from="1595985741973" duration="1975000" />
       <workItem from="1595988454654" duration="15092000" />
       <workItem from="1596081988095" duration="418000" />
-      <workItem from="1596082435965" duration="11955000" />
+      <workItem from="1596082435965" duration="15120000" />
     </task>
     <task id="LOCAL-00001" summary="feat(上传idea开发配置文件):">
       <created>1595835502606</created>
@@ -339,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596017864177</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="feat(新增JamieDate时间处理类): &#10;&#10;用于时间函数处理">
+      <created>1596098628717</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1596098628717</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,17 +393,18 @@
     <MESSAGE value="refactor(优化监控Service AOP类的代码)" />
     <MESSAGE value="refactor(优化版本API代码)" />
     <MESSAGE value="refactor(优化商品分类代码)" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(优化商品分类代码)" />
+    <MESSAGE value="feat(新增JamieDate时间处理类): &#10;&#10;用于时间函数处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(新增JamieDate时间处理类): &#10;&#10;用于时间函数处理" />
   </component>
   <component name="WindowStateProjectService">
     <state x="4891" y="770" key="#HTTP_Proxy" timestamp="1596083032280">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
     <state x="4891" y="770" key="#HTTP_Proxy/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596083032280" />
-    <state x="4746" y="723" key="#Inspections" timestamp="1596097564346">
+    <state x="4746" y="723" key="#Inspections" timestamp="1596159414735">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state x="4746" y="723" key="#Inspections/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596097564346" />
+    <state x="4746" y="723" key="#Inspections/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596159414735" />
     <state x="4497" y="886" key="#SQL_Dialects" timestamp="1596007290923">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
@@ -430,10 +425,10 @@
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
     <state x="4850" y="791" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596098241686" />
-    <state x="4316" y="515" key="CommitChangelistDialog2" timestamp="1596098231216">
+    <state x="4316" y="515" key="CommitChangelistDialog2" timestamp="1596098627694">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state x="4316" y="515" key="CommitChangelistDialog2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596098231216" />
+    <state x="4316" y="515" key="CommitChangelistDialog2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596098627694" />
     <state x="4091" y="463" key="DiffContextDialog" timestamp="1596017852284">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
@@ -442,38 +437,38 @@
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
     <state x="4900" y="734" key="FileChooserDialogImpl/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1595988592044" />
-    <state width="2517" height="403" key="GridCell.Tab.0.bottom" timestamp="1596098193242">
+    <state width="2517" height="359" key="GridCell.Tab.0.bottom" timestamp="1596159521328">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state width="2517" height="403" key="GridCell.Tab.0.bottom/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596098193242" />
-    <state width="2517" height="403" key="GridCell.Tab.0.center" timestamp="1596098193241">
+    <state width="2517" height="359" key="GridCell.Tab.0.bottom/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596159521328" />
+    <state width="2517" height="359" key="GridCell.Tab.0.center" timestamp="1596159521328">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state width="2517" height="403" key="GridCell.Tab.0.center/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596098193241" />
-    <state width="2517" height="403" key="GridCell.Tab.0.left" timestamp="1596098193241">
+    <state width="2517" height="359" key="GridCell.Tab.0.center/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596159521328" />
+    <state width="2517" height="359" key="GridCell.Tab.0.left" timestamp="1596159521328">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state width="2517" height="403" key="GridCell.Tab.0.left/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596098193241" />
-    <state width="2517" height="403" key="GridCell.Tab.0.right" timestamp="1596098193242">
+    <state width="2517" height="359" key="GridCell.Tab.0.left/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596159521328" />
+    <state width="2517" height="359" key="GridCell.Tab.0.right" timestamp="1596159521328">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state width="2517" height="403" key="GridCell.Tab.0.right/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596098193242" />
-    <state width="2517" height="359" key="GridCell.Tab.1.bottom" timestamp="1596097075370">
+    <state width="2517" height="359" key="GridCell.Tab.0.right/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596159521328" />
+    <state width="2517" height="359" key="GridCell.Tab.1.bottom" timestamp="1596159521001">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state width="2517" height="359" key="GridCell.Tab.1.bottom/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596097075370" />
-    <state width="2517" height="359" key="GridCell.Tab.1.center" timestamp="1596097075370">
+    <state width="2517" height="359" key="GridCell.Tab.1.bottom/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596159521001" />
+    <state width="2517" height="359" key="GridCell.Tab.1.center" timestamp="1596159521000">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state width="2517" height="359" key="GridCell.Tab.1.center/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596097075370" />
-    <state width="2517" height="359" key="GridCell.Tab.1.left" timestamp="1596097075370">
+    <state width="2517" height="359" key="GridCell.Tab.1.center/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596159521000" />
+    <state width="2517" height="359" key="GridCell.Tab.1.left" timestamp="1596159521000">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state width="2517" height="359" key="GridCell.Tab.1.left/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596097075370" />
-    <state width="2517" height="359" key="GridCell.Tab.1.right" timestamp="1596097075370">
+    <state width="2517" height="359" key="GridCell.Tab.1.left/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596159521000" />
+    <state width="2517" height="359" key="GridCell.Tab.1.right" timestamp="1596159521000">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state width="2517" height="359" key="GridCell.Tab.1.right/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596097075370" />
+    <state width="2517" height="359" key="GridCell.Tab.1.right/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596159521000" />
     <state width="2517" height="359" key="GridCell.Tab.2.bottom" timestamp="1596081960339">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
@@ -502,18 +497,18 @@
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
     <state x="4244" y="619" width="1521" height="712" key="SettingsEditor/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596082766491" />
-    <state x="4712" y="777" key="Vcs.Push.Dialog.v2" timestamp="1596017866188">
+    <state x="4712" y="777" key="Vcs.Push.Dialog.v2" timestamp="1596098634307">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state x="4712" y="777" key="Vcs.Push.Dialog.v2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596017866188" />
+    <state x="4712" y="777" key="Vcs.Push.Dialog.v2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596098634307" />
     <state x="4652" y="780" width="935" height="642" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1596090036264">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
     <state x="4652" y="780" width="935" height="642" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596090036264" />
-    <state width="462" height="350" key="documentation.popup.size" timestamp="1596096173048">
+    <state width="462" height="350" key="documentation.popup.size" timestamp="1596158084692">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
-    <state width="462" height="350" key="documentation.popup.size/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596096173048" />
+    <state width="462" height="350" key="documentation.popup.size/0.0.2560.1409/3840.340.2560.1410@3840.340.2560.1410" timestamp="1596158084692" />
     <state x="4850" y="804" key="extract.method.dialog" timestamp="1596097587827">
       <screen x="3840" y="340" width="2560" height="1410" />
     </state>
