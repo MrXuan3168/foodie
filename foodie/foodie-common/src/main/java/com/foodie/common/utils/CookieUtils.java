@@ -11,11 +11,10 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 /**
- * @Title: CookieUtils.java
- * @Package com.imooc.utils
- * @Description: Cookie 工具类 Copyright: Copyright (c) Company: www.imooc.com
- * @author imooc
- * @version V1.0
+ * Cookie 工具类
+ * 
+ * @author jamie
+ * @date 2020/7/31 10:04
  */
 public final class CookieUtils {
     private static final String SPACE = " ";
@@ -23,21 +22,23 @@ public final class CookieUtils {
     final static Logger logger = LoggerFactory.getLogger(CookieUtils.class);
 
     /**
-     * @Description: 得到Cookie的值, 不编码
-     * @param request
-     * @param cookieName
-     * @return
+     * 得到Cookie的值, 不编码
+     * 
+     * @param request 请求对象
+     * @param cookieName cookie名
+     * @return java.lang.String cookie值
      */
     public static String getCookieValue(HttpServletRequest request, String cookieName) {
         return getCookieValue(request, cookieName, false);
     }
 
     /**
-     * @Description: 得到Cookie的值
-     * @param request
-     * @param cookieName
-     * @param isDecoder
-     * @return
+     * 得到Cookie的值
+     * 
+     * @param request 请求对象
+     * @param cookieName cookie名
+     * @param isDecoder 是否Decoder编码
+     * @return java.lang.String
      */
     public static String getCookieValue(HttpServletRequest request, String cookieName, boolean isDecoder) {
         Cookie[] cookieList = request.getCookies();
@@ -46,12 +47,12 @@ public final class CookieUtils {
         }
         String retValue = null;
         try {
-            for (int i = 0; i < cookieList.length; i++) {
-                if (cookieList[i].getName().equals(cookieName)) {
+            for (Cookie cookie : cookieList) {
+                if (cookie.getName().equals(cookieName)) {
                     if (isDecoder) {
-                        retValue = URLDecoder.decode(cookieList[i].getValue(), "UTF-8");
+                        retValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
                     } else {
-                        retValue = cookieList[i].getValue();
+                        retValue = cookie.getValue();
                     }
                     break;
                 }
@@ -63,11 +64,12 @@ public final class CookieUtils {
     }
 
     /**
-     * @Description: 得到Cookie的值
-     * @param request
-     * @param cookieName
-     * @param encodeString
-     * @return
+     * 得到Cookie的值
+     * 
+     * @param request 请求对象
+     * @param cookieName cookie名
+     * @param encodeString encode编码字符串
+     * @return java.lang.String
      */
     public static String getCookieValue(HttpServletRequest request, String cookieName, String encodeString) {
         Cookie[] cookieList = request.getCookies();
@@ -89,11 +91,12 @@ public final class CookieUtils {
     }
 
     /**
-     * @Description: 设置Cookie的值 不设置生效时间默认浏览器关闭即失效,也不编码
-     * @param request
-     * @param response
-     * @param cookieName
-     * @param cookieValue
+     * 设置Cookie的值 不设置生效时间默认浏览器关闭即失效,也不编码
+     *
+     * @param request 请求对象
+     * @param response 返回对象
+     * @param cookieName cookie名
+     * @param cookieValue cookie值
      */
     public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
         String cookieValue) {
@@ -260,7 +263,7 @@ public final class CookieUtils {
 
             final String[] domains = serverName.split("\\.");
             int len = domains.length;
-            if (len > 3 && !isIp(serverName)) {
+            if (len > 3 && !RegexUtils.checkIp(serverName)) {
                 // www.xxx.com.cn
                 domainName = "." + domains[len - 3] + "." + domains[len - 2] + "." + domains[len - 1];
             } else if (len <= 3 && len > 1) {
@@ -271,34 +274,6 @@ public final class CookieUtils {
             }
         }
         return domainName;
-    }
-
-    public static String trimSpaces(String ip) {// 去掉IP字符串前后所有的空格
-        while (ip.startsWith(SPACE)) {
-            ip = ip.substring(1, ip.length()).trim();
-        }
-        while (ip.endsWith(SPACE)) {
-            ip = ip.substring(0, ip.length() - 1).trim();
-        }
-        return ip;
-    }
-
-    public static boolean isIp(String ip) {// 判断是否是一个IP
-        boolean b = false;
-        ip = trimSpaces(ip);
-        if (ip.matches("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}")) {
-            String[] s = ip.split("\\.");
-            if (Integer.parseInt(s[0]) < 255) {
-                if (Integer.parseInt(s[1]) < 255) {
-                    if (Integer.parseInt(s[2]) < 255) {
-                        if (Integer.parseInt(s[3]) < 255) {
-                            b = true;
-                        }
-                    }
-                }
-            }
-        }
-        return b;
     }
 
 }

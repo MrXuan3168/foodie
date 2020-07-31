@@ -1,14 +1,13 @@
 package com.foodie.common.utils;
 
-import java.util.List;
-
 import lombok.Data;
 
+import java.util.List;
+
 /**
+ * 用来返回分页Grid的数据格式
  * 
- * @Title: PagedGridResult.java
- * @Package com.imooc.utils
- * @Description: 用来返回分页Grid的数据格式 Copyright: Copyright (c) 2019
+ * @author jamie
  */
 @Data
 public class PagedGridResult {

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class JacksonUtils {
 
-    // 定义jackson对象
+    /** 定义jackson对象 */
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     /**
