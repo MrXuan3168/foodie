@@ -7,15 +7,14 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * MD5工具类
- * 
+ *
  * @author jamie
- * @date 2019/11/25 12:29
  */
 public class Md5Utils {
 
     /**
      * 对字符串进行md5加密
-     * 
+     *
      * @param strValue 需要加密的字符串
      * @return 加密后的字符串
      */
@@ -28,4 +27,5 @@ public class Md5Utils {
         String md5 = getMd5Str("jamie");
         System.out.println(md5);
     }
+
 }

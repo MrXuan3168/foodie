@@ -1,25 +1,23 @@
 package com.foodie.pojo.pojo;
 
-import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Id;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import java.util.Date;
+
 /**
  * 数据库轮播图对象
- * 
+ *
  * @author jamie
- * @date 2019/11/27 14:15
  */
 @ApiModel(value = "数据库轮播图对象", description = "从数据库返回的对象")
 @Data
 public class Carousel {
+
     /**
      * 主键
      */
@@ -31,8 +29,8 @@ public class Carousel {
      * 图片 图片地址
      */
     @Column(name = "image_url")
-    @ApiModelProperty(value = "图片地址", name = "imageUrl",
-        example = "http://122.152.205.72:88/group1/M00/00/05/CpoxxF0ZmHiAWwR7AAFdqZHw8jU876.png", required = true)
+    @ApiModelProperty(value = "图片地址", name = "imageUrl", example = "http://122.152.205" + ".72:88/group1/M00/00/05" +
+            "/CpoxxF0ZmHiAWwR7AAFdqZHw8jU876.png", required = true)
     private String imageUrl;
 
     /**

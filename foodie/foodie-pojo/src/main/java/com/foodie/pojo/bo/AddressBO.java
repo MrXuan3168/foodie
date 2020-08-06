@@ -1,15 +1,13 @@
 package com.foodie.pojo.bo;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-
-import org.hibernate.validator.constraints.Length;
-
 import com.foodie.common.validation.Update;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 /**
  * 应用模块名称： 用户新增地址的BO
@@ -54,4 +52,5 @@ public class AddressBO {
     @ApiModelProperty(value = "详细地址", name = "detail", example = "东圃大街1号", required = true)
     @NotBlank(message = "详细地址 detail 不能为空")
     private String detail;
+
 }

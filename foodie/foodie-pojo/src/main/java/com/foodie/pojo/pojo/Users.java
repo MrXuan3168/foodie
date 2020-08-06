@@ -1,20 +1,19 @@
 package com.foodie.pojo.pojo;
 
-import java.util.Date;
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
-
-import lombok.Data;
+import java.util.Date;
 
 /**
  * 用户表
- * 
+ *
  * @author jamie
- * @date 2019/11/25 11:30
  */
 @Data
 public class Users {
+
     /**
      * 主键id 用户id
      */

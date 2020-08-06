@@ -6,7 +6,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
-import java.time.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,17 +17,19 @@ import java.util.Date;
  * jamie时间工具类
  *
  * @author jamie
- * @date 2020/7/30 16:22
  */
 public class JamieDateUtils {
 
     public static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
+
     public static final String TIME_FORMATTER_STR = "HH:mm:ss";
 
     public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
     public static final String DATE_FORMATTER_STR = "yyyy-MM-dd";
 
     public static final DateTimeFormatter DATETIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
     public static final String DATETIME_FORMATTER_STR = "yyyy-MM-dd HH:mm:ss";
 
     /**
@@ -237,7 +241,7 @@ public class JamieDateUtils {
      */
     private static String format(int number) {
         String num = String.valueOf(number);
-        return number < 10 ? "0" + num : num;
+        return number < 10?"0" + num:num;
     }
 
     /**
@@ -249,19 +253,19 @@ public class JamieDateUtils {
      */
     public static boolean isValidDate(String strDate, String formatter) {
         ParsePosition pos = new ParsePosition(0);
-        if (StringUtils.isBlank(strDate) || StringUtils.isBlank(formatter)) {
+        if(StringUtils.isBlank(strDate) || StringUtils.isBlank(formatter)){
             return false;
         }
-        try {
+        try{
             SimpleDateFormat sdf = new SimpleDateFormat(formatter);
             sdf.setLenient(false);
             Date date = sdf.parse(strDate, pos);
-            if (date == null) {
+            if(date == null){
                 return false;
-            } else {
+            }else{
                 return pos.getIndex() <= sdf.format(date).length();
             }
-        } catch (Exception e) {
+        }catch(Exception e){
             e.printStackTrace();
             return false;
         }
@@ -275,19 +279,19 @@ public class JamieDateUtils {
      * @return Date对象
      */
     public static Date string2Date(String strDate, String format) {
-        if (strDate == null) {
+        if(strDate == null){
             return null;
         }
         DateFormat df;
-        try {
-            if (format == null) {
+        try{
+            if(format == null){
                 df = new SimpleDateFormat();
-            } else {
+            }else{
                 df = new SimpleDateFormat(format);
             }
             df.setLenient(false);
             return df.parse(strDate);
-        } catch (ParseException e) {
+        }catch(ParseException e){
             e.printStackTrace();
             return null;
         }

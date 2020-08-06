@@ -1,13 +1,11 @@
 package com.foodie.api;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
-
-import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
-
 import tk.mybatis.spring.annotation.MapperScan;
 
 /**
@@ -23,6 +21,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @ComponentScan(basePackages = {"com.foodie", "org.n3r.idworker"})
 @EnableKnife4j
 public class ApiApplication extends SpringBootServletInitializer {
+
     public static void main(String[] args) {
         SpringApplication.run(ApiApplication.class, args);
     }
@@ -34,4 +33,5 @@ public class ApiApplication extends SpringBootServletInitializer {
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(this.getClass());
     }
+
 }

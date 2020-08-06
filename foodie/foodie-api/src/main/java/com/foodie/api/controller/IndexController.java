@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * 应用模块名称：
- * 
+ *
  * @author jamie
  * @since 2019/11/19 20:16
  */
@@ -27,6 +27,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/index")
 public class IndexController {
+
     @Autowired
     private CarouselService carouselService;
 
@@ -56,7 +57,7 @@ public class IndexController {
     @ApiImplicitParam(name = "rootCatId", value = "一级分类id", example = "1", required = true)
     @GetMapping("/subCat/{rootCatId}")
     public R<List<CategoryVO>> getSubCatList(@PathVariable Integer rootCatId) {
-        if (rootCatId == null) {
+        if(rootCatId == null){
             return R.errorMsg("分类Id rootCatId 不能为空");
         }
         List<CategoryVO> subCatList = categoryService.getSubCatList(rootCatId);
@@ -67,10 +68,11 @@ public class IndexController {
     @ApiImplicitParam(name = "rootCatId", value = "一级分类id", example = "1", required = true)
     @GetMapping("/sixNewItems/{rootCatId}")
     public R<List<NewItemsVO>> getSixNewItems(@PathVariable Integer rootCatId) {
-        if (rootCatId == null) {
+        if(rootCatId == null){
             return R.errorMsg("分类Id rootCatId 不能为空");
         }
         List<NewItemsVO> sixNewItemsLazy = categoryService.getSixNewItemsLazy(rootCatId);
         return R.ok(sixNewItemsLazy);
     }
+
 }

@@ -1,21 +1,21 @@
 package com.foodie.pojo.pojo;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+
 /**
  * 分类
- * 
+ *
  * @author jamie
- * @date 2019/11/28 22:51
  */
 @ApiModel(value = "分类对象", description = "从数据库返回的对象")
 @Data
 public class Category {
+
     @Id
     @ApiModelProperty(value = "主键", name = "id", example = "1", required = true)
     private Integer id;
@@ -36,8 +36,8 @@ public class Category {
     @ApiModelProperty(value = "口号", name = "slogan", example = "每一道甜品都能打开你的味蕾", required = true)
     private String slogan;
 
-    @ApiModelProperty(value = "分类图", name = "catImage", example = "http://122.152.205.72:88/foodie/category/cake.png",
-        required = true)
+    @ApiModelProperty(value = "分类图", name = "catImage", example = "http://122.152.205.72:88/foodie/category/cake.png"
+            , required = true)
     @Column(name = "cat_image")
     private String catImage;
 

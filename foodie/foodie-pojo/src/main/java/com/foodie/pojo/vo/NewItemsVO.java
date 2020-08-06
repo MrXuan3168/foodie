@@ -1,14 +1,14 @@
 package com.foodie.pojo.vo;
 
-import java.util.List;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * 应用模块名称：最新商品
- * 
+ *
  * @author jamie
  * @since 2019/11/28 23:05
  */
@@ -25,8 +25,8 @@ public class NewItemsVO {
     @ApiModelProperty(value = "口号", name = "slogan", example = "每一道甜品都能打开你的味蕾", required = true)
     private String slogan;
 
-    @ApiModelProperty(value = "一级分类图片", name = "catImage",
-        example = "http://122.152.205.72:88/foodie/category/cake.png", required = true)
+    @ApiModelProperty(value = "一级分类图片", name = "catImage", example =
+            "http://122.152.205.72:88/foodie/category/cake" + ".png", required = true)
     private String catImage;
 
     @ApiModelProperty(value = "背景颜色", name = "bgColor", example = "#fe7a65", required = true)

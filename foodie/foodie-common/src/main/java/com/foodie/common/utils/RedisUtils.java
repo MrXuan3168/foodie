@@ -1,21 +1,20 @@
 package com.foodie.common.utils;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.StringRedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 /**
  * redis 工具类
- * 
+ *
  * @author xuanweiyao
- * @date 2020/2/7 18:40
  */
 @Component
 public class RedisUtils {
@@ -27,7 +26,6 @@ public class RedisUtils {
 
     /**
      * 实现命令：TTL key，以秒为单位，返回给定 key的剩余生存时间(TTL, time to live)。
-     * 
      */
     public long ttl(String key) {
         return redisTemplate.getExpire(key);
@@ -102,7 +100,7 @@ public class RedisUtils {
         // redis -> pipeline
         return redisTemplate.executePipelined((RedisCallback<String>)connection -> {
             StringRedisConnection src = (StringRedisConnection)connection;
-            for (String k : keys) {
+            for(String k: keys){
                 src.get(k);
             }
             return null;
@@ -145,7 +143,7 @@ public class RedisUtils {
 
     /**
      * 实现命令：LPUSH key value，将一个值 value插入到列表 key的表头
-     * 
+     *
      * @return 执行 LPUSH命令后，列表的长度。
      */
     public long lpush(String key, String value) {
@@ -154,7 +152,7 @@ public class RedisUtils {
 
     /**
      * 实现命令：LPOP key，移除并返回列表 key的头元素。
-     * 
+     *
      * @return 列表key的头元素。
      */
     public String lpop(String key) {
@@ -163,7 +161,7 @@ public class RedisUtils {
 
     /**
      * 实现命令：RPUSH key value，将一个值 value插入到列表 key的表尾(最右边)。
-     * 
+     *
      * @return 执行 LPUSH命令后，列表的长度。
      */
     public long rpush(String key, String value) {

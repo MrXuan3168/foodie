@@ -34,6 +34,7 @@ import javax.servlet.http.HttpServletResponse;
 @CrossOrigin
 @Slf4j
 public class PassportController {
+
     @Autowired
     UserService userService;
 
@@ -47,19 +48,17 @@ public class PassportController {
      * 判断用户名是否存在
      *
      * @param username 用户名
-     * @author jamie
-     * @date 2019/11/25 17:43
      */
     @ApiOperation(value = "用户名是否存在", notes = "判断用户名是否存在", httpMethod = "GET")
     @ApiImplicitParam(name = "username", value = "用户名", required = true)
     @GetMapping("/usernameIsExist")
     public R<Void> usernameIsExist(@RequestParam String username) {
         // 1.判断用户名不能为空
-        if (StringUtils.isBlank(username)) {
+        if(StringUtils.isBlank(username)){
             return R.errorMsg("用户名不能为空");
         }
         // 2.查找注册是用户名是否存在
-        if (userService.queryUsernameIsExist(username)) {
+        if(userService.queryUsernameIsExist(username)){
             return R.errorMsg("用户名已存在");
         }
         // 3.请求成功，用户名没有重复
@@ -68,8 +67,6 @@ public class PassportController {
 
     /**
      * @param bo 用户注册类
-     * @author jamie
-     * @date 2019/11/25 13:14
      */
     @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
     @PostMapping("/register")
@@ -78,12 +75,12 @@ public class PassportController {
         String password = bo.getPassword();
         String confirmPassword = bo.getConfirmPassword();
         // 判断两次密码是否一致
-        if (!StringUtils.equals(password, confirmPassword)) {
+        if(!StringUtils.equals(password, confirmPassword)){
             return R.errorMsg("密码与确认密码不一致");
         }
         // 查询用户名是否存在
         boolean usernameIsExist = userService.queryUsernameIsExist(username);
-        if (usernameIsExist) {
+        if(usernameIsExist){
             return R.errorMsg("用户名已存在");
         }
         // 用户插入数据
@@ -101,8 +98,6 @@ public class PassportController {
      *
      * @param bo 用户登录
      * @return com.so.utils.ServerResponseResult
-     * @author jamie
-     * @date 2019/11/25 23:18
      */
     @ApiOperation(value = "用户登录", notes = "用户登录", httpMethod = "POST")
     @PostMapping("/login")
@@ -110,7 +105,7 @@ public class PassportController {
         String username = bo.getUsername();
         String password = bo.getPassword();
         Users user = userService.queryUserForLogin(username, Md5Utils.getMd5Str(password));
-        if (user == null) {
+        if(user == null){
             return R.errorMsg("用户名和密码不正确");
         }
         UserVO userVO = UserVO.builder().build();

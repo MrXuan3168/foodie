@@ -3,6 +3,7 @@ package org.n3r.idworker;
 import org.n3r.idworker.strategy.DayPrefixRandomCodeStrategy;
 
 public class DayCode {
+
     static RandomCodeStrategy strategy;
 
     static {
@@ -16,4 +17,5 @@ public class DayCode {
     public static synchronized String next() {
         return String.format("%d-%04d-%07d", Id.getWorkerId(), strategy.prefix(), strategy.next());
     }
+
 }

@@ -12,10 +12,10 @@ public class Code {
     }
 
     public static synchronized void configure(RandomCodeStrategy custom) {
-        if (strategy == custom) {
+        if(strategy == custom){
             return;
         }
-        if (strategy != null) {
+        if(strategy != null){
             strategy.release();
         }
 
@@ -34,6 +34,6 @@ public class Code {
         int prefix = strategy.prefix();
         int next = strategy.next();
 
-        return String.format("%d-%03d-%06d", workerId, prefix, next);
+        return String.format("%d-%03d-%06d",workerId,prefix,next);
     }
 }

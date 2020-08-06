@@ -1,13 +1,13 @@
 package com.foodie.pojo.pojo;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Table(name = "user_address")
 public class UserAddress {
+
     /**
      * 地址主键id
      */
@@ -288,4 +288,5 @@ public class UserAddress {
     public void setUpdatedTime(Date updatedTime) {
         this.updatedTime = updatedTime;
     }
+
 }

@@ -5,6 +5,7 @@ import javax.persistence.Table;
 
 @Table(name = "pdman_db_version")
 public class PdmanDbVersion {
+
     @Column(name = "DB_VERSION")
     private String dbVersion;
 
@@ -55,4 +56,5 @@ public class PdmanDbVersion {
     public void setCreatedTime(String createdTime) {
         this.createdTime = createdTime;
     }
+
 }

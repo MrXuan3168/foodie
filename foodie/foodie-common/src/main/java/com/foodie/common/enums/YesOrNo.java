@@ -2,9 +2,8 @@ package com.foodie.common.enums;
 
 /**
  * 是否 枚举
- * 
+ *
  * @author jamie
- * @date 2019/11/25 12:47
  */
 public enum YesOrNo {
     /** 否 */
@@ -13,6 +12,7 @@ public enum YesOrNo {
     YES(1, "是");
 
     public final Integer type;
+
     public final String value;
 
     YesOrNo(Integer type, String value) {

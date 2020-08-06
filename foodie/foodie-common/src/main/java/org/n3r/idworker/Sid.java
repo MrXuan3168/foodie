@@ -9,7 +9,9 @@ import java.util.Date;
 
 @Component
 public class Sid {
+
     private static WorkerIdStrategy workerIdStrategy;
+
     private static IdWorker idWorker;
 
     static {
@@ -17,7 +19,7 @@ public class Sid {
     }
 
     public static synchronized void configure(WorkerIdStrategy custom) {
-        if (workerIdStrategy != null) {
+        if(workerIdStrategy != null){
             workerIdStrategy.release();
         }
         workerIdStrategy = custom;
@@ -57,4 +59,5 @@ public class Sid {
         System.out.println(aa);
         System.out.println(bb);
     }
+
 }

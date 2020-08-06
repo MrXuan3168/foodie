@@ -8,9 +8,8 @@ import java.util.List;
 
 /**
  * jackson工具类
- * 
+ *
  * @author jamie
- * @date 2020/7/29 9:38
  */
 public class JacksonUtils {
 
@@ -19,13 +18,13 @@ public class JacksonUtils {
 
     /**
      * 将对象转换成json字符串。
-     * 
+     *
      * @param data 对象
      */
     public static String objectToJson(Object data) {
-        try {
+        try{
             return MAPPER.writeValueAsString(data);
-        } catch (JsonProcessingException e) {
+        }catch(JsonProcessingException e){
             e.printStackTrace();
         }
         return null;
@@ -33,14 +32,14 @@ public class JacksonUtils {
 
     /**
      * 将json结果集转化为对象
-     * 
+     *
      * @param jsonData json数据
      * @param beanType 对象中的object类型
      */
     public static <T> T jsonToPojo(String jsonData, Class<T> beanType) {
-        try {
+        try{
             return MAPPER.readValue(jsonData, beanType);
-        } catch (Exception e) {
+        }catch(Exception e){
             e.printStackTrace();
         }
         return null;
@@ -48,15 +47,15 @@ public class JacksonUtils {
 
     /**
      * 将json数据转换成pojo对象list
-     * 
+     *
      * @param jsonData json字符串
      * @param beanType 对象中的object类型
      */
     public static <T> List<T> jsonToList(String jsonData, Class<T> beanType) {
         JavaType javaType = MAPPER.getTypeFactory().constructParametricType(List.class, beanType);
-        try {
+        try{
             return MAPPER.readValue(jsonData, javaType);
-        } catch (Exception e) {
+        }catch(Exception e){
             e.printStackTrace();
         }
         return null;

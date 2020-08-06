@@ -1,13 +1,13 @@
 package com.foodie.pojo.pojo;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Table(name = "items_img")
 public class ItemsImg {
+
     /**
      * 图片主键
      */
@@ -173,4 +173,5 @@ public class ItemsImg {
     public void setUpdatedTime(Date updatedTime) {
         this.updatedTime = updatedTime;
     }
+
 }

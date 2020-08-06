@@ -30,22 +30,23 @@ import java.util.List;
 @Api(tags = "地址相关的API")
 @RequestMapping("address")
 public class AddressController {
+
     @Autowired
     private AddressService addressService;
 
     /**
-     * 用户在确认订单页面，可以针对收货地址做如下操作：<br>
-     * 1.查询用户的所有收货地址列表<br>
-     * 2.新装收货地址<br>
-     * 3.删除收货地址<br>
-     * 4.修改收货地址<br>
+     * 用户在确认订单页面，可以针对收货地址做如下操作：
+     * 1.查询用户的所有收货地址列表
+     * 2.新装收货地址
+     * 3.删除收货地址
+     * 4.修改收货地址
      * 5.设置默认地址
      */
     @ApiOperation(value = "查询用户的所有收货地址列表", notes = "查询用户的所有收货地址列表", httpMethod = "POST")
     @ApiImplicitParam(name = "userId", value = "用户id", required = true, example = "1908189H7TNWDTXP")
     @PostMapping("/list")
     public R<List<UserAddress>> list(@RequestParam String userId) {
-        if (StringUtils.isBlank(userId)) {
+        if(StringUtils.isBlank(userId)){
             return R.errorMsg("用户ID不能为空");
         }
         List<UserAddress> list = addressService.queryAll(userId);
@@ -68,15 +69,15 @@ public class AddressController {
     }
 
     @ApiOperation(value = "用户删除地址", notes = "用户删除地址", httpMethod = "POST")
-    @ApiImplicitParams({
-        @ApiImplicitParam(name = "userId", value = "用户id", required = true, example = "1908189H7TNWDTXP"),
-        @ApiImplicitParam(name = "addressId", value = "地址Id", required = true, example = "190825CG3AA14Y3C")})
+    @ApiImplicitParams({@ApiImplicitParam(name = "userId", value = "用户id", required = true, example =
+            "1908189H7TNWDTXP"), @ApiImplicitParam(name = "addressId", value = "地址Id", required = true, example =
+            "190825CG3AA14Y3C")})
     @PostMapping("/delete")
     public R<Object> delete(@RequestParam String userId, @RequestParam String addressId) {
-        if (StringUtils.isBlank(userId)) {
+        if(StringUtils.isBlank(userId)){
             return R.errorMsg("用户ID不能为空");
         }
-        if (StringUtils.isBlank(addressId)) {
+        if(StringUtils.isBlank(addressId)){
             return R.errorMsg("地址Id不能为空");
         }
         addressService.deleteUserAddress(userId, addressId);
@@ -84,15 +85,15 @@ public class AddressController {
     }
 
     @ApiOperation(value = "设置默认地址", notes = "设置默认地址", httpMethod = "POST")
-    @ApiImplicitParams({
-        @ApiImplicitParam(name = "userId", value = "用户id", required = true, example = "1908189H7TNWDTXP"),
-        @ApiImplicitParam(name = "addressId", value = "地址Id", required = true, example = "190825CG3AA14Y3C")})
+    @ApiImplicitParams({@ApiImplicitParam(name = "userId", value = "用户id", required = true, example =
+            "1908189H7TNWDTXP"), @ApiImplicitParam(name = "addressId", value = "地址Id", required = true, example =
+            "190825CG3AA14Y3C")})
     @PostMapping("/setDefault")
     public R<Object> setDefault(@RequestParam String userId, @RequestParam String addressId) {
-        if (StringUtils.isBlank(userId)) {
+        if(StringUtils.isBlank(userId)){
             return R.errorMsg("用户ID不能为空");
         }
-        if (StringUtils.isBlank(addressId)) {
+        if(StringUtils.isBlank(addressId)){
             return R.errorMsg("地址Id不能为空");
         }
         addressService.updateUserAddressToBeDefault(userId, addressId);

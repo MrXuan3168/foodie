@@ -1,13 +1,13 @@
 package com.foodie.pojo.pojo;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Table(name = "order_status")
 public class OrderStatus {
+
     /**
      * 订单ID 对应订单表的主键id
      */
@@ -200,4 +200,5 @@ public class OrderStatus {
     public void setCommentTime(Date commentTime) {
         this.commentTime = commentTime;
     }
+
 }

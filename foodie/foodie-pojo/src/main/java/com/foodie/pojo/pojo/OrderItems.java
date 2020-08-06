@@ -6,6 +6,7 @@ import javax.persistence.Table;
 
 @Table(name = "order_items")
 public class OrderItems {
+
     /**
      * 主键id
      */
@@ -220,4 +221,5 @@ public class OrderItems {
     public void setBuyCounts(Integer buyCounts) {
         this.buyCounts = buyCounts;
     }
+
 }

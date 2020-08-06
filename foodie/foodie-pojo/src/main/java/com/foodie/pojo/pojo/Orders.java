@@ -1,11 +1,11 @@
 package com.foodie.pojo.pojo;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Id;
+import java.util.Date;
 
 public class Orders {
+
     /**
      * 订单主键 同时也是订单编号
      */
@@ -364,4 +364,5 @@ public class Orders {
     public void setUpdatedTime(Date updatedTime) {
         this.updatedTime = updatedTime;
     }
+
 }

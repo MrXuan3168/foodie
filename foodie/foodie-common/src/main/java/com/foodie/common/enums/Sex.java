@@ -2,9 +2,8 @@ package com.foodie.common.enums;
 
 /**
  * 性别 枚举
- * 
+ *
  * @author jamie
- * @date 2019/11/25 12:47
  */
 public enum Sex {
     /** 女 */
@@ -15,6 +14,7 @@ public enum Sex {
     secret(2, "保密");
 
     public final Integer type;
+
     public final String value;
 
     Sex(Integer type, String value) {

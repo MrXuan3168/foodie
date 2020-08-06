@@ -17,10 +17,13 @@ public class DateUtil {
      */
     public static final String ISO_EXPANDED_DATE_FORMAT = "yyyy-MM-dd";
 
+    private static final int ID_BYTES = 10;
+
     /**
      * yyyy-MM-dd hh:mm:ss
      */
     public static String DATETIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
+
     public static String DATE_PATTERN = "yyyyMMddHHmmss";
 
     /**
@@ -29,12 +32,11 @@ public class DateUtil {
     private static boolean LENIENT_DATE = false;
 
     private static Random random = new Random();
-    private static final int ID_BYTES = 10;
 
     public synchronized static String generateId() {
         StringBuffer result = new StringBuffer();
         result = result.append(System.currentTimeMillis());
-        for (int i = 0; i < ID_BYTES; i++) {
+        for(int i = 0; i < ID_BYTES; i++){
             result = result.append(random.nextInt(10));
         }
         return result.toString();
@@ -71,13 +73,13 @@ public class DateUtil {
         int day = (int)(B - D - F);
         int month = (int)(E - 1);
 
-        if (month > 12) {
+        if(month > 12){
             month = month - 12;
         }
 
         int year = (int)(C - 4715); // (if Month is January or February) or C-4716 (otherwise)
 
-        if (month > 2) {
+        if(month > 2){
             year--;
         }
 
@@ -124,7 +126,7 @@ public class DateUtil {
      * Return a Julian date based on the input parameter. This is based from calculations found at
      * <a href="http://quasar.as.utexas.edu/BillInfo/JulianDatesG.html">Julian Day Calculations (Gregorian
      * Calendar)</a>, provided by Bill Jeffrys.
-     * 
+     *
      * @param c a calendar instance
      * @return the julian day number
      */
@@ -147,7 +149,7 @@ public class DateUtil {
      * Return a Julian date based on the input parameter. This is based from calculations found at
      * <a href="http://quasar.as.utexas.edu/BillInfo/JulianDatesG.html">Julian Day Calculations (Gregorian
      * Calendar)</a>, provided by Bill Jeffrys.
-     * 
+     *
      * @param date
      * @return the julian day number
      */
@@ -169,14 +171,14 @@ public class DateUtil {
      */
     public static final String dateIncrease(String isoString, String fmt, int field, int amount) {
 
-        try {
+        try{
             Calendar cal = GregorianCalendar.getInstance(TimeZone.getTimeZone("GMT"));
             cal.setTime(stringToDate(isoString, fmt, true));
             cal.add(field, amount);
 
             return dateToString(cal.getTime(), fmt);
 
-        } catch (Exception ex) {
+        }catch(Exception ex){
             return null;
         }
     }
@@ -188,7 +190,7 @@ public class DateUtil {
      * @param field the time field.
      * @param up Indicates if rolling up or rolling down the field value.
      * @param fmt use formating char's
-     * @exception ParseException if an unknown field value is given.
+     * @throws ParseException if an unknown field value is given.
      */
     public static final String roll(String isoString, String fmt, int field, boolean up) throws ParseException {
 
@@ -205,7 +207,7 @@ public class DateUtil {
      * @param isoString
      * @param field the time field.
      * @param up Indicates if rolling up or rolling down the field value.
-     * @exception ParseException if an unknown field value is given.
+     * @throws ParseException if an unknown field value is given.
      */
     public static final String roll(String isoString, int field, boolean up) throws ParseException {
 
@@ -214,22 +216,22 @@ public class DateUtil {
 
     /**
      * java.util.Date
-     * 
+     *
      * @param dateText
      * @param format
      * @param lenient
      * @return
      */
     public static Date stringToDate(String dateText, String format, boolean lenient) {
-        if (dateText == null) {
+        if(dateText == null){
             return null;
         }
         DateFormat df = null;
-        try {
+        try{
 
-            if (format == null) {
+            if(format == null){
                 df = new SimpleDateFormat();
-            } else {
+            }else{
                 df = new SimpleDateFormat(format);
             }
 
@@ -237,7 +239,7 @@ public class DateUtil {
             // which would otherwise parse to 10/2/2001
             df.setLenient(false);
             return df.parse(dateText);
-        } catch (ParseException e) {
+        }catch(ParseException e){
             return null;
         }
     }
@@ -251,7 +253,7 @@ public class DateUtil {
 
     /**
      * java.util.Date
-     * 
+     *
      * @param dateString
      * @param format
      * @return
@@ -263,7 +265,7 @@ public class DateUtil {
 
     /**
      * java.util.Date
-     * 
+     *
      * @param dateString
      */
     public static Date stringToDate(String dateString) {
@@ -271,24 +273,24 @@ public class DateUtil {
     }
 
     /**
-     * @return
      * @param pattern
      * @param date
+     * @return
      */
     public static String dateToString(Date date, String pattern) {
 
-        if (date == null) {
+        if(date == null){
 
             return null;
         }
 
-        try {
+        try{
 
             SimpleDateFormat sfDate = new SimpleDateFormat(pattern);
             sfDate.setLenient(false);
 
             return sfDate.format(date);
-        } catch (Exception e) {
+        }catch(Exception e){
 
             return null;
         }
@@ -296,7 +298,7 @@ public class DateUtil {
 
     /**
      * yyyy-MM-dd
-     * 
+     *
      * @param date
      * @return
      */
@@ -324,7 +326,7 @@ public class DateUtil {
 
     /**
      * yyyy-MM-dd
-     * 
+     *
      * @return
      */
     public static String getCurrentDateString() {
@@ -333,7 +335,7 @@ public class DateUtil {
 
     /**
      * 返回固定格式的当前时间 yyyy-MM-dd hh:mm:ss
-     * 
+     *
      * @return
      */
     public static String dateToStringWithTime() {
@@ -342,7 +344,7 @@ public class DateUtil {
 
     /**
      * yyyy-MM-dd hh:mm:ss
-     * 
+     *
      * @param date
      * @return
      */
@@ -477,7 +479,7 @@ public class DateUtil {
     /**
      * Function to convert String to Date Object. If invalid input then current or next day date is returned (Added by
      * Ali Naqvi on 2006-5-16).
-     * 
+     *
      * @param str String input in YYYY-MM-DD HH:MM[:SS] format.
      * @param isExpiry boolean if set and input string is invalid then next day date is returned
      * @return Date
@@ -485,15 +487,15 @@ public class DateUtil {
     public static Date convertToDate(String str, boolean isExpiry) {
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date dt = null;
-        try {
+        try{
             dt = fmt.parse(str);
-        } catch (ParseException ex) {
+        }catch(ParseException ex){
             Calendar cal = Calendar.getInstance();
-            if (isExpiry) {
+            if(isExpiry){
                 cal.add(Calendar.DAY_OF_MONTH, 1);
                 cal.set(Calendar.HOUR_OF_DAY, 23);
                 cal.set(Calendar.MINUTE, 59);
-            } else {
+            }else{
                 cal.set(Calendar.HOUR_OF_DAY, 0);
                 cal.set(Calendar.MINUTE, 0);
             }
@@ -505,9 +507,9 @@ public class DateUtil {
     public static Date convertToDate(String str) {
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd hh:mm");
         Date dt = null;
-        try {
+        try{
             dt = fmt.parse(str);
-        } catch (ParseException ex) {
+        }catch(ParseException ex){
             dt = new Date();
         }
         return dt;
@@ -520,10 +522,11 @@ public class DateUtil {
         int day = Integer.parseInt(getDay(date));
         int hour = minute / 60;
         int min = minute % 60;
-        dateFormat = String.valueOf(year) + (month > 9 ? String.valueOf(month) : "0" + String.valueOf(month))
-            + (day > 9 ? String.valueOf(day) : "0" + String.valueOf(day)) + " "
-            + (hour > 9 ? String.valueOf(hour) : "0" + String.valueOf(hour))
-            + (min > 9 ? String.valueOf(min) : "0" + String.valueOf(min)) + "00";
+        dateFormat = String.valueOf(year) + (month > 9?String.valueOf(month):"0" + String.valueOf(month)) + (day > 9?
+                String
+                .valueOf(day):"0" + String.valueOf(day)) + " " + (hour > 9?String.valueOf(hour):
+                "0" + String.valueOf(hour)) + (min > 9?String
+                .valueOf(min):"0" + String.valueOf(min)) + "00";
         return dateFormat;
     }
 
@@ -532,10 +535,7 @@ public class DateUtil {
     }
 
     /**
-     * @Description: 获得本月的第一天日期
      * @return
-     * @author leechenxiang
-     * @date 2017年5月31日 下午1:37:34
      */
     public static String getFirstDateOfThisMonth() {
 
@@ -551,10 +551,7 @@ public class DateUtil {
     }
 
     /**
-     * @Description: 获得本月的最后一天日期
      * @return
-     * @author leechenxiang
-     * @date 2017年5月31日 下午1:37:50
      */
     public static String getLastDateOfThisMonth() {
         SimpleDateFormat format = new SimpleDateFormat(ISO_EXPANDED_DATE_FORMAT);

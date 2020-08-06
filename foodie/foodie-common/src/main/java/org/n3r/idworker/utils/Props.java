@@ -10,19 +10,20 @@ import static java.io.File.separator;
 import static org.n3r.idworker.utils.Serializes.closeQuietly;
 
 public class Props {
+
     static Logger log = LoggerFactory.getLogger(Props.class);
 
     public static Properties tryProperties(String propertiesFileName, String userHomeBasePath) {
         Properties properties = new Properties();
         InputStream is = null;
-        try {
+        try{
             is = Props.tryResource(propertiesFileName, userHomeBasePath, Silent.ON);
-            if (is != null) {
+            if(is != null){
                 properties.load(is);
             }
-        } catch (IOException e) {
+        }catch(IOException e){
             log.error("load properties error: {}", e.getMessage());
-        } finally {
+        }finally{
             closeQuietly(is);
         }
 
@@ -31,22 +32,23 @@ public class Props {
 
     /** ON OFF */
     enum Silent {
-        ON, OFF
+        ON,
+        OFF
     }
 
     public static InputStream tryResource(String propertiesFileName, String userHomeBasePath, Silent silent) {
         InputStream is = currentDirResource(new File(propertiesFileName));
-        if (is != null) {
+        if(is != null){
             return is;
         }
 
         is = userHomeResource(propertiesFileName, userHomeBasePath);
-        if (is != null) {
+        if(is != null){
             return is;
         }
 
         is = classpathResource(propertiesFileName);
-        if (is != null || silent == Silent.ON) {
+        if(is != null || silent == Silent.ON){
             return is;
         }
 
@@ -56,7 +58,7 @@ public class Props {
     private static InputStream userHomeResource(String pathname, String appHome) {
         String filePath = System.getProperty("user.home") + separator + appHome;
         File dir = new File(filePath);
-        if (!dir.exists()) {
+        if(!dir.exists()){
             return null;
         }
 
@@ -64,13 +66,13 @@ public class Props {
     }
 
     private static InputStream currentDirResource(File file) {
-        if (!file.exists()) {
+        if(!file.exists()){
             return null;
         }
 
-        try {
+        try{
             return new FileInputStream(file);
-        } catch (FileNotFoundException e) {
+        }catch(FileNotFoundException e){
             // This should not happened
             log.error("read file {} error", file, e);
             return null;

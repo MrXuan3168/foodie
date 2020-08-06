@@ -7,7 +7,7 @@ import java.io.*;
 
 /**
  * 版本号读取工具类
- * 
+ *
  * @author jamie
  */
 @Slf4j
@@ -20,21 +20,21 @@ public class VersionUtil {
      */
     public static String getVersionText() {
         StringBuilder result = new StringBuilder();
-        try {
+        try{
             File versionFile = ResourceUtils.getFile(VERSION_FILE_NAME);
-            if (versionFile.exists()) {
+            if(versionFile.exists()){
                 System.out.println(versionFile.getAbsolutePath());
-                try (BufferedReader br = new BufferedReader(new FileReader(versionFile))) {
+                try(BufferedReader br = new BufferedReader(new FileReader(versionFile))){
                     String s;
-                    while ((s = br.readLine()) != null) {
+                    while((s = br.readLine()) != null){
                         result.append(System.lineSeparator()).append(s);
                     }
-                } catch (IOException e) {
+                }catch(IOException e){
                     log.error("io异常");
                 }
 
             }
-        } catch (FileNotFoundException e) {
+        }catch(FileNotFoundException e){
             log.error("FileNotFoundException异常");
         }
         return result.toString();

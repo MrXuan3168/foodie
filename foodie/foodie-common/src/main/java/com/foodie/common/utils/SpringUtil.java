@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 提供手动获取被spring管理的bean对象
- * 
+ *
  * @author jamie
  */
 @Component
@@ -15,25 +15,25 @@ public class SpringUtil implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext;
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        if (SpringUtil.applicationContext == null) {
-            SpringUtil.applicationContext = applicationContext;
-        }
-    }
-
     /**
      * 获取上下文 applicationContext 对象
-     * 
+     *
      * @return org.springframework.context.ApplicationContext
      */
     public static ApplicationContext getApplicationContext() {
         return applicationContext;
     }
 
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        if(SpringUtil.applicationContext == null){
+            SpringUtil.applicationContext = applicationContext;
+        }
+    }
+
     /**
      * 通过bean名字获取Bean对象
-     * 
+     *
      * @param name bean名字
      * @return Bean对象<Object>
      */
@@ -43,7 +43,7 @@ public class SpringUtil implements ApplicationContextAware {
 
     /**
      * 通过bean类型获取Bean对象
-     * 
+     *
      * @param clazz bean类型
      * @return Bean对象<T>
      */
@@ -53,7 +53,7 @@ public class SpringUtil implements ApplicationContextAware {
 
     /**
      * 通过bean名字和bean类型返回Bean对象
-     * 
+     *
      * @param name bean名字
      * @param clazz bean类型
      * @return Bean对象<T>

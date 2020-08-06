@@ -1,14 +1,12 @@
 package com.foodie.api.controller;
 
+import com.foodie.common.utils.RedisUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.foodie.common.utils.RedisUtils;
-
-import lombok.extern.slf4j.Slf4j;
 import springfox.documentation.annotations.ApiIgnore;
 
 /**
@@ -24,6 +22,7 @@ import springfox.documentation.annotations.ApiIgnore;
 @RestController
 @RequestMapping("/redis")
 public class RedisController {
+
     @Autowired
     private RedisUtils redisUtils;
 

@@ -1,7 +1,6 @@
 package com.foodie.pojo.vo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -11,9 +10,8 @@ import lombok.NoArgsConstructor;
 
 /**
  * 用户表
- * 
+ *
  * @author jamie
- * @date 2019/11/25 11:30
  */
 @ApiModel(value = "登录成功返回对象", description = "登录成功返回对象")
 @Data

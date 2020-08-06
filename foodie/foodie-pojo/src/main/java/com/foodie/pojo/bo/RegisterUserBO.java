@@ -16,6 +16,7 @@ import javax.validation.constraints.Size;
 @ApiModel(value = "用户注册对象BO")
 @Data
 public class RegisterUserBO {
+
     @ApiModelProperty(value = "用户名", name = "username", example = "1004108488@qq.com", required = true)
     @NotBlank(message = "用户名 username 不能为空")
     private String username;

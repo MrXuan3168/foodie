@@ -2,9 +2,8 @@ package com.foodie.common.enums;
 
 /**
  * 商品评价等级 枚举。
- * 
+ *
  * @author jamie
- * @date 2019/11/25 12:47
  */
 public enum CommentLevel {
     /** 好评 */
@@ -15,6 +14,7 @@ public enum CommentLevel {
     BAD(2, "差评");
 
     public final Integer type;
+
     public final String value;
 
     CommentLevel(Integer type, String value) {

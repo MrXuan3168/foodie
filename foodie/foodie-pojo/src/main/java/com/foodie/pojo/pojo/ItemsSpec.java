@@ -1,14 +1,14 @@
 package com.foodie.pojo.pojo;
 
-import java.math.BigDecimal;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Table(name = "items_spec")
 public class ItemsSpec {
+
     /**
      * 商品规格id
      */
@@ -221,4 +221,5 @@ public class ItemsSpec {
     public void setUpdatedTime(Date updatedTime) {
         this.updatedTime = updatedTime;
     }
+
 }

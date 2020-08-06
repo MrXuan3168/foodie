@@ -1,11 +1,11 @@
 package com.foodie.pojo.pojo;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Id;
+import java.util.Date;
 
 public class Items {
+
     /**
      * 商品主键id
      */
@@ -220,4 +220,5 @@ public class Items {
     public void setContent(String content) {
         this.content = content;
     }
+
 }

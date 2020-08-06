@@ -1,13 +1,13 @@
 package com.foodie.pojo.pojo;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Table(name = "items_comments")
 public class ItemsComments {
+
     /**
      * id主键
      */
@@ -246,4 +246,5 @@ public class ItemsComments {
     public void setUpdatedTime(Date updatedTime) {
         this.updatedTime = updatedTime;
     }
+
 }
