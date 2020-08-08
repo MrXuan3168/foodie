@@ -1,9 +1,16 @@
 package com.foodie.service.impl;
 
-import java.util.Date;
-
+import com.foodie.common.enums.OrderStatusEnum;
+import com.foodie.common.enums.YesOrNo;
+import com.foodie.mapper.OrderItemsMapper;
+import com.foodie.mapper.OrderStatusMapper;
+import com.foodie.mapper.OrdersMapper;
+import com.foodie.pojo.bo.SubmitOrderBO;
 import com.foodie.pojo.pojo.*;
+import com.foodie.pojo.vo.MerchantOrdersVO;
+import com.foodie.pojo.vo.OrderVO;
 import com.foodie.service.AddressService;
+import com.foodie.service.ItemService;
 import com.foodie.service.OrderService;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,34 +18,31 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.foodie.pojo.bo.SubmitOrderBO;
-import com.foodie.common.enums.OrderStatusEnum;
-import com.foodie.common.enums.YesOrNo;
-import com.foodie.mapper.OrderItemsMapper;
-import com.foodie.mapper.OrderStatusMapper;
-import com.foodie.mapper.OrdersMapper;
-import com.foodie.service.ItemService;
-import com.foodie.pojo.vo.MerchantOrdersVO;
-import com.foodie.pojo.vo.OrderVO;
+import java.util.Date;
 
 /**
  * 应用模块名称：
- *
  * @author jamie
  * @since 2019/12/3 22:22
  */
 @Service
 public class OrderServiceImpl implements OrderService {
+
     @Autowired
     private OrderItemsMapper orderItemsMapper;
+
     @Autowired
     private OrdersMapper ordersMapper;
+
     @Autowired
     private OrderStatusMapper orderStatusMapper;
+
     @Autowired
     private AddressService addressService;
+
     @Autowired
     private ItemService itemService;
+
     @Autowired
     private Sid sid;
 
@@ -60,8 +64,13 @@ public class OrderServiceImpl implements OrderService {
         UserAddress userAddress = addressService.queryAddress(userId, addressId);
         orders.setReceiverName(userAddress.getReceiver());
         orders.setReceiverMobile(userAddress.getMobile());
-        orders.setReceiverAddress(userAddress.getProvince() + " " + userAddress.getCity() + " "
-            + userAddress.getDistrict() + " " + userAddress.getDetail());
+        orders.setReceiverAddress(userAddress.getProvince()
+                + " "
+                + userAddress.getCity()
+                + " "
+                + userAddress.getDistrict()
+                + " "
+                + userAddress.getDetail());
         orders.setPostAmount(postAmount);
         orders.setPayMethod(payMethod);
         orders.setLeftMsg(leftMsg);
@@ -75,7 +84,7 @@ public class OrderServiceImpl implements OrderService {
         int totalAmount = 0;
         // 优化后的时机支付价格累计
         int realPayAmount = 0;
-        for (String itemSpecId : itemSpecIdArr) {
+        for(String itemSpecId: itemSpecIdArr){
             // 2.1 根据规格id，查询规格的具体信息，主要获取价格
             ItemsSpec itemsSpec = itemService.queryItemSpecById(itemSpecId);
             // TODO: 2019/12/3 整合redis后，商品购买的数量重新从redis的购物车中获取
@@ -136,4 +145,5 @@ public class OrderServiceImpl implements OrderService {
         orderStatusMapper.updateByPrimaryKeySelective(paidStatus);
 
     }
+
 }

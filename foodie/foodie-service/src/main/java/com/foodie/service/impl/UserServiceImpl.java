@@ -18,15 +18,17 @@ import java.util.Date;
 
 /**
  * 应用模块名称： 用户处理类
- * 
  * @author jamie
  * @since 2019/11/25 11:01
  */
 @Service
 public class UserServiceImpl implements UserService {
+
     private static final String USER_FACE = "https://image-show.oss-cn-shenzhen.aliyuncs.com/FoodieDefaultHead.jpg";
+
     @Autowired
     UsersMapper usersMapper;
+
     @Autowired
     Sid sid;
 
@@ -48,9 +50,9 @@ public class UserServiceImpl implements UserService {
         Users users = new Users();
         users.setId(sid.nextShort());
         users.setUsername(username);
-        try {
+        try{
             users.setPassword(Md5Utils.getMd5Str(password));
-        } catch (Exception e) {
+        }catch(Exception e){
             e.printStackTrace();
         }
         // 默认用户昵称同用户名

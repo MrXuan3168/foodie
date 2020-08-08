@@ -24,7 +24,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 应用模块名称：
- *
  * @author jamie
  * @since 2019/11/19 20:16
  */
@@ -46,7 +45,6 @@ public class PassportController {
 
     /**
      * 判断用户名是否存在
-     *
      * @param username 用户名
      */
     @ApiOperation(value = "用户名是否存在", notes = "判断用户名是否存在", httpMethod = "GET")
@@ -95,7 +93,6 @@ public class PassportController {
 
     /**
      * 用户登录
-     *
      * @param bo 用户登录
      * @return com.so.utils.ServerResponseResult
      */

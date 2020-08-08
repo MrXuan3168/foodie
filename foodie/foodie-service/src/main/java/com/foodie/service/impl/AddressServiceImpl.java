@@ -1,8 +1,9 @@
 package com.foodie.service.impl;
 
-import java.util.Date;
-import java.util.List;
-
+import com.foodie.common.enums.YesOrNo;
+import com.foodie.mapper.UserAddressMapper;
+import com.foodie.pojo.bo.AddressBO;
+import com.foodie.pojo.pojo.UserAddress;
 import com.foodie.service.AddressService;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.BeanUtils;
@@ -10,24 +11,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.foodie.pojo.bo.AddressBO;
-import com.foodie.common.enums.YesOrNo;
-import com.foodie.mapper.UserAddressMapper;
-import com.foodie.pojo.pojo.UserAddress;
-
 import tk.mybatis.mapper.entity.Example;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * 应用模块名称：地址业务层实现类
- * 
  * @author jamie
  * @since 2019/11/27 12:40
  */
 @Service
 public class AddressServiceImpl implements AddressService {
+
     @Autowired
     private UserAddressMapper userAddressMapper;
+
     @Autowired
     private Sid sid;
 
@@ -45,7 +44,7 @@ public class AddressServiceImpl implements AddressService {
         // 1.判断用户是否存在地址，如果没有，则新增为"默认地址"
         int isDefault = 0;
         List<UserAddress> addressList = this.queryAll(bo.getUserId());
-        if (addressList == null || addressList.isEmpty()) {
+        if(addressList == null || addressList.isEmpty()){
             isDefault = 1;
         }
         // 2.保存地址到数据库
@@ -113,4 +112,5 @@ public class AddressServiceImpl implements AddressService {
         userAddress.setUserId(userId);
         return userAddressMapper.selectOne(userAddress);
     }
+
 }

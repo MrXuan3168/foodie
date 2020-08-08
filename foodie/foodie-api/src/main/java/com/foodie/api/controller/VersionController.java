@@ -16,7 +16,6 @@ import java.io.InputStreamReader;
 
 /**
  * 应用模块名称：程序版本
- *
  * @author jamie
  * @since 2020/2/12 18:55
  */
@@ -49,7 +48,6 @@ public class VersionController {
 
     /**
      * 读取文件里面的值
-     *
      * @param inputStream 文件输入流
      */
     private String readFromInputStream(InputStream inputStream) {

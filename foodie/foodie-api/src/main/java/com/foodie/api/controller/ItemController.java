@@ -22,7 +22,6 @@ import java.util.List;
 
 /**
  * 应用模块名称：商品接口
- *
  * @author jamie
  * @since 2019/11/19 20:16
  */
@@ -71,10 +70,9 @@ public class ItemController extends BaseController {
             @ApiImplicitParam(name = "level", value = "评价等级", example = "0"), @ApiImplicitParam(name = "page", value
             = "页码", defaultValue = "1"), @ApiImplicitParam(name = "pageSize", value = "页数", defaultValue = "20")})
     @GetMapping("/comments")
-    public R<PagedGridResult> queryPagedComments(
-            @RequestParam String itemId,
-            @RequestParam Integer level,
-            @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "20") Integer pageSize) {
+    public R<PagedGridResult> queryPagedComments(@RequestParam String itemId, @RequestParam Integer level,
+                                                 @RequestParam(defaultValue = "1") Integer page,
+                                                 @RequestParam(defaultValue = "20") Integer pageSize) {
         if(StringUtils.isBlank(itemId)){
             return R.errorMsg("商品ID不能为空");
         }
@@ -87,10 +85,9 @@ public class ItemController extends BaseController {
             @ApiImplicitParam(name = "sort", value = "排序", example = "c"), @ApiImplicitParam(name = "page", value =
             "页码", defaultValue = "1"), @ApiImplicitParam(name = "pageSize", value = "页数", defaultValue = "10")})
     @GetMapping("/search")
-    public R<PagedGridResult> searchItems(
-            @RequestParam String keywords,
-            @RequestParam String sort,
-            @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer pageSize) {
+    public R<PagedGridResult> searchItems(@RequestParam String keywords, @RequestParam String sort,
+                                          @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue
+            = "10") Integer pageSize) {
         if(StringUtils.isBlank(keywords)){
             return R.errorMsg("搜索关键字不能为空");
         }
@@ -103,10 +100,9 @@ public class ItemController extends BaseController {
             @ApiImplicitParam(name = "sort", value = "排序", example = "c"), @ApiImplicitParam(name = "page", value =
             "页码", defaultValue = "1"), @ApiImplicitParam(name = "pageSize", value = "页数", defaultValue = "20")})
     @GetMapping("/catItems")
-    public R<PagedGridResult> catItems(
-            @RequestParam Integer catId,
-            @RequestParam String sort,
-            @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "20") Integer pageSize) {
+    public R<PagedGridResult> catItems(@RequestParam Integer catId, @RequestParam String sort,
+                                       @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue =
+            "20") Integer pageSize) {
         if(catId == null){
             return R.errorMsg("三级分类Id不能为空");
         }
