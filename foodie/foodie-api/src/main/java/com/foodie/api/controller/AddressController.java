@@ -69,9 +69,8 @@ public class AddressController {
     }
 
     @ApiOperation(value = "用户删除地址", notes = "用户删除地址", httpMethod = "POST")
-    @ApiImplicitParams({@ApiImplicitParam(name = "userId", value = "用户id", required = true, example =
-            "1908189H7TNWDTXP"), @ApiImplicitParam(name = "addressId", value = "地址Id", required = true, example =
-            "190825CG3AA14Y3C")})
+    @ApiImplicitParams({@ApiImplicitParam(name = "userId", value = "用户id", required = true, example = "1908189H7TNWDTXP"),
+            @ApiImplicitParam(name = "addressId", value = "地址Id", required = true, example = "190825CG3AA14Y3C")})
     @PostMapping("/delete")
     public R<Object> delete(@RequestParam String userId, @RequestParam String addressId) {
         if(StringUtils.isBlank(userId)){
@@ -85,9 +84,8 @@ public class AddressController {
     }
 
     @ApiOperation(value = "设置默认地址", notes = "设置默认地址", httpMethod = "POST")
-    @ApiImplicitParams({@ApiImplicitParam(name = "userId", value = "用户id", required = true, example =
-            "1908189H7TNWDTXP"), @ApiImplicitParam(name = "addressId", value = "地址Id", required = true, example =
-            "190825CG3AA14Y3C")})
+    @ApiImplicitParams({@ApiImplicitParam(name = "userId", value = "用户id", required = true, example = "1908189H7TNWDTXP"),
+            @ApiImplicitParam(name = "addressId", value = "地址Id", required = true, example = "190825CG3AA14Y3C")})
     @PostMapping("/setDefault")
     public R<Object> setDefault(@RequestParam String userId, @RequestParam String addressId) {
         if(StringUtils.isBlank(userId)){

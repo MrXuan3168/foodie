@@ -9,10 +9,9 @@ import org.springframework.context.annotation.ComponentScan;
 import tk.mybatis.spring.annotation.MapperScan;
 
 /**
- * 应用模块名称： api启动类<br>
- * MapperScan 扫描mapper所在包<br>
- * ComponentScan 扫描所有包及相关注解包<br>
- *
+ * 应用模块名称： api启动类
+ * MapperScan 扫描mapper所在包
+ * ComponentScan 扫描所有包及相关注解包
  * @author jamie
  * @since 2019/11/12 15:48
  */

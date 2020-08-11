@@ -12,7 +12,6 @@ import springfox.documentation.annotations.ApiIgnore;
 /**
  * 应用模块名称：测试类</br>
  * //@ApiIgnore 忽略该接口,不显示在swagger界面
- *
  * @author jamie
  * @since 2019/11/12 16:13
  */

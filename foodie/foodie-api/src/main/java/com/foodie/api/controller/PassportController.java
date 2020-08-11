@@ -24,7 +24,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 应用模块名称：
- *
  * @author jamie
  * @since 2019/11/19 20:16
  */
@@ -44,11 +43,6 @@ public class PassportController {
     @Autowired
     HttpServletResponse response;
 
-    /**
-     * 判断用户名是否存在
-     *
-     * @param username 用户名
-     */
     @ApiOperation(value = "用户名是否存在", notes = "判断用户名是否存在", httpMethod = "GET")
     @ApiImplicitParam(name = "username", value = "用户名", required = true)
     @GetMapping("/usernameIsExist")
@@ -65,9 +59,6 @@ public class PassportController {
         return R.ok();
     }
 
-    /**
-     * @param bo 用户注册类
-     */
     @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
     @PostMapping("/register")
     public R<UserVO> register(@Validated @RequestBody RegisterUserBO bo) {
@@ -93,12 +84,6 @@ public class PassportController {
         return R.ok(userVO);
     }
 
-    /**
-     * 用户登录
-     *
-     * @param bo 用户登录
-     * @return com.so.utils.ServerResponseResult
-     */
     @ApiOperation(value = "用户登录", notes = "用户登录", httpMethod = "POST")
     @PostMapping("/login")
     public R<UserVO> login(@Validated @RequestBody LoginUserBO bo) throws Exception {

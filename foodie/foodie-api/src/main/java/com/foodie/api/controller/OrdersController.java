@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 应用模块名称：订单</br>
- *
  * @author jamie
  * @since 2019/11/12 16:13
  */
@@ -59,12 +58,6 @@ public class OrdersController extends BaseController {
         return R.ok(orderId);
     }
 
-    /**
-     * 订单回调地址
-     *
-     * @param merchantOrderId
-     * @return java.lang.Integer
-     */
     @PostMapping("notifyMerchantOrderPaid")
     public Integer notifyMerchantOrderPaid(String merchantOrderId) {
         orderService.updateOrderStatus(merchantOrderId, OrderStatusEnum.WAIT_DELIVER.type);
