@@ -2,7 +2,6 @@ package com.foodie.common.enums;
 
 /**
  * 订单状态 枚举
- *
  * @author jamie
  */
 public enum OrderStatusEnum {

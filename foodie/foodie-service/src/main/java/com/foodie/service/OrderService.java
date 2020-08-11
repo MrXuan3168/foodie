@@ -12,15 +12,15 @@ public interface OrderService {
 
     /**
      * 用于创建订单
-     * @param bo
+     * @param bo 订单对象
      * @return void
      */
     OrderVO createOrder(SubmitOrderBO bo);
 
     /**
      * 修改订单状态
-     * @param orderId
-     * @param orderStatus
+     * @param orderId     订单Id
+     * @param orderStatus 订单状态
      * @return void
      */
     void updateOrderStatus(String orderId, Integer orderStatus);

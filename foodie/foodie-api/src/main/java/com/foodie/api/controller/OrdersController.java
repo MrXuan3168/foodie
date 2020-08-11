@@ -58,7 +58,8 @@ public class OrdersController extends BaseController {
         return R.ok(orderId);
     }
 
-    @PostMapping("notifyMerchantOrderPaid")
+    @ApiOperation(value = "通知商户订单已付款", notes = "通知商户订单已付款", httpMethod = "POST")
+    @PostMapping("/notifyMerchantOrderPaid")
     public Integer notifyMerchantOrderPaid(String merchantOrderId) {
         orderService.updateOrderStatus(merchantOrderId, OrderStatusEnum.WAIT_DELIVER.type);
         return HttpStatus.OK.value();

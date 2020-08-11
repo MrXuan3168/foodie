@@ -12,7 +12,6 @@ import com.foodie.pojo.vo.SearchItemsVO;
 import com.foodie.pojo.vo.ShopCartVO;
 import com.foodie.service.ItemService;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -105,7 +104,7 @@ public class ItemServiceImpl implements ItemService {
         List<ItemCommentVO> list = itemsMapperCustom.queryItemComments(map);
         // 姓名脱敏
         list.forEach(vo -> vo.setNickname(DesensitizationUtil.commonDisplay(vo.getNickname())));
-        return setterPagedGrid(list, page);
+        return PageR.build(page, list);
     }
 
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
@@ -116,7 +115,7 @@ public class ItemServiceImpl implements ItemService {
         map.put("sort", sort);
         PageHelper.startPage(page, pageSize);
         List<SearchItemsVO> list = itemsMapperCustom.searchItems(map);
-        return setterPagedGrid(list, page);
+        return PageR.build(page, list);
     }
 
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
@@ -127,7 +126,7 @@ public class ItemServiceImpl implements ItemService {
         map.put("sort", sort);
         PageHelper.startPage(page, pageSize);
         List<SearchItemsVO> list = itemsMapperCustom.searchItemsByThirdCat(map);
-        return setterPagedGrid(list, page);
+        return PageR.build(page, list);
     }
 
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
@@ -176,8 +175,6 @@ public class ItemServiceImpl implements ItemService {
      * @param itemId 商品ID
      * @param level  评价等级
      * @return java.lang.Integer
-     * @author xuanweiyao
-     * @date 2019/11/30 21:36
      */
     Integer getCommentCounts(String itemId, Integer level) {
         ItemsComments comments = new ItemsComments();
@@ -187,16 +184,6 @@ public class ItemServiceImpl implements ItemService {
         }
         return itemsCommentsMapper.selectCount(comments);
 
-    }
-
-    private PageR setterPagedGrid(List<?> list, Integer page) {
-        PageInfo<?> pageList = new PageInfo<>(list);
-        PageR grid = new PageR();
-        grid.setPage(page);
-        grid.setRows(list);
-        grid.setTotal(pageList.getPages());
-        grid.setRecords(pageList.getTotal());
-        return grid;
     }
 
 }

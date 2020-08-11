@@ -1,5 +1,6 @@
 package com.foodie.common.utils;
 
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -29,5 +30,18 @@ public class PageR<T> {
     /** 每行显示的内容 */
     @ApiModelProperty(value = "每行显示的内容", required = true)
     private List<T> rows;
+
+    /** 构造方法 */
+    private PageR(Integer page, List<T> rows) {
+        PageInfo<?> pageList = new PageInfo<>(rows);
+        this.page = page;
+        this.total = pageList.getPages();
+        this.records = pageList.getTotal();
+        this.rows = rows;
+    }
+
+    public static <T> PageR<T> build(Integer page, List<T> rows) {
+        return new PageR<>(page, rows);
+    }
 
 }

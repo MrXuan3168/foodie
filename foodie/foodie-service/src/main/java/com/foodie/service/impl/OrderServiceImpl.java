@@ -82,7 +82,7 @@ public class OrderServiceImpl implements OrderService {
         String[] itemSpecIdArr = itemSpecIds.split(",");
         // 商品原价累计
         int totalAmount = 0;
-        // 优化后的时机支付价格累计
+        // 优惠后的实际支付价格累计
         int realPayAmount = 0;
         for(String itemSpecId: itemSpecIdArr){
             // 2.1 根据规格id，查询规格的具体信息，主要获取价格
@@ -143,7 +143,6 @@ public class OrderServiceImpl implements OrderService {
         paidStatus.setOrderStatus(orderStatus);
         paidStatus.setPayTime(new Date());
         orderStatusMapper.updateByPrimaryKeySelective(paidStatus);
-
     }
 
 }

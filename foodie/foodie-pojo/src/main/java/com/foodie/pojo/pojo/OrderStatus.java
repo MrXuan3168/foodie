@@ -59,7 +59,6 @@ public class OrderStatus {
 
     /**
      * 获取订单ID 对应订单表的主键id
-     *
      * @return order_id - 订单ID 对应订单表的主键id
      */
     public String getOrderId() {
@@ -68,7 +67,6 @@ public class OrderStatus {
 
     /**
      * 设置订单ID 对应订单表的主键id
-     *
      * @param orderId 订单ID 对应订单表的主键id
      */
     public void setOrderId(String orderId) {
@@ -77,7 +75,6 @@ public class OrderStatus {
 
     /**
      * 获取订单状态
-     *
      * @return order_status - 订单状态
      */
     public Integer getOrderStatus() {
@@ -86,7 +83,6 @@ public class OrderStatus {
 
     /**
      * 设置订单状态
-     *
      * @param orderStatus 订单状态
      */
     public void setOrderStatus(Integer orderStatus) {
@@ -95,7 +91,6 @@ public class OrderStatus {
 
     /**
      * 获取订单创建时间 对应[10:待付款]状态
-     *
      * @return created_time - 订单创建时间 对应[10:待付款]状态
      */
     public Date getCreatedTime() {
@@ -104,7 +99,6 @@ public class OrderStatus {
 
     /**
      * 设置订单创建时间 对应[10:待付款]状态
-     *
      * @param createdTime 订单创建时间 对应[10:待付款]状态
      */
     public void setCreatedTime(Date createdTime) {
@@ -113,7 +107,6 @@ public class OrderStatus {
 
     /**
      * 获取支付成功时间 对应[20:已付款，待发货]状态
-     *
      * @return pay_time - 支付成功时间 对应[20:已付款，待发货]状态
      */
     public Date getPayTime() {
@@ -122,7 +115,6 @@ public class OrderStatus {
 
     /**
      * 设置支付成功时间 对应[20:已付款，待发货]状态
-     *
      * @param payTime 支付成功时间 对应[20:已付款，待发货]状态
      */
     public void setPayTime(Date payTime) {
@@ -131,7 +123,6 @@ public class OrderStatus {
 
     /**
      * 获取发货时间 对应[30：已发货，待收货]状态
-     *
      * @return deliver_time - 发货时间 对应[30：已发货，待收货]状态
      */
     public Date getDeliverTime() {
@@ -140,7 +131,6 @@ public class OrderStatus {
 
     /**
      * 设置发货时间 对应[30：已发货，待收货]状态
-     *
      * @param deliverTime 发货时间 对应[30：已发货，待收货]状态
      */
     public void setDeliverTime(Date deliverTime) {
@@ -149,7 +139,6 @@ public class OrderStatus {
 
     /**
      * 获取交易成功时间 对应[40：交易成功]状态
-     *
      * @return success_time - 交易成功时间 对应[40：交易成功]状态
      */
     public Date getSuccessTime() {
@@ -158,7 +147,6 @@ public class OrderStatus {
 
     /**
      * 设置交易成功时间 对应[40：交易成功]状态
-     *
      * @param successTime 交易成功时间 对应[40：交易成功]状态
      */
     public void setSuccessTime(Date successTime) {
@@ -167,7 +155,6 @@ public class OrderStatus {
 
     /**
      * 获取交易关闭时间 对应[50：交易关闭]状态
-     *
      * @return close_time - 交易关闭时间 对应[50：交易关闭]状态
      */
     public Date getCloseTime() {
@@ -176,7 +163,6 @@ public class OrderStatus {
 
     /**
      * 设置交易关闭时间 对应[50：交易关闭]状态
-     *
      * @param closeTime 交易关闭时间 对应[50：交易关闭]状态
      */
     public void setCloseTime(Date closeTime) {
@@ -185,7 +171,6 @@ public class OrderStatus {
 
     /**
      * 获取留言时间 用户在交易成功后的留言时间
-     *
      * @return comment_time - 留言时间 用户在交易成功后的留言时间
      */
     public Date getCommentTime() {
@@ -194,7 +179,6 @@ public class OrderStatus {
 
     /**
      * 设置留言时间 用户在交易成功后的留言时间
-     *
      * @param commentTime 留言时间 用户在交易成功后的留言时间
      */
     public void setCommentTime(Date commentTime) {

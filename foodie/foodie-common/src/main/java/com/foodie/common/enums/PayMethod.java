@@ -2,7 +2,6 @@ package com.foodie.common.enums;
 
 /**
  * 支付方式 枚举
- *
  * @author jamie
  */
 public enum PayMethod {
