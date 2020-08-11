@@ -12,9 +12,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 应用模块名称：商品业务层实现类
@@ -59,9 +57,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
     public List<NewItemsVO> getSixNewItemsLazy(Integer rootCatId) {
-        Map<String, Object> map = new HashMap<>(1);
-        map.put("rootCatId", rootCatId);
-        return categoryMapperCustom.getSixNewItemsLazy(map);
+        return categoryMapperCustom.getSixNewItemsLazy(rootCatId);
     }
 
 }

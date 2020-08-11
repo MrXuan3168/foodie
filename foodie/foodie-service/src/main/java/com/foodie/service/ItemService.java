@@ -1,11 +1,13 @@
 package com.foodie.service;
 
-import com.foodie.common.utils.PagedGridResult;
+import com.foodie.common.utils.PageR;
 import com.foodie.pojo.pojo.Items;
 import com.foodie.pojo.pojo.ItemsImg;
 import com.foodie.pojo.pojo.ItemsParam;
 import com.foodie.pojo.pojo.ItemsSpec;
 import com.foodie.pojo.vo.CommentLevelCountsVO;
+import com.foodie.pojo.vo.ItemCommentVO;
+import com.foodie.pojo.vo.SearchItemsVO;
 import com.foodie.pojo.vo.ShopCartVO;
 
 import java.util.List;
@@ -60,7 +62,7 @@ public interface ItemService {
      * @param pageSize
      * @return java.util.List<com.so.vo.ItemCommentVO>
      */
-    PagedGridResult queryPagedComments(String itemId, Integer level, Integer page, Integer pageSize);
+    PageR<ItemCommentVO> queryPagedComments(String itemId, Integer level, Integer page, Integer pageSize);
 
     /**
      * 搜索商品列表
@@ -70,7 +72,7 @@ public interface ItemService {
      * @param pageSize
      * @return com.so.utils.PagedGridResult
      */
-    PagedGridResult searchItems(String keywords, String sort, Integer page, Integer pageSize);
+    PageR<SearchItemsVO> searchItems(String keywords, String sort, Integer page, Integer pageSize);
 
     /**
      * 根据三级分类搜索商品列表
@@ -80,7 +82,7 @@ public interface ItemService {
      * @param pageSize
      * @return com.so.utils.PagedGridResult
      */
-    PagedGridResult searchItemsByThirdCat(Integer catId, String sort, Integer page, Integer pageSize);
+    PageR<SearchItemsVO> searchItemsByThirdCat(Integer catId, String sort, Integer page, Integer pageSize);
 
     /**
      * 根据规格IDS查询最新的购物车中商品数据(用于刷新渲染购物车中的商品数据)

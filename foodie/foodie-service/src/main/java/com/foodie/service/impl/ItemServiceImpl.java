@@ -3,7 +3,7 @@ package com.foodie.service.impl;
 import com.foodie.common.enums.CommentLevel;
 import com.foodie.common.enums.YesOrNo;
 import com.foodie.common.utils.DesensitizationUtil;
-import com.foodie.common.utils.PagedGridResult;
+import com.foodie.common.utils.PageR;
 import com.foodie.mapper.*;
 import com.foodie.pojo.pojo.*;
 import com.foodie.pojo.vo.CommentLevelCountsVO;
@@ -97,19 +97,20 @@ public class ItemServiceImpl implements ItemService {
 
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
     @Override
-    public PagedGridResult queryPagedComments(String itemId, Integer level, Integer page, Integer pageSize) {
+    public PageR<ItemCommentVO> queryPagedComments(String itemId, Integer level, Integer page, Integer pageSize) {
         Map<String, Object> map = new HashMap<>(2);
         map.put("itemId", itemId);
         map.put("level", level);
         PageHelper.startPage(page, pageSize);
         List<ItemCommentVO> list = itemsMapperCustom.queryItemComments(map);
+        // 姓名脱敏
         list.forEach(vo -> vo.setNickname(DesensitizationUtil.commonDisplay(vo.getNickname())));
         return setterPagedGrid(list, page);
     }
 
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
     @Override
-    public PagedGridResult searchItems(String keywords, String sort, Integer page, Integer pageSize) {
+    public PageR<SearchItemsVO> searchItems(String keywords, String sort, Integer page, Integer pageSize) {
         Map<String, Object> map = new HashMap<>(2);
         map.put("keywords", keywords);
         map.put("sort", sort);
@@ -120,7 +121,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
     @Override
-    public PagedGridResult searchItemsByThirdCat(Integer catId, String sort, Integer page, Integer pageSize) {
+    public PageR<SearchItemsVO> searchItemsByThirdCat(Integer catId, String sort, Integer page, Integer pageSize) {
         Map<String, Object> map = new HashMap<>(2);
         map.put("catId", catId);
         map.put("sort", sort);
@@ -188,9 +189,9 @@ public class ItemServiceImpl implements ItemService {
 
     }
 
-    private PagedGridResult setterPagedGrid(List<?> list, Integer page) {
+    private PageR setterPagedGrid(List<?> list, Integer page) {
         PageInfo<?> pageList = new PageInfo<>(list);
-        PagedGridResult grid = new PagedGridResult();
+        PageR grid = new PageR();
         grid.setPage(page);
         grid.setRows(list);
         grid.setTotal(pageList.getPages());

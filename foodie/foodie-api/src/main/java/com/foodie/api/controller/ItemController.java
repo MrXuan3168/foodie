@@ -1,14 +1,12 @@
 package com.foodie.api.controller;
 
-import com.foodie.common.utils.PagedGridResult;
+import com.foodie.common.utils.PageR;
 import com.foodie.common.utils.R;
 import com.foodie.pojo.pojo.Items;
 import com.foodie.pojo.pojo.ItemsImg;
 import com.foodie.pojo.pojo.ItemsParam;
 import com.foodie.pojo.pojo.ItemsSpec;
-import com.foodie.pojo.vo.CommentLevelCountsVO;
-import com.foodie.pojo.vo.ItemInfoVO;
-import com.foodie.pojo.vo.ShopCartVO;
+import com.foodie.pojo.vo.*;
 import com.foodie.service.ItemService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -70,14 +68,14 @@ public class ItemController extends BaseController {
             @ApiImplicitParam(name = "level", value = "评价等级", example = "0"), @ApiImplicitParam(name = "page", value
             = "页码", defaultValue = "1"), @ApiImplicitParam(name = "pageSize", value = "页数", defaultValue = "20")})
     @GetMapping("/comments")
-    public R<PagedGridResult> queryPagedComments(@RequestParam String itemId, @RequestParam Integer level,
-                                                 @RequestParam(defaultValue = "1") Integer page,
-                                                 @RequestParam(defaultValue = "20") Integer pageSize) {
+    public R<PageR<ItemCommentVO>> queryPagedComments(@RequestParam String itemId, @RequestParam Integer level,
+                                                      @RequestParam(defaultValue = "1") Integer page,
+                                                      @RequestParam(defaultValue = "20") Integer pageSize) {
         if(StringUtils.isBlank(itemId)){
             return R.errorMsg("商品ID不能为空");
         }
-        PagedGridResult pagedGridResult = itemService.queryPagedComments(itemId, level, page, pageSize);
-        return R.ok(pagedGridResult);
+        PageR<ItemCommentVO> pageR = itemService.queryPagedComments(itemId, level, page, pageSize);
+        return R.ok(pageR);
     }
 
     @ApiOperation(value = "搜索商品列表", notes = "搜索商品列表", httpMethod = "GET")
@@ -85,14 +83,14 @@ public class ItemController extends BaseController {
             @ApiImplicitParam(name = "sort", value = "排序", example = "c"), @ApiImplicitParam(name = "page", value =
             "页码", defaultValue = "1"), @ApiImplicitParam(name = "pageSize", value = "页数", defaultValue = "10")})
     @GetMapping("/search")
-    public R<PagedGridResult> searchItems(@RequestParam String keywords, @RequestParam String sort,
-                                          @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue
-            = "10") Integer pageSize) {
+    public R<PageR<SearchItemsVO>> searchItems(@RequestParam String keywords, @RequestParam String sort,
+                                               @RequestParam(defaultValue = "1") Integer page,
+                                               @RequestParam(defaultValue = "10") Integer pageSize) {
         if(StringUtils.isBlank(keywords)){
             return R.errorMsg("搜索关键字不能为空");
         }
-        PagedGridResult pagedGridResult = itemService.searchItems(keywords, sort, page, pageSize);
-        return R.ok(pagedGridResult);
+        PageR<SearchItemsVO> pageR = itemService.searchItems(keywords, sort, page, pageSize);
+        return R.ok(pageR);
     }
 
     @ApiOperation(value = "通过分类ID搜索商品列表", notes = "通过分类ID搜索商品列表", httpMethod = "GET")
@@ -100,14 +98,14 @@ public class ItemController extends BaseController {
             @ApiImplicitParam(name = "sort", value = "排序", example = "c"), @ApiImplicitParam(name = "page", value =
             "页码", defaultValue = "1"), @ApiImplicitParam(name = "pageSize", value = "页数", defaultValue = "20")})
     @GetMapping("/catItems")
-    public R<PagedGridResult> catItems(@RequestParam Integer catId, @RequestParam String sort,
-                                       @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue =
-            "20") Integer pageSize) {
+    public R<PageR<SearchItemsVO>> catItems(@RequestParam Integer catId, @RequestParam String sort,
+                                            @RequestParam(defaultValue = "1") Integer page,
+                                            @RequestParam(defaultValue = "20") Integer pageSize) {
         if(catId == null){
             return R.errorMsg("三级分类Id不能为空");
         }
-        PagedGridResult pagedGridResult = itemService.searchItemsByThirdCat(catId, sort, page, pageSize);
-        return R.ok(pagedGridResult);
+        PageR<SearchItemsVO> pageR = itemService.searchItemsByThirdCat(catId, sort, page, pageSize);
+        return R.ok(pageR);
     }
 
     @ApiOperation(value = "根据商品ids查询最新的商品数据", notes = "用于用户长时间未登录用户，刷新购物车中的数据（主要是商品价格）", httpMethod = "GET")

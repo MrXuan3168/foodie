@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  */
 @RestControllerAdvice
 @Slf4j
-@Order(-1)
+@Order(1)
 public class BizExceptionHandler {
 
     /**
