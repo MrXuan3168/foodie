@@ -1,5 +1,6 @@
 package com.foodie.api.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.foodie.common.enums.OrderStatusEnum;
 import com.foodie.common.enums.PayMethod;
 import com.foodie.common.utils.CookieUtils;
@@ -12,8 +13,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,6 +34,9 @@ public class OrdersController extends BaseController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     @Autowired
     private HttpServletRequest request;
@@ -55,7 +60,25 @@ public class OrdersController extends BaseController {
         // 3.向支付中心发送当前订单，用于保存支付中心的订单数据
         MerchantOrdersVO merchantOrdersVO = order.getMerchantOrdersVO();
         merchantOrdersVO.setReturnUrl(payReturnUrl);
+
+        // 为了方便测试购买，所以所有的支付金额都统一改为1分钱
+        merchantOrdersVO.setAmount(1);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.add("imoocUserId", "imooc");
+        headers.add("password", "imooc");
+        HttpEntity<MerchantOrdersVO> entity = new HttpEntity<>(merchantOrdersVO, headers);
+
+        ResponseEntity<JSONObject> responseEntity = restTemplate.postForEntity(paymentUrl, entity, JSONObject.class);
+        JSONObject paymentResult = responseEntity.getBody();
+        assert paymentResult != null;
+        if(Integer.parseInt(paymentResult.get("status").toString()) != 200){
+            log.error("发送错误：{}", paymentResult.get("msg").toString());
+            return R.errorMsg("支付中心订单创建失败，请联系管理员！");
+        }
         return R.ok(orderId);
+
     }
 
     @ApiOperation(value = "通知商户订单已付款", notes = "通知商户订单已付款", httpMethod = "POST")
