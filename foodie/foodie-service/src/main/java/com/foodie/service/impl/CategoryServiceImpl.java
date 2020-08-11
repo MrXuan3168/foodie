@@ -18,14 +18,15 @@ import java.util.Map;
 
 /**
  * 应用模块名称：商品业务层实现类
- * 
  * @author jamie
  * @since 2019/11/27 12:40
  */
 @Service
 public class CategoryServiceImpl implements CategoryService {
+
     @Autowired
     private CategoryMapper categoryMapper;
+
     @Autowired
     private CategoryMapperCustom categoryMapperCustom;
 
@@ -43,7 +44,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 根据一级分类ID查询子分类信息
-     * 
      * @param rootCatId 一级分类ID
      */
     @Override
@@ -54,7 +54,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 根据一级分类ID获取最新6个商品
-     *
      * @param rootCatId 一级分类ID
      */
     @Override
@@ -64,4 +63,5 @@ public class CategoryServiceImpl implements CategoryService {
         map.put("rootCatId", rootCatId);
         return categoryMapperCustom.getSixNewItemsLazy(map);
     }
+
 }

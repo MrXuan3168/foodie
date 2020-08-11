@@ -1,26 +1,24 @@
 package com.foodie.service.impl;
 
-import java.util.List;
-
+import com.foodie.mapper.CarouselMapper;
 import com.foodie.pojo.pojo.Carousel;
+import com.foodie.service.CarouselService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.foodie.mapper.CarouselMapper;
-import com.foodie.service.CarouselService;
-
 import tk.mybatis.mapper.entity.Example;
+
+import java.util.List;
 
 /**
  * 应用模块名称：商品业务层实现类
- * 
  * @author jamie
  * @since 2019/11/27 12:40
  */
 @Service
 public class CarouselServiceImpl implements CarouselService {
+
     @Autowired
     private CarouselMapper carouselMapper;
 
@@ -34,4 +32,5 @@ public class CarouselServiceImpl implements CarouselService {
         criteria.andEqualTo("isShow", isShow);
         return carouselMapper.selectByExample(example);
     }
+
 }
