@@ -1,5 +1,9 @@
 package com.foodie.api.controller;
 
+import com.foodie.common.utils.R;
+import com.foodie.pojo.pojo.Orders;
+import com.foodie.service.center.MyOrdersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -10,9 +14,12 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class BaseController {
 
+    @Autowired
+    private MyOrdersService myOrdersService;
+
     public static final String FOODIE_SHOP_CART = "shopcart";
 
-    public static final Integer COMMENT_PAGE_SIZE = 10;
+    public static final Integer COMMON_PAGE_SIZE = 10;
 
     public static final Integer PAGE_SIZE = 20;
 
@@ -29,5 +36,17 @@ public class BaseController {
      * ↓回调通知的url
      */
     String payReturnUrl = "http://bwpe6u.natappfree.cc" + "/orders/notifyMerchantOrderPaid";
+
+    /**
+     * 用于验证用户和订单是否有关联关系，避免非法用户调用
+     * @return
+     */
+    public R<Orders> checkUserOrder(String userId, String orderId) {
+        Orders order = myOrdersService.queryMyOrder(userId, orderId);
+        if(order == null){
+            return R.errorMsg("订单不存在！");
+        }
+        return R.ok(order);
+    }
 
 }
