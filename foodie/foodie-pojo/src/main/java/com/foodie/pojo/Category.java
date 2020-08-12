@@ -1,4 +1,4 @@
-package com.foodie.pojo.pojo;
+package com.foodie.pojo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -9,7 +9,6 @@ import javax.persistence.Id;
 
 /**
  * 分类
- *
  * @author jamie
  */
 @ApiModel(value = "分类对象", description = "从数据库返回的对象")

@@ -1,4 +1,4 @@
-package com.foodie.pojo.pojo;
+package com.foodie.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
@@ -11,7 +11,6 @@ import java.util.Date;
 
 /**
  * 数据库轮播图对象
- *
  * @author jamie
  */
 @ApiModel(value = "数据库轮播图对象", description = "从数据库返回的对象")
@@ -29,8 +28,9 @@ public class Carousel {
      * 图片 图片地址
      */
     @Column(name = "image_url")
-    @ApiModelProperty(value = "图片地址", name = "imageUrl", example = "http://122.152.205" + ".72:88/group1/M00/00/05" +
-            "/CpoxxF0ZmHiAWwR7AAFdqZHw8jU876.png", required = true)
+    @ApiModelProperty(value = "图片地址", name = "imageUrl", example = "http://122.152.205"
+            + ".72:88/group1/M00/00/05"
+            + "/CpoxxF0ZmHiAWwR7AAFdqZHw8jU876.png", required = true)
     private String imageUrl;
 
     /**

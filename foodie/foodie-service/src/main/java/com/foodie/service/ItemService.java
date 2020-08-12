@@ -1,10 +1,10 @@
 package com.foodie.service;
 
 import com.foodie.common.utils.PageR;
-import com.foodie.pojo.pojo.Items;
-import com.foodie.pojo.pojo.ItemsImg;
-import com.foodie.pojo.pojo.ItemsParam;
-import com.foodie.pojo.pojo.ItemsSpec;
+import com.foodie.pojo.Items;
+import com.foodie.pojo.ItemsImg;
+import com.foodie.pojo.ItemsParam;
+import com.foodie.pojo.ItemsSpec;
 import com.foodie.pojo.vo.CommentLevelCountsVO;
 import com.foodie.pojo.vo.ItemCommentVO;
 import com.foodie.pojo.vo.SearchItemsVO;

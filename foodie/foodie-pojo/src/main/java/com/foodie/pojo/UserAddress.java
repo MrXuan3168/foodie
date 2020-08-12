@@ -1,4 +1,4 @@
-package com.foodie.pojo.pojo;
+package com.foodie.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -75,7 +75,6 @@ public class UserAddress {
 
     /**
      * 获取地址主键id
-     *
      * @return id - 地址主键id
      */
     public String getId() {
@@ -84,7 +83,6 @@ public class UserAddress {
 
     /**
      * 设置地址主键id
-     *
      * @param id 地址主键id
      */
     public void setId(String id) {
@@ -93,7 +91,6 @@ public class UserAddress {
 
     /**
      * 获取关联用户id
-     *
      * @return user_id - 关联用户id
      */
     public String getUserId() {
@@ -102,7 +99,6 @@ public class UserAddress {
 
     /**
      * 设置关联用户id
-     *
      * @param userId 关联用户id
      */
     public void setUserId(String userId) {
@@ -111,7 +107,6 @@ public class UserAddress {
 
     /**
      * 获取收件人姓名
-     *
      * @return receiver - 收件人姓名
      */
     public String getReceiver() {
@@ -120,7 +115,6 @@ public class UserAddress {
 
     /**
      * 设置收件人姓名
-     *
      * @param receiver 收件人姓名
      */
     public void setReceiver(String receiver) {
@@ -129,7 +123,6 @@ public class UserAddress {
 
     /**
      * 获取收件人手机号
-     *
      * @return mobile - 收件人手机号
      */
     public String getMobile() {
@@ -138,7 +131,6 @@ public class UserAddress {
 
     /**
      * 设置收件人手机号
-     *
      * @param mobile 收件人手机号
      */
     public void setMobile(String mobile) {
@@ -147,7 +139,6 @@ public class UserAddress {
 
     /**
      * 获取省份
-     *
      * @return province - 省份
      */
     public String getProvince() {
@@ -156,7 +147,6 @@ public class UserAddress {
 
     /**
      * 设置省份
-     *
      * @param province 省份
      */
     public void setProvince(String province) {
@@ -165,7 +155,6 @@ public class UserAddress {
 
     /**
      * 获取城市
-     *
      * @return city - 城市
      */
     public String getCity() {
@@ -174,7 +163,6 @@ public class UserAddress {
 
     /**
      * 设置城市
-     *
      * @param city 城市
      */
     public void setCity(String city) {
@@ -183,7 +171,6 @@ public class UserAddress {
 
     /**
      * 获取区县
-     *
      * @return district - 区县
      */
     public String getDistrict() {
@@ -192,7 +179,6 @@ public class UserAddress {
 
     /**
      * 设置区县
-     *
      * @param district 区县
      */
     public void setDistrict(String district) {
@@ -201,7 +187,6 @@ public class UserAddress {
 
     /**
      * 获取详细地址
-     *
      * @return detail - 详细地址
      */
     public String getDetail() {
@@ -210,7 +195,6 @@ public class UserAddress {
 
     /**
      * 设置详细地址
-     *
      * @param detail 详细地址
      */
     public void setDetail(String detail) {
@@ -219,7 +203,6 @@ public class UserAddress {
 
     /**
      * 获取扩展字段
-     *
      * @return extand - 扩展字段
      */
     public String getExtand() {
@@ -228,7 +211,6 @@ public class UserAddress {
 
     /**
      * 设置扩展字段
-     *
      * @param extand 扩展字段
      */
     public void setExtand(String extand) {
@@ -237,7 +219,6 @@ public class UserAddress {
 
     /**
      * 获取是否默认地址 1:是  0:否
-     *
      * @return is_default - 是否默认地址 1:是  0:否
      */
     public Integer getIsDefault() {
@@ -246,7 +227,6 @@ public class UserAddress {
 
     /**
      * 设置是否默认地址 1:是  0:否
-     *
      * @param isDefault 是否默认地址 1:是  0:否
      */
     public void setIsDefault(Integer isDefault) {
@@ -255,7 +235,6 @@ public class UserAddress {
 
     /**
      * 获取创建时间
-     *
      * @return created_time - 创建时间
      */
     public Date getCreatedTime() {
@@ -264,7 +243,6 @@ public class UserAddress {
 
     /**
      * 设置创建时间
-     *
      * @param createdTime 创建时间
      */
     public void setCreatedTime(Date createdTime) {
@@ -273,7 +251,6 @@ public class UserAddress {
 
     /**
      * 获取更新时间
-     *
      * @return updated_time - 更新时间
      */
     public Date getUpdatedTime() {
@@ -282,7 +259,6 @@ public class UserAddress {
 
     /**
      * 设置更新时间
-     *
      * @param updatedTime 更新时间
      */
     public void setUpdatedTime(Date updatedTime) {

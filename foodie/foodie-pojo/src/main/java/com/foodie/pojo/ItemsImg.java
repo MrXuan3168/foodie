@@ -1,4 +1,4 @@
-package com.foodie.pojo.pojo;
+package com.foodie.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -50,7 +50,6 @@ public class ItemsImg {
 
     /**
      * 获取图片主键
-     *
      * @return id - 图片主键
      */
     public String getId() {
@@ -59,7 +58,6 @@ public class ItemsImg {
 
     /**
      * 设置图片主键
-     *
      * @param id 图片主键
      */
     public void setId(String id) {
@@ -68,7 +66,6 @@ public class ItemsImg {
 
     /**
      * 获取商品外键id 商品外键id
-     *
      * @return item_id - 商品外键id 商品外键id
      */
     public String getItemId() {
@@ -77,7 +74,6 @@ public class ItemsImg {
 
     /**
      * 设置商品外键id 商品外键id
-     *
      * @param itemId 商品外键id 商品外键id
      */
     public void setItemId(String itemId) {
@@ -86,7 +82,6 @@ public class ItemsImg {
 
     /**
      * 获取图片地址 图片地址
-     *
      * @return url - 图片地址 图片地址
      */
     public String getUrl() {
@@ -95,7 +90,6 @@ public class ItemsImg {
 
     /**
      * 设置图片地址 图片地址
-     *
      * @param url 图片地址 图片地址
      */
     public void setUrl(String url) {
@@ -104,7 +98,6 @@ public class ItemsImg {
 
     /**
      * 获取顺序 图片顺序，从小到大
-     *
      * @return sort - 顺序 图片顺序，从小到大
      */
     public Integer getSort() {
@@ -113,7 +106,6 @@ public class ItemsImg {
 
     /**
      * 设置顺序 图片顺序，从小到大
-     *
      * @param sort 顺序 图片顺序，从小到大
      */
     public void setSort(Integer sort) {
@@ -122,7 +114,6 @@ public class ItemsImg {
 
     /**
      * 获取是否主图 是否主图，1：是，0：否
-     *
      * @return is_main - 是否主图 是否主图，1：是，0：否
      */
     public Integer getIsMain() {
@@ -131,7 +122,6 @@ public class ItemsImg {
 
     /**
      * 设置是否主图 是否主图，1：是，0：否
-     *
      * @param isMain 是否主图 是否主图，1：是，0：否
      */
     public void setIsMain(Integer isMain) {
@@ -140,7 +130,6 @@ public class ItemsImg {
 
     /**
      * 获取创建时间
-     *
      * @return created_time - 创建时间
      */
     public Date getCreatedTime() {
@@ -149,7 +138,6 @@ public class ItemsImg {
 
     /**
      * 设置创建时间
-     *
      * @param createdTime 创建时间
      */
     public void setCreatedTime(Date createdTime) {
@@ -158,7 +146,6 @@ public class ItemsImg {
 
     /**
      * 获取更新时间
-     *
      * @return updated_time - 更新时间
      */
     public Date getUpdatedTime() {
@@ -167,7 +154,6 @@ public class ItemsImg {
 
     /**
      * 设置更新时间
-     *
      * @param updatedTime 更新时间
      */
     public void setUpdatedTime(Date updatedTime) {

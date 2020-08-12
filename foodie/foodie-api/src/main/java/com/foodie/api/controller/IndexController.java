@@ -2,8 +2,8 @@ package com.foodie.api.controller;
 
 import com.foodie.common.enums.YesOrNo;
 import com.foodie.common.utils.R;
-import com.foodie.pojo.pojo.Carousel;
-import com.foodie.pojo.pojo.Category;
+import com.foodie.pojo.Carousel;
+import com.foodie.pojo.Category;
 import com.foodie.pojo.vo.CategoryVO;
 import com.foodie.pojo.vo.NewItemsVO;
 import com.foodie.service.CarouselService;

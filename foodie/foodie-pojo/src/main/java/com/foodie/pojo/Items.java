@@ -1,4 +1,4 @@
-package com.foodie.pojo.pojo;
+package com.foodie.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -61,7 +61,6 @@ public class Items {
 
     /**
      * 获取商品主键id
-     *
      * @return id - 商品主键id
      */
     public String getId() {
@@ -70,7 +69,6 @@ public class Items {
 
     /**
      * 设置商品主键id
-     *
      * @param id 商品主键id
      */
     public void setId(String id) {
@@ -79,7 +77,6 @@ public class Items {
 
     /**
      * 获取商品名称 商品名称
-     *
      * @return item_name - 商品名称 商品名称
      */
     public String getItemName() {
@@ -88,7 +85,6 @@ public class Items {
 
     /**
      * 设置商品名称 商品名称
-     *
      * @param itemName 商品名称 商品名称
      */
     public void setItemName(String itemName) {
@@ -97,7 +93,6 @@ public class Items {
 
     /**
      * 获取分类外键id 分类id
-     *
      * @return cat_id - 分类外键id 分类id
      */
     public Integer getCatId() {
@@ -106,7 +101,6 @@ public class Items {
 
     /**
      * 设置分类外键id 分类id
-     *
      * @param catId 分类外键id 分类id
      */
     public void setCatId(Integer catId) {
@@ -115,7 +109,6 @@ public class Items {
 
     /**
      * 获取一级分类外键id 一级分类id，用于优化查询
-     *
      * @return root_cat_id - 一级分类外键id 一级分类id，用于优化查询
      */
     public Integer getRootCatId() {
@@ -124,7 +117,6 @@ public class Items {
 
     /**
      * 设置一级分类外键id 一级分类id，用于优化查询
-     *
      * @param rootCatId 一级分类外键id 一级分类id，用于优化查询
      */
     public void setRootCatId(Integer rootCatId) {
@@ -133,7 +125,6 @@ public class Items {
 
     /**
      * 获取累计销售 累计销售
-     *
      * @return sell_counts - 累计销售 累计销售
      */
     public Integer getSellCounts() {
@@ -142,7 +133,6 @@ public class Items {
 
     /**
      * 设置累计销售 累计销售
-     *
      * @param sellCounts 累计销售 累计销售
      */
     public void setSellCounts(Integer sellCounts) {
@@ -151,7 +141,6 @@ public class Items {
 
     /**
      * 获取上下架状态 上下架状态,1:上架 2:下架
-     *
      * @return on_off_status - 上下架状态 上下架状态,1:上架 2:下架
      */
     public Integer getOnOffStatus() {
@@ -160,7 +149,6 @@ public class Items {
 
     /**
      * 设置上下架状态 上下架状态,1:上架 2:下架
-     *
      * @param onOffStatus 上下架状态 上下架状态,1:上架 2:下架
      */
     public void setOnOffStatus(Integer onOffStatus) {
@@ -169,7 +157,6 @@ public class Items {
 
     /**
      * 获取创建时间
-     *
      * @return created_time - 创建时间
      */
     public Date getCreatedTime() {
@@ -178,7 +165,6 @@ public class Items {
 
     /**
      * 设置创建时间
-     *
      * @param createdTime 创建时间
      */
     public void setCreatedTime(Date createdTime) {
@@ -187,7 +173,6 @@ public class Items {
 
     /**
      * 获取更新时间
-     *
      * @return updated_time - 更新时间
      */
     public Date getUpdatedTime() {
@@ -196,7 +181,6 @@ public class Items {
 
     /**
      * 设置更新时间
-     *
      * @param updatedTime 更新时间
      */
     public void setUpdatedTime(Date updatedTime) {
@@ -205,7 +189,6 @@ public class Items {
 
     /**
      * 获取商品内容 商品内容
-     *
      * @return content - 商品内容 商品内容
      */
     public String getContent() {
@@ -214,7 +197,6 @@ public class Items {
 
     /**
      * 设置商品内容 商品内容
-     *
      * @param content 商品内容 商品内容
      */
     public void setContent(String content) {

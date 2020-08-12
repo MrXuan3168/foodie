@@ -1,8 +1,8 @@
 package com.foodie.service.center;
 
 import com.foodie.common.utils.PageR;
+import com.foodie.pojo.OrderItems;
 import com.foodie.pojo.bo.center.OrderItemsCommentBO;
-import com.foodie.pojo.pojo.OrderItems;
 import com.foodie.pojo.vo.MyCommentVO;
 
 import java.util.List;

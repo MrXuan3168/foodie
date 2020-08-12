@@ -2,8 +2,8 @@ package com.foodie.service.impl;
 
 import com.foodie.common.enums.YesOrNo;
 import com.foodie.mapper.UserAddressMapper;
+import com.foodie.pojo.UserAddress;
 import com.foodie.pojo.bo.AddressBO;
-import com.foodie.pojo.pojo.UserAddress;
 import com.foodie.service.AddressService;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.BeanUtils;

@@ -1,4 +1,4 @@
-package com.foodie.pojo.pojo;
+package com.foodie.pojo;
 
 import lombok.Data;
 
@@ -8,7 +8,6 @@ import java.util.Date;
 
 /**
  * 用户表
- *
  * @author jamie
  */
 @Data

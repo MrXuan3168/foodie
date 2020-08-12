@@ -1,8 +1,8 @@
 package com.foodie.service.center;
 
 import com.foodie.common.utils.PageR;
-import com.foodie.pojo.pojo.OrderStatus;
-import com.foodie.pojo.pojo.Orders;
+import com.foodie.pojo.OrderStatus;
+import com.foodie.pojo.Orders;
 import com.foodie.pojo.vo.MyOrdersVO;
 import com.foodie.pojo.vo.OrderStatusCountsVO;
 

@@ -1,7 +1,7 @@
 package com.foodie.service;
 
+import com.foodie.pojo.UserAddress;
 import com.foodie.pojo.bo.AddressBO;
-import com.foodie.pojo.pojo.UserAddress;
 
 import java.util.List;
 

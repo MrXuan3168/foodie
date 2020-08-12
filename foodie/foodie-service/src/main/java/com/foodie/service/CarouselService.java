@@ -1,6 +1,6 @@
 package com.foodie.service;
 
-import com.foodie.pojo.pojo.Carousel;
+import com.foodie.pojo.Carousel;
 
 import java.util.List;
 

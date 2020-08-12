@@ -1,7 +1,7 @@
 package com.foodie.service.impl;
 
 import com.foodie.mapper.CarouselMapper;
-import com.foodie.pojo.pojo.Carousel;
+import com.foodie.pojo.Carousel;
 import com.foodie.service.CarouselService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

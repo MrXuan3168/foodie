@@ -2,7 +2,7 @@ package com.foodie.service.impl;
 
 import com.foodie.mapper.CategoryMapper;
 import com.foodie.mapper.CategoryMapperCustom;
-import com.foodie.pojo.pojo.Category;
+import com.foodie.pojo.Category;
 import com.foodie.pojo.vo.CategoryVO;
 import com.foodie.pojo.vo.NewItemsVO;
 import com.foodie.service.CategoryService;

@@ -1,4 +1,4 @@
-package com.foodie.pojo.pojo;
+package com.foodie.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Id;

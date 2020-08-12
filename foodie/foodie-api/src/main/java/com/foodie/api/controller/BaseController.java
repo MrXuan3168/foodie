@@ -1,7 +1,7 @@
 package com.foodie.api.controller;
 
 import com.foodie.common.utils.R;
-import com.foodie.pojo.pojo.Orders;
+import com.foodie.pojo.Orders;
 import com.foodie.service.center.MyOrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

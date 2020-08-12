@@ -5,7 +5,7 @@ import com.foodie.common.enums.YesOrNo;
 import com.foodie.common.utils.DesensitizationUtil;
 import com.foodie.common.utils.PageR;
 import com.foodie.mapper.*;
-import com.foodie.pojo.pojo.*;
+import com.foodie.pojo.*;
 import com.foodie.pojo.vo.CommentLevelCountsVO;
 import com.foodie.pojo.vo.ItemCommentVO;
 import com.foodie.pojo.vo.SearchItemsVO;

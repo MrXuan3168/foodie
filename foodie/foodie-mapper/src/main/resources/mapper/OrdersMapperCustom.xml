@@ -100,7 +100,7 @@
     </select>
 
 
-    <select id="getMyOrderTrend" parameterType="Map" resultType="com.foodie.pojo.pojo.OrderStatus">
+    <select id="getMyOrderTrend" parameterType="Map" resultType="com.foodie.pojo.OrderStatus">
         SELECT os.order_id as orderId,
         os.order_status as orderStatus,
         os.created_time as createdTime,

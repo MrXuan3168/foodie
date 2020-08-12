@@ -1,10 +1,9 @@
 package com.foodie.service.impl.center;
 
 import com.foodie.mapper.UsersMapper;
+import com.foodie.pojo.Users;
 import com.foodie.pojo.bo.center.CenterUserBO;
-import com.foodie.pojo.pojo.Users;
 import com.foodie.service.center.CenterUserService;
-import org.n3r.idworker.Sid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,16 +12,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
+/**
+ * @author jamie
+ */
 @Service
 public class CenterUserServiceImpl implements CenterUserService {
 
     @Autowired
     public UsersMapper usersMapper;
 
-    @Autowired
-    private Sid sid;
-
-    @Transactional(propagation = Propagation.SUPPORTS)
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
     @Override
     public Users queryUserInfo(String userId) {
         Users user = usersMapper.selectByPrimaryKey(userId);
@@ -30,10 +29,9 @@ public class CenterUserServiceImpl implements CenterUserService {
         return user;
     }
 
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public Users updateUserInfo(String userId, CenterUserBO centerUserBO) {
-
         Users updateUser = new Users();
         BeanUtils.copyProperties(centerUserBO, updateUser);
         updateUser.setId(userId);
@@ -44,16 +42,14 @@ public class CenterUserServiceImpl implements CenterUserService {
         return queryUserInfo(userId);
     }
 
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public Users updateUserFace(String userId, String faceUrl) {
         Users updateUser = new Users();
         updateUser.setId(userId);
         updateUser.setFace(faceUrl);
         updateUser.setUpdatedTime(new Date());
-
         usersMapper.updateByPrimaryKeySelective(updateUser);
-
         return queryUserInfo(userId);
     }
 

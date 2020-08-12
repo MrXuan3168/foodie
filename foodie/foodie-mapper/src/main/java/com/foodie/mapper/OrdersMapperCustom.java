@@ -1,6 +1,6 @@
 package com.foodie.mapper;
 
-import com.foodie.pojo.pojo.OrderStatus;
+import com.foodie.pojo.OrderStatus;
 import com.foodie.pojo.vo.MyOrdersVO;
 import org.apache.ibatis.annotations.Param;
 

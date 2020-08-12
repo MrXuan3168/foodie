@@ -1,7 +1,7 @@
 package com.foodie.mapper;
 
 import com.foodie.my.mapper.MyMapper;
-import com.foodie.pojo.pojo.ItemsComments;
+import com.foodie.pojo.ItemsComments;
 import com.foodie.pojo.vo.MyCommentVO;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,6 +1,6 @@
 package com.foodie.service;
 
-import com.foodie.pojo.pojo.Category;
+import com.foodie.pojo.Category;
 import com.foodie.pojo.vo.CategoryVO;
 import com.foodie.pojo.vo.NewItemsVO;
 

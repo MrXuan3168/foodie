@@ -4,9 +4,9 @@ import com.foodie.api.controller.BaseController;
 import com.foodie.common.enums.YesOrNo;
 import com.foodie.common.utils.PageR;
 import com.foodie.common.utils.R;
+import com.foodie.pojo.OrderItems;
+import com.foodie.pojo.Orders;
 import com.foodie.pojo.bo.center.OrderItemsCommentBO;
-import com.foodie.pojo.pojo.OrderItems;
-import com.foodie.pojo.pojo.Orders;
 import com.foodie.pojo.vo.MyCommentVO;
 import com.foodie.service.center.MyCommentsService;
 import io.swagger.annotations.Api;
@@ -37,7 +37,7 @@ public class MyCommentsController extends BaseController {
             return R.errorMsg(checkResult.getMsg());
         }
         // 判断该笔订单是否已经评价过，评价过了就不再继续
-        Orders myOrder = (Orders)checkResult.getData();
+        Orders myOrder = checkResult.getData();
         if(myOrder.getIsComment().equals(YesOrNo.YES.type)){
             return R.errorMsg("该笔订单已经评价");
         }

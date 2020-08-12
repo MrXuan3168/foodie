@@ -2,10 +2,10 @@ package com.foodie.api.controller;
 
 import com.foodie.common.utils.PageR;
 import com.foodie.common.utils.R;
-import com.foodie.pojo.pojo.Items;
-import com.foodie.pojo.pojo.ItemsImg;
-import com.foodie.pojo.pojo.ItemsParam;
-import com.foodie.pojo.pojo.ItemsSpec;
+import com.foodie.pojo.Items;
+import com.foodie.pojo.ItemsImg;
+import com.foodie.pojo.ItemsParam;
+import com.foodie.pojo.ItemsSpec;
 import com.foodie.pojo.vo.*;
 import com.foodie.service.ItemService;
 import io.swagger.annotations.Api;

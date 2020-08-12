@@ -1,7 +1,7 @@
 package com.foodie.service;
 
+import com.foodie.pojo.Users;
 import com.foodie.pojo.bo.RegisterUserBO;
-import com.foodie.pojo.pojo.Users;
 
 /**
  * 应用模块名称：

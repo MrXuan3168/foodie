@@ -6,8 +6,8 @@ import com.foodie.common.utils.CookieUtils;
 import com.foodie.common.utils.JacksonUtils;
 import com.foodie.common.utils.JamieDateUtils;
 import com.foodie.common.utils.R;
+import com.foodie.pojo.Users;
 import com.foodie.pojo.bo.center.CenterUserBO;
-import com.foodie.pojo.pojo.Users;
 import com.foodie.service.center.CenterUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -64,14 +64,13 @@ public class CenterUserController extends BaseController {
                 if(StringUtils.isNotBlank(fileName)){
 
                     // 文件重命名  imooc-face.png -> ["imooc-face", "png"]
-                    String fileNameArr[] = fileName.split("\\.");
+                    String[] fileNameArr = fileName.split("\\.");
 
                     // 获取文件的后缀名
                     String suffix = fileNameArr[fileNameArr.length - 1];
-
-                    if(!suffix.equalsIgnoreCase("png")
-                            && !suffix.equalsIgnoreCase("jpg")
-                            && !suffix.equalsIgnoreCase("jpeg")){
+                    if(!"png".equalsIgnoreCase(suffix)
+                            && !"jpg".equalsIgnoreCase(suffix)
+                            && !"jpeg".equalsIgnoreCase(suffix)){
                         return R.errorMsg("图片格式不正确！");
                     }
 
@@ -120,8 +119,7 @@ public class CenterUserController extends BaseController {
 
         // 更新用户头像到数据库
         Users userResult = centerUserService.updateUserFace(userId, finalUserFaceUrl);
-
-        userResult = setNullProperty(userResult);
+        setNullProperty(userResult);
         CookieUtils.setCookie(request, response, "user", JacksonUtils.objectToJson(userResult), true);
 
         // TODO 后续要改，增加令牌token，会整合进redis，分布式会话
@@ -140,14 +138,11 @@ public class CenterUserController extends BaseController {
             Map<String, String> errorMap = getErrors(result);
             return R.errorMap(errorMap);
         }
-
         Users userResult = centerUserService.updateUserInfo(userId, centerUserBO);
-
-        userResult = setNullProperty(userResult);
+        setNullProperty(userResult);
         CookieUtils.setCookie(request, response, "user", JacksonUtils.objectToJson(userResult), true);
 
         // TODO 后续要改，增加令牌token，会整合进redis，分布式会话
-
         return R.ok();
     }
 
@@ -159,20 +154,23 @@ public class CenterUserController extends BaseController {
             String errorField = error.getField();
             // 验证错误的信息
             String errorMsg = error.getDefaultMessage();
-
             map.put(errorField, errorMsg);
         }
         return map;
     }
 
-    private Users setNullProperty(Users userResult) {
+    /**
+     * 把字段设置为空
+     * @param userResult 返回对象
+     * @return void
+     */
+    private void setNullProperty(Users userResult) {
         userResult.setPassword(null);
         userResult.setMobile(null);
         userResult.setEmail(null);
         userResult.setCreatedTime(null);
         userResult.setUpdatedTime(null);
         userResult.setBirthday(null);
-        return userResult;
     }
 
 }
