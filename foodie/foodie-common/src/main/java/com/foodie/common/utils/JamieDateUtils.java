@@ -15,7 +15,6 @@ import java.util.Date;
 
 /**
  * jamie时间工具类
- *
  * @author jamie
  */
 public class JamieDateUtils {
@@ -34,7 +33,6 @@ public class JamieDateUtils {
 
     /**
      * 获取当前系统时间
-     *
      * @return 纯日期时间
      */
     public static LocalTime getLocalTime() {
@@ -43,7 +41,6 @@ public class JamieDateUtils {
 
     /**
      * 获取当前系统日期
-     *
      * @return 纯日期对象
      */
     public static LocalDate getLocalDate() {
@@ -52,7 +49,6 @@ public class JamieDateUtils {
 
     /**
      * 获取当前系统日期时间
-     *
      * @return 日期+时间对象
      */
     public static LocalDateTime getLocalDateTime() {
@@ -61,7 +57,6 @@ public class JamieDateUtils {
 
     /**
      * 获取当前系统时间字符串
-     *
      * @return 时间字符串(返回格式为 HH : mm : ss)
      */
     public static String getLocalTimeString() {
@@ -70,7 +65,6 @@ public class JamieDateUtils {
 
     /**
      * 获取当前系统日期字符串
-     *
      * @return 时间字符串(返回格式为 yyyy - MM - dd)
      */
     public static String getLocalDateString() {
@@ -79,7 +73,6 @@ public class JamieDateUtils {
 
     /**
      * 获取当前系统日期时间字符串
-     *
      * @return 时间字符串(返回格式为 yyyy - MM - dd HH : mm : ss)
      */
     public static String getLocalDateTimeString() {
@@ -88,7 +81,6 @@ public class JamieDateUtils {
 
     /**
      * 字符串转LocalTime
-     *
      * @param time 时间字符串(格式为 HH:mm:ss)
      * @return 纯时间对象
      */
@@ -98,7 +90,6 @@ public class JamieDateUtils {
 
     /**
      * 字符串转LocalDate
-     *
      * @param date 时间字符串(格式为 yyyy-MM-dd)
      * @return 纯日期对象
      */
@@ -108,7 +99,6 @@ public class JamieDateUtils {
 
     /**
      * 字符串转LocalDateTime
-     *
      * @param dateTime 时间字符串(格式为 yyyy-MM-dd HH:mm:ss)
      * @return 时间+日期对象
      */
@@ -118,7 +108,6 @@ public class JamieDateUtils {
 
     /**
      * Date转LocalDateTime
-     *
      * @param date Data 对象
      * @return 时间+日期对象
      */
@@ -134,7 +123,6 @@ public class JamieDateUtils {
 
     /**
      * Date转LocalDate
-     *
      * @param date Data 对象
      * @return 纯日期对象
      */
@@ -147,7 +135,6 @@ public class JamieDateUtils {
 
     /**
      * Date转LocalDate
-     *
      * @param date Data 对象
      * @return 纯时间对象
      */
@@ -160,7 +147,6 @@ public class JamieDateUtils {
 
     /**
      * LocalDateTime转换为Date
-     *
      * @param localDateTime 日期+时间对象
      */
     public static Date localDateTime2Date(LocalDateTime localDateTime) {
@@ -235,7 +221,6 @@ public class JamieDateUtils {
 
     /**
      * 数据值字符串格式化，低于10前面补0
-     *
      * @param number 数据值
      * @return java.lang.String
      */
@@ -246,8 +231,7 @@ public class JamieDateUtils {
 
     /**
      * 判断字符串日期是否匹配指定的格式化日期
-     *
-     * @param strDate 时间字符串
+     * @param strDate   时间字符串
      * @param formatter 日期格式
      * @return boolean
      */
@@ -273,9 +257,8 @@ public class JamieDateUtils {
 
     /**
      * java.util.Date
-     *
      * @param strDate 时间字符串
-     * @param format 编码格式
+     * @param format  编码格式
      * @return Date对象
      */
     public static Date string2Date(String strDate, String format) {
@@ -297,6 +280,72 @@ public class JamieDateUtils {
         }
     }
 
+    /**
+     * Returns the days between two dates. Positive values indicate that
+     * the second date is after the first, and negative values indicate, well,
+     * the opposite. Relying on specific times is problematic.
+     * @param early the "first date"
+     * @param late  the "second date"
+     * @return the days between the two dates
+     */
+    public static final int daysBetween(Date early, Date late) {
+
+        Calendar c1 = Calendar.getInstance();
+        Calendar c2 = Calendar.getInstance();
+        c1.setTime(early);
+        c2.setTime(late);
+
+        return daysBetween(c1, c2);
+    }
+
+    /**
+     * Returns the days between two dates. Positive values indicate that
+     * the second date is after the first, and negative values indicate, well,
+     * the opposite.
+     * @param early
+     * @param late
+     * @return the days between two dates.
+     */
+    public static final int daysBetween(Calendar early, Calendar late) {
+        return (int)(toJulian(late) - toJulian(early));
+    }
+
+    /**
+     * Return a Julian date based on the input parameter. This is
+     * based from calculations found at
+     * <a href="http://quasar.as.utexas.edu/BillInfo/JulianDatesG.html">Julian Day Calculations
+     * (Gregorian Calendar)</a>, provided by Bill Jeffrys.
+     * @param date
+     * @return the julian day number
+     */
+    public static final float toJulian(Date date) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+
+        return toJulian(c);
+    }
+
+    /**
+     * Return a Julian date based on the input parameter. This is
+     * based from calculations found at
+     * <a href="http://quasar.as.utexas.edu/BillInfo/JulianDatesG.html">Julian Day Calculations
+     * (Gregorian Calendar)</a>, provided by Bill Jeffrys.
+     * @param c a calendar instance
+     * @return the julian day number
+     */
+    public static final float toJulian(Calendar c) {
+        int Y = c.get(Calendar.YEAR);
+        int M = c.get(Calendar.MONTH);
+        int D = c.get(Calendar.DATE);
+        int A = Y / 100;
+        int B = A / 4;
+        int C = 2 - A + B;
+        float E = (int)(365.25f * (Y + 4716));
+        float F = (int)(30.6001f * (M + 1));
+        float JD = C + D + E + F - 1524.5f;
+
+        return JD;
+    }
     // public static void main(String[] args) {
     // Date date = DateUtil.stringToDate("1900-01-01");
     // System.out.println(date);

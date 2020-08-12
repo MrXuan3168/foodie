@@ -18,6 +18,7 @@
         <module>foodie-mapper</module>
         <module>foodie-service</module>
         <module>foodie-api</module>
+        <module>foodie-payment</module>
     </modules>
     <!--
         1.聚合工程里可以分为顶级项目(顶级工程，父工程)与子工程，这两者的关系其实就是父子继承的关系
