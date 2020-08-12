@@ -6,6 +6,7 @@ import com.foodie.common.enums.PayMethod;
 import com.foodie.common.utils.CookieUtils;
 import com.foodie.common.utils.R;
 import com.foodie.pojo.bo.SubmitOrderBO;
+import com.foodie.pojo.pojo.OrderStatus;
 import com.foodie.pojo.vo.MerchantOrdersVO;
 import com.foodie.pojo.vo.OrderVO;
 import com.foodie.service.OrderService;
@@ -66,8 +67,8 @@ public class OrdersController extends BaseController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.add("imoocUserId", "imooc");
-        headers.add("password", "imooc");
+        headers.add("imoocUserId", "5450049-1004108488");
+        headers.add("password", "4t43-09oi-rejo-i309");
         HttpEntity<MerchantOrdersVO> entity = new HttpEntity<>(merchantOrdersVO, headers);
 
         ResponseEntity<JSONObject> responseEntity = restTemplate.postForEntity(paymentUrl, entity, JSONObject.class);
@@ -86,6 +87,14 @@ public class OrdersController extends BaseController {
     public Integer notifyMerchantOrderPaid(String merchantOrderId) {
         orderService.updateOrderStatus(merchantOrderId, OrderStatusEnum.WAIT_DELIVER.type);
         return HttpStatus.OK.value();
+    }
+
+    @ApiOperation(value = "通知商户订单已付款", notes = "通知商户订单已付款", httpMethod = "POST")
+    @PostMapping("getPaidOrderInfo")
+    public R<OrderStatus> getPaidOrderInfo(String orderId) {
+
+        OrderStatus orderStatus = orderService.queryOrderStatusInfo(orderId);
+        return R.ok(orderStatus);
     }
 
 }

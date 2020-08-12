@@ -1,6 +1,7 @@
 package com.foodie.service;
 
 import com.foodie.pojo.bo.SubmitOrderBO;
+import com.foodie.pojo.pojo.OrderStatus;
 import com.foodie.pojo.vo.OrderVO;
 
 /**
@@ -13,7 +14,7 @@ public interface OrderService {
     /**
      * 用于创建订单
      * @param bo 订单对象
-     * @return void
+     * @return com.foodie.pojo.vo.OrderVO
      */
     OrderVO createOrder(SubmitOrderBO bo);
 
@@ -21,8 +22,14 @@ public interface OrderService {
      * 修改订单状态
      * @param orderId     订单Id
      * @param orderStatus 订单状态
-     * @return void
      */
     void updateOrderStatus(String orderId, Integer orderStatus);
+
+    /**
+     * 查询工单状态
+     * @param orderId 订单Id
+     * @return com.foodie.pojo.pojo.OrderStatus
+     */
+    OrderStatus queryOrderStatusInfo(String orderId);
 
 }
