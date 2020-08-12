@@ -31,5 +31,9 @@ public interface OrderService {
      * @return com.foodie.pojo.pojo.OrderStatus
      */
     OrderStatus queryOrderStatusInfo(String orderId);
+    /**
+     * 关闭超时未支付订单
+     */
+    void closeOrder();
 
 }

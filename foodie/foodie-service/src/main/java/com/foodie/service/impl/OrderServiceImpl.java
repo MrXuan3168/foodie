@@ -2,6 +2,7 @@ package com.foodie.service.impl;
 
 import com.foodie.common.enums.OrderStatusEnum;
 import com.foodie.common.enums.YesOrNo;
+import com.foodie.common.utils.JamieDateUtils;
 import com.foodie.mapper.OrderItemsMapper;
 import com.foodie.mapper.OrderStatusMapper;
 import com.foodie.mapper.OrdersMapper;
@@ -19,6 +20,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 应用模块名称：
@@ -149,6 +151,39 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderStatus queryOrderStatusInfo(String orderId) {
         return orderStatusMapper.selectByPrimaryKey(orderId);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    @Override
+    public void closeOrder() {
+        // 查询所有未付款订单，判断时间是否超时（1天），超时则关闭交易
+        OrderStatus queryOrder = new OrderStatus();
+        queryOrder.setOrderStatus(OrderStatusEnum.WAIT_PAY.type);
+        List<OrderStatus> list = orderStatusMapper.select(queryOrder);
+        for(OrderStatus os: list){
+            // 获得订单创建时间
+            Date createdTime = os.getCreatedTime();
+            // 和当前时间进行对比
+            int days = JamieDateUtils.daysBetween(createdTime, new Date());
+            if(days >= 1){
+                // 超过1天，关闭订单
+                doCloseOrder(os.getOrderId());
+            }
+        }
+    }
+
+    /**
+     * 关闭订单 - 改变订单状态
+     * @param orderId 订单号
+     * @return void
+     */
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    void doCloseOrder(String orderId) {
+        OrderStatus close = new OrderStatus();
+        close.setOrderId(orderId);
+        close.setOrderStatus(OrderStatusEnum.CLOSE.type);
+        close.setCloseTime(new Date());
+        orderStatusMapper.updateByPrimaryKeySelective(close);
     }
 
 }

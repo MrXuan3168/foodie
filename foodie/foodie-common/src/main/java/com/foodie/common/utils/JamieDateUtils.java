@@ -256,7 +256,7 @@ public class JamieDateUtils {
     }
 
     /**
-     * java.util.Date
+     * 字符串转时间
      * @param strDate 时间字符串
      * @param format  编码格式
      * @return Date对象
@@ -288,7 +288,7 @@ public class JamieDateUtils {
      * @param late  the "second date"
      * @return the days between the two dates
      */
-    public static final int daysBetween(Date early, Date late) {
+    public static int daysBetween(Date early, Date late) {
 
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
@@ -306,7 +306,7 @@ public class JamieDateUtils {
      * @param late
      * @return the days between two dates.
      */
-    public static final int daysBetween(Calendar early, Calendar late) {
+    public static int daysBetween(Calendar early, Calendar late) {
         return (int)(toJulian(late) - toJulian(early));
     }
 
@@ -318,7 +318,7 @@ public class JamieDateUtils {
      * @param date
      * @return the julian day number
      */
-    public static final float toJulian(Date date) {
+    public static float toJulian(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
 
@@ -333,7 +333,7 @@ public class JamieDateUtils {
      * @param c a calendar instance
      * @return the julian day number
      */
-    public static final float toJulian(Calendar c) {
+    public static float toJulian(Calendar c) {
         int Y = c.get(Calendar.YEAR);
         int M = c.get(Calendar.MONTH);
         int D = c.get(Calendar.DATE);
@@ -346,6 +346,7 @@ public class JamieDateUtils {
 
         return JD;
     }
+
     // public static void main(String[] args) {
     // Date date = DateUtil.stringToDate("1900-01-01");
     // System.out.println(date);

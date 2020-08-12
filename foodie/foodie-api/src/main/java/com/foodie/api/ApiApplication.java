@@ -6,12 +6,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * 应用模块名称： api启动类
  * MapperScan 扫描mapper所在包
  * ComponentScan 扫描所有包及相关注解包
+ * EnableScheduling 开启定时任务
  * @author jamie
  * @since 2019/11/12 15:48
  */
@@ -19,6 +21,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan(basePackages = "com.foodie.mapper")
 @ComponentScan(basePackages = {"com.foodie", "org.n3r.idworker"})
 @EnableKnife4j
+@EnableScheduling
 public class ApiApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

@@ -6,82 +6,88 @@ import org.springframework.stereotype.Component;
 
 //@Configuration
 @Component
-@ConfigurationProperties(prefix="alipay")
+@ConfigurationProperties(prefix = "alipay")
 @PropertySource("classpath:alipay.properties")
 public class AliPayResource {
 
-	private String appId;
-	private String merchantPrivateKey;
-	private String alipayPublicKey;
+    private String appId;
 
-	private String notifyUrl;
-	private String returnUrl;
+    private String merchantPrivateKey;
 
-	private String signType;
-	private String charset;
-	private String gatewayUrl;
+    private String alipayPublicKey;
 
-	public String getAppId() {
-		return appId;
-	}
+    private String notifyUrl;
 
-	public void setAppId(String appId) {
-		this.appId = appId;
-	}
+    private String returnUrl;
 
-	public String getMerchantPrivateKey() {
-		return merchantPrivateKey;
-	}
+    private String signType;
 
-	public void setMerchantPrivateKey(String merchantPrivateKey) {
-		this.merchantPrivateKey = merchantPrivateKey;
-	}
+    private String charset;
 
-	public String getAlipayPublicKey() {
-		return alipayPublicKey;
-	}
+    private String gatewayUrl;
 
-	public void setAlipayPublicKey(String alipayPublicKey) {
-		this.alipayPublicKey = alipayPublicKey;
-	}
+    public String getAppId() {
+        return appId;
+    }
 
-	public String getNotifyUrl() {
-		return notifyUrl;
-	}
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-	public void setNotifyUrl(String notifyUrl) {
-		this.notifyUrl = notifyUrl;
-	}
+    public String getMerchantPrivateKey() {
+        return merchantPrivateKey;
+    }
 
-	public String getReturnUrl() {
-		return returnUrl;
-	}
+    public void setMerchantPrivateKey(String merchantPrivateKey) {
+        this.merchantPrivateKey = merchantPrivateKey;
+    }
 
-	public void setReturnUrl(String returnUrl) {
-		this.returnUrl = returnUrl;
-	}
+    public String getAlipayPublicKey() {
+        return alipayPublicKey;
+    }
 
-	public String getSignType() {
-		return signType;
-	}
+    public void setAlipayPublicKey(String alipayPublicKey) {
+        this.alipayPublicKey = alipayPublicKey;
+    }
 
-	public void setSignType(String signType) {
-		this.signType = signType;
-	}
+    public String getNotifyUrl() {
+        return notifyUrl;
+    }
 
-	public String getCharset() {
-		return charset;
-	}
+    public void setNotifyUrl(String notifyUrl) {
+        this.notifyUrl = notifyUrl;
+    }
 
-	public void setCharset(String charset) {
-		this.charset = charset;
-	}
+    public String getReturnUrl() {
+        return returnUrl;
+    }
 
-	public String getGatewayUrl() {
-		return gatewayUrl;
-	}
+    public void setReturnUrl(String returnUrl) {
+        this.returnUrl = returnUrl;
+    }
 
-	public void setGatewayUrl(String gatewayUrl) {
-		this.gatewayUrl = gatewayUrl;
-	}
+    public String getSignType() {
+        return signType;
+    }
+
+    public void setSignType(String signType) {
+        this.signType = signType;
+    }
+
+    public String getCharset() {
+        return charset;
+    }
+
+    public void setCharset(String charset) {
+        this.charset = charset;
+    }
+
+    public String getGatewayUrl() {
+        return gatewayUrl;
+    }
+
+    public void setGatewayUrl(String gatewayUrl) {
+        this.gatewayUrl = gatewayUrl;
+    }
+
 }
