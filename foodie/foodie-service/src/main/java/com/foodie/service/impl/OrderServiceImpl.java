@@ -145,9 +145,10 @@ public class OrderServiceImpl implements OrderService {
         orderStatusMapper.updateByPrimaryKeySelective(paidStatus);
     }
 
-    @Transactional(propagation = Propagation.SUPPORTS)
+    @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
     @Override
     public OrderStatus queryOrderStatusInfo(String orderId) {
         return orderStatusMapper.selectByPrimaryKey(orderId);
     }
+
 }

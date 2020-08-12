@@ -92,7 +92,6 @@ public class OrdersController extends BaseController {
     @ApiOperation(value = "通知商户订单已付款", notes = "通知商户订单已付款", httpMethod = "POST")
     @PostMapping("getPaidOrderInfo")
     public R<OrderStatus> getPaidOrderInfo(String orderId) {
-
         OrderStatus orderStatus = orderService.queryOrderStatusInfo(orderId);
         return R.ok(orderStatus);
     }
