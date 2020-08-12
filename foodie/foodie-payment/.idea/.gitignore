@@ -1,0 +1,8 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../:\jamie\课程视频\java架构师\java架构师直通车资料\Architect-Stage-1-Monolith\第1阶段单体架构\支付中心源码\foodie-payment\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
