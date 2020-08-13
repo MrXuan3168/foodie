@@ -24,6 +24,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author jamie
+ * @date 2020/8/13 10:06
+ */
 @Service
 public class MyCommentsServiceImpl extends BaseService implements MyCommentsService {
 
@@ -79,13 +83,10 @@ public class MyCommentsServiceImpl extends BaseService implements MyCommentsServ
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
     @Override
     public PageR<MyCommentVO> queryMyComments(String userId, Integer page, Integer pageSize) {
-
         Map<String, Object> map = new HashMap<>(2);
         map.put("userId", userId);
-
         PageHelper.startPage(page, pageSize);
         List<MyCommentVO> list = itemsCommentsMapperCustom.queryMyComments(map);
-
         return PageR.build(page, list);
     }
 

@@ -39,7 +39,7 @@ public class BaseController {
 
     /**
      * 用于验证用户和订单是否有关联关系，避免非法用户调用
-     * @return
+     * @return com.foodie.common.utils.R<com.foodie.pojo.Orders>
      */
     public R<Orders> checkUserOrder(String userId, String orderId) {
         Orders order = myOrdersService.queryMyOrder(userId, orderId);
@@ -47,6 +47,15 @@ public class BaseController {
             return R.errorMsg("订单不存在！");
         }
         return R.ok(order);
+    }
+
+    /**
+     * 判断图片后缀名
+     * @param suffix 后缀名，不带.
+     * @return boolean
+     */
+    public boolean checkImgSuffix(String suffix) {
+        return "png".equalsIgnoreCase(suffix) || "jpg".equalsIgnoreCase(suffix) || "jpeg".equalsIgnoreCase(suffix);
     }
 
 }
