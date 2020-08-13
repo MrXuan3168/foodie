@@ -1,4 +1,4 @@
-package com.foodie.api.aspect;
+package com.foodie.api.exception;
 
 import com.foodie.common.utils.R;
 import lombok.extern.slf4j.Slf4j;
