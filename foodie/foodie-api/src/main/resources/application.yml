@@ -15,12 +15,11 @@ server:
 #
 ############################################################
 spring:
+  profiles:
+    active: dev
   datasource:                                         # 数据源的相关配置
     type: com.zaxxer.hikari.HikariDataSource          # 数据源类型：HikariCP
     driver-class-name: org.mariadb.jdbc.Driver        # mysql驱动
-    url: jdbc:mariadb://120.79.138.62:3307/foodie?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
-    username: foodie
-    password: 123456
     hikari:
       connection-timeout: 30000       # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 默认:30秒
       minimum-idle: 5                 # 最小连接数
@@ -30,6 +29,9 @@ spring:
       pool-name: DateSourceHikariCP   # 连接池名字
       max-lifetime: 1800000           # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟 1800000ms
       connection-test-query: SELECT 1
+  #    url: jdbc:mariadb://120.79.138.62:3307/foodie?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+  #    username: foodie
+  #    password: 123456
   servlet:
     multipart:
       max-file-size: 512000     # 文件上传大小限制为500kb
@@ -47,8 +49,8 @@ spring:
 mybatis:
   type-aliases-package: com.foodie.pojo         # 所有POJO类所在包路径
   mapper-locations: classpath:mapper/*.xml      # mapper映射文件
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 ############################################################
 #
