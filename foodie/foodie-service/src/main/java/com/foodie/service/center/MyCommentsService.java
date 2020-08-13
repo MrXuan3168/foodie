@@ -27,9 +27,9 @@ public interface MyCommentsService {
     /**
      * 我的评价查询 分页
      * @param userId   用户Id
-     * @param page
-     * @param pageSize
-     * @return
+     * @param page     页码
+     * @param pageSize 页数
+     * @return PageR<MyCommentVO>
      */
     PageR<MyCommentVO> queryMyComments(String userId, Integer page, Integer pageSize);
 

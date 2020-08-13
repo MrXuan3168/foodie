@@ -40,7 +40,7 @@
         <if test="paramsMap.orderStatus != null">
             and os.order_status = #{paramsMap.orderStatus}
         </if>
-        ORDER BY od.updated_time ASC
+        ORDER BY od.updated_time
     </select>
 
 
@@ -81,7 +81,7 @@
         <if test="paramsMap.orderStatus != null">
             and os.order_status = #{paramsMap.orderStatus}
         </if>
-        ORDER BY od.updated_time ASC
+        ORDER BY od.updated_time
     </select>
 
 

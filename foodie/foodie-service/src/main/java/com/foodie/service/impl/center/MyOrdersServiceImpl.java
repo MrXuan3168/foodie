@@ -53,20 +53,9 @@ public class MyOrdersServiceImpl extends BaseService implements MyOrdersService 
         return PageR.build(page, list);
     }
 
-    //    private PagedGridResult setterPagedGrid(List<?> list, Integer page) {
-    //        PageInfo<?> pageList = new PageInfo<>(list);
-    //        PagedGridResult grid = new PagedGridResult();
-    //        grid.setPage(page);
-    //        grid.setRows(list);
-    //        grid.setTotal(pageList.getPages());
-    //        grid.setRecords(pageList.getTotal());
-    //        return grid;
-    //    }
-
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public void updateDeliverOrderStatus(String orderId) {
-
         OrderStatus updateOrder = new OrderStatus();
         updateOrder.setOrderStatus(OrderStatusEnum.WAIT_RECEIVE.type);
         updateOrder.setDeliverTime(new Date());
@@ -108,11 +97,9 @@ public class MyOrdersServiceImpl extends BaseService implements MyOrdersService 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public boolean deleteOrder(String userId, String orderId) {
-
         Orders updateOrder = new Orders();
         updateOrder.setIsDelete(YesOrNo.YES.type);
         updateOrder.setUpdatedTime(new Date());
-
         Example example = new Example(Orders.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("id", orderId);
