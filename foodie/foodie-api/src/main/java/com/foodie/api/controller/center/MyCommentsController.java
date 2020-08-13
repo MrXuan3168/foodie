@@ -14,7 +14,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,13 +31,12 @@ public class MyCommentsController extends BaseController {
     public R<List<OrderItems>> pending(@ApiParam(name = "userId", value = "用户id", required = true) @RequestParam String userId, @ApiParam(name = "orderId", value = "订单id", required = true) @RequestParam String orderId) {
 
         // 判断用户和订单是否关联
-        R<Orders> checkResult = checkUserOrder(userId, orderId);
-        if(checkResult.getStatus() != HttpStatus.OK.value()){
-            return R.errorMsg(checkResult.getMsg());
+        Orders orders = super.checkUserOrder(userId, orderId);
+        if(orders == null){
+            return R.errorMsg("订单不存在");
         }
         // 判断该笔订单是否已经评价过，评价过了就不再继续
-        Orders myOrder = checkResult.getData();
-        if(myOrder.getIsComment().equals(YesOrNo.YES.type)){
+        if(orders.getIsComment().equals(YesOrNo.YES.type)){
             return R.errorMsg("该笔订单已经评价");
         }
 
@@ -56,9 +54,9 @@ public class MyCommentsController extends BaseController {
         System.out.println(commentList);
 
         // 判断用户和订单是否关联
-        R<Orders> checkResult = checkUserOrder(userId, orderId);
-        if(checkResult.getStatus() != HttpStatus.OK.value()){
-            return R.errorMsg(checkResult.getMsg());
+        Orders orders = super.checkUserOrder(userId, orderId);
+        if(orders == null){
+            return R.errorMsg("订单不存在");
         }
         // 判断评论内容list不能为空
         if(commentList == null || commentList.isEmpty()){

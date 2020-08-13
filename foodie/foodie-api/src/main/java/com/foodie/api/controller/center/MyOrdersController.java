@@ -13,7 +13,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @Api(value = "用户中心我的订单", tags = {"用户中心我的订单相关接口"})
@@ -56,7 +55,7 @@ public class MyOrdersController extends BaseController {
         return R.ok(grid);
     }
 
-    // 商家发货没有后端，所以这个接口仅仅只是用于模拟
+    /** 商家发货没有后端，所以这个接口仅仅只是用于模拟 */
     @ApiOperation(value = "商家发货", notes = "商家发货", httpMethod = "GET")
     @GetMapping("/deliver")
     public R<String> deliver(@ApiParam(name = "orderId", value = "订单id", required = true) @RequestParam String orderId) {
@@ -71,16 +70,14 @@ public class MyOrdersController extends BaseController {
     @ApiOperation(value = "用户确认收货", notes = "用户确认收货", httpMethod = "POST")
     @PostMapping("/confirmReceive")
     public R<String> confirmReceive(@ApiParam(name = "orderId", value = "订单id", required = true) @RequestParam String orderId, @ApiParam(name = "userId", value = "用户id", required = true) @RequestParam String userId) {
-        R<Orders> checkResult = checkUserOrder(userId, orderId);
-        if(checkResult.getStatus() != HttpStatus.OK.value()){
-            return R.errorMsg(checkResult.getMsg());
+        Orders orders = super.checkUserOrder(userId, orderId);
+        if(orders == null){
+            return R.errorMsg("订单不存在");
         }
-
         boolean res = myOrdersService.updateReceiveOrderStatus(orderId);
         if(!res){
             return R.errorMsg("订单确认收货失败！");
         }
-
         return R.ok();
     }
 
@@ -88,17 +85,14 @@ public class MyOrdersController extends BaseController {
     @PostMapping("/delete")
     public R<String> delete(@ApiParam(name = "orderId", value = "订单id", required = true) @RequestParam String orderId
             , @ApiParam(name = "userId", value = "用户id", required = true) @RequestParam String userId) {
-
-        R<Orders> checkResult = checkUserOrder(userId, orderId);
-        if(checkResult.getStatus() != HttpStatus.OK.value()){
-            return R.errorMsg(checkResult.getMsg());
+        Orders orders = super.checkUserOrder(userId, orderId);
+        if(orders == null){
+            return R.errorMsg("订单不存在");
         }
-
         boolean res = myOrdersService.deleteOrder(userId, orderId);
         if(!res){
             return R.errorMsg("订单删除失败！");
         }
-
         return R.ok();
     }
 

@@ -23,6 +23,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 我的订单
+ * @author jamie
+ * @date 2020/8/13 14:21
+ */
 @Service
 public class MyOrdersServiceImpl extends BaseService implements MyOrdersService {
 
@@ -77,12 +82,10 @@ public class MyOrdersServiceImpl extends BaseService implements MyOrdersService 
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
     @Override
     public Orders queryMyOrder(String userId, String orderId) {
-
         Orders orders = new Orders();
         orders.setUserId(userId);
         orders.setId(orderId);
         orders.setIsDelete(YesOrNo.NO.type);
-
         return ordersMapper.selectOne(orders);
     }
 
@@ -98,10 +101,8 @@ public class MyOrdersServiceImpl extends BaseService implements MyOrdersService 
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("orderId", orderId);
         criteria.andEqualTo("orderStatus", OrderStatusEnum.WAIT_RECEIVE.type);
-
         int result = orderStatusMapper.updateByExampleSelective(updateOrder, example);
-
-        return result == 1?true:false;
+        return result == 1;
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
@@ -119,14 +120,14 @@ public class MyOrdersServiceImpl extends BaseService implements MyOrdersService 
 
         int result = ordersMapper.updateByExampleSelective(updateOrder, example);
 
-        return result == 1?true:false;
+        return result == 1;
     }
 
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
     @Override
     public OrderStatusCountsVO getOrderStatusCounts(String userId) {
 
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(16);
         map.put("userId", userId);
 
         map.put("orderStatus", OrderStatusEnum.WAIT_PAY.type);
@@ -142,9 +143,7 @@ public class MyOrdersServiceImpl extends BaseService implements MyOrdersService 
         map.put("isComment", YesOrNo.NO.type);
         int waitCommentCounts = ordersMapperCustom.getMyOrderStatusCounts(map);
 
-        OrderStatusCountsVO countsVO = new OrderStatusCountsVO(waitPayCounts, waitDeliverCounts, waitReceiveCounts,
-                waitCommentCounts);
-        return countsVO;
+        return new OrderStatusCountsVO(waitPayCounts, waitDeliverCounts, waitReceiveCounts, waitCommentCounts);
     }
 
     @Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)

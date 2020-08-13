@@ -1,6 +1,5 @@
 package com.foodie.api.controller;
 
-import com.foodie.common.utils.R;
 import com.foodie.pojo.Orders;
 import com.foodie.service.center.MyOrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,12 +40,8 @@ public class BaseController {
      * 用于验证用户和订单是否有关联关系，避免非法用户调用
      * @return com.foodie.common.utils.R<com.foodie.pojo.Orders>
      */
-    public R<Orders> checkUserOrder(String userId, String orderId) {
-        Orders order = myOrdersService.queryMyOrder(userId, orderId);
-        if(order == null){
-            return R.errorMsg("订单不存在！");
-        }
-        return R.ok(order);
+    public Orders checkUserOrder(String userId, String orderId) {
+        return myOrdersService.queryMyOrder(userId, orderId);
     }
 
     /**
