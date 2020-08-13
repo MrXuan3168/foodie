@@ -175,7 +175,6 @@ public class OrderServiceImpl implements OrderService {
     /**
      * 关闭订单 - 改变订单状态
      * @param orderId 订单号
-     * @return void
      */
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     void doCloseOrder(String orderId) {
