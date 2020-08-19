@@ -1,7 +1,9 @@
 package com.foodie.api.controller;
 
 import com.foodie.common.enums.YesOrNo;
+import com.foodie.common.utils.JacksonUtils;
 import com.foodie.common.utils.R;
+import com.foodie.common.utils.RedisUtils;
 import com.foodie.pojo.Carousel;
 import com.foodie.pojo.Category;
 import com.foodie.pojo.vo.CategoryVO;
@@ -11,6 +13,7 @@ import com.foodie.service.CategoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,11 +36,20 @@ public class IndexController {
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
+    private RedisUtils redisUtils;
+
     @ApiOperation(value = "获取首页轮播图列表", notes = "获取首页轮播图列表", httpMethod = "GET")
     @GetMapping("/carousel")
     public R<List<Carousel>> carousel() {
-        List<Carousel> list = carouselService.queryAll(YesOrNo.YES.type);
-        return R.ok(list);
+        String carousel = redisUtils.get("carousel");
+        if(StringUtils.isNotBlank(carousel)){
+            List<Carousel> carousels = JacksonUtils.jsonToList(carousel, Carousel.class);
+            return R.ok(carousels);
+        }
+        List<Carousel> carousels = carouselService.queryAll(YesOrNo.YES.type);
+        redisUtils.set("carousel", JacksonUtils.objectToJson(carousels));
+        return R.ok(carousels);
     }
 
     /**
