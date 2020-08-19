@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * redis 工具类
- *
  * @author jamie
  */
 @Component
@@ -26,16 +25,16 @@ public class RedisUtils {
 
     /**
      * 实现命令：TTL key，以秒为单位，返回给定 key的剩余生存时间(TTL, time to live)。
+     * @param key 键
+     * @return 返回剩余时间
      */
-    public long ttl(String key) {
+    public Long ttl(String key) {
         return redisTemplate.getExpire(key);
     }
 
     /**
      * 实现命令：expire 设置过期时间，单位秒
-     *
-     * @param key
-     * @return
+     * @param key 键
      */
     public void expire(String key, long timeout) {
         redisTemplate.expire(key, timeout, TimeUnit.SECONDS);
@@ -43,13 +42,18 @@ public class RedisUtils {
 
     /**
      * 实现命令：INCR key，增加key一次
+     * @param key   键
+     * @param delta 增加的值
+     * @return 成功返回1，失败返回0
      */
-    public long incr(String key, long delta) {
+    public Long incr(String key, long delta) {
         return redisTemplate.opsForValue().increment(key, delta);
     }
 
     /**
      * 实现命令：KEYS pattern，查找所有符合给定模式 pattern的 key
+     * @param pattern 正则表达式
+     * @return 返回匹配正则表达式成功的key集合
      */
     public Set<String> keys(String pattern) {
         return redisTemplate.keys(pattern);
@@ -57,6 +61,7 @@ public class RedisUtils {
 
     /**
      * 实现命令：DEL key，删除一个key
+     * @param key 键
      */
     public void del(String key) {
         redisTemplate.delete(key);
@@ -66,6 +71,8 @@ public class RedisUtils {
 
     /**
      * 实现命令：SET key value，设置一个key-value（将字符串值 value关联到 key）
+     * @param key   键
+     * @param value 值
      */
     public void set(String key, String value) {
         redisTemplate.opsForValue().set(key, value);
@@ -80,6 +87,8 @@ public class RedisUtils {
 
     /**
      * 实现命令：GET key，返回 key所关联的字符串值。
+     * @param key 键
+     * @return 返回该key对应的value
      */
     public String get(String key) {
         return redisTemplate.opsForValue().get(key);
@@ -87,13 +96,17 @@ public class RedisUtils {
 
     /**
      * 批量查询，对应mget
+     * @param keys 键的集合
+     * @return 返回key集合对应的value集合
      */
-    public List<String> mget(List<String> keys) {
+    public List<String> mGet(List<String> keys) {
         return redisTemplate.opsForValue().multiGet(keys);
     }
 
     /**
      * 批量查询，管道pipeline
+     * @param keys 键的集合
+     * @return 返回key集合查询返回的value集合
      */
     public List<Object> batchGet(List<String> keys) {
         // nginx -> keepalive
@@ -111,31 +124,39 @@ public class RedisUtils {
 
     /**
      * 实现命令：HSET key field value，将哈希表 key中的域 field的值设为 value
+     * @param key   对象名
+     * @param field 对象字段
+     * @param value 字段值
      */
-    public void hset(String key, String field, Object value) {
+    public void hSet(String key, String field, Object value) {
         redisTemplate.opsForHash().put(key, field, value);
     }
 
     /**
      * 实现命令：HGET key field，返回哈希表 key中给定域 field的值
+     * @param key   对象名
+     * @param field 对象字段
+     * @return 返回对象字段的值
      */
-    public String hget(String key, String field) {
+    public String hGet(String key, String field) {
         return (String)redisTemplate.opsForHash().get(key, field);
     }
 
     /**
      * 实现命令：HDEL key field [field ...]，删除哈希表 key 中的一个或多个指定域，不存在的域将被忽略。
+     * @param key    对象名
+     * @param fields 对象字段
      */
-    public void hdel(String key, Object... fields) {
-
+    public void hDel(String key, Object... fields) {
         redisTemplate.opsForHash().delete(key, fields);
     }
 
     /**
      * 实现命令：HGETALL key，返回哈希表 key中，所有的域和值。
+     * @param key 对象名
+     * @return 返回对象中的字段和值
      */
-    public Map<Object, Object> hgetall(String key) {
-
+    public Map<Object, Object> hGetAll(String key) {
         return redisTemplate.opsForHash().entries(key);
     }
 
@@ -143,28 +164,30 @@ public class RedisUtils {
 
     /**
      * 实现命令：LPUSH key value，将一个值 value插入到列表 key的表头
-     *
+     * @param key   键
+     * @param value 值
      * @return 执行 LPUSH命令后，列表的长度。
      */
-    public long lpush(String key, String value) {
+    public Long lPush(String key, String value) {
         return redisTemplate.opsForList().leftPush(key, value);
     }
 
     /**
      * 实现命令：LPOP key，移除并返回列表 key的头元素。
-     *
+     * @param key 键
      * @return 列表key的头元素。
      */
-    public String lpop(String key) {
+    public String lPop(String key) {
         return redisTemplate.opsForList().leftPop(key);
     }
 
     /**
      * 实现命令：RPUSH key value，将一个值 value插入到列表 key的表尾(最右边)。
-     *
+     * @param key   键
+     * @param value 值
      * @return 执行 LPUSH命令后，列表的长度。
      */
-    public long rpush(String key, String value) {
+    public Long rPush(String key, String value) {
         return redisTemplate.opsForList().rightPush(key, value);
     }
 
