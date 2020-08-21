@@ -60,8 +60,14 @@ public class IndexController {
     @ApiOperation(value = "获取商品分类(一级分类)", notes = "获取商品分类(一级分类)", httpMethod = "GET")
     @GetMapping("/cats")
     public R<List<Category>> cats() {
-        List<Category> list = categoryService.queryAllRootLevelCat();
-        return R.ok(list);
+        String category = redisUtils.get("category");
+        if(StringUtils.isNotBlank(category)){
+            List<Category> categories = JacksonUtils.jsonToList(category, Category.class);
+            return R.ok(categories);
+        }
+        List<Category> categories = categoryService.queryAllRootLevelCat();
+        redisUtils.set("category", JacksonUtils.objectToJson(categories));
+        return R.ok(categories);
     }
 
     @ApiOperation(value = "获取商品子分类", notes = "获取商品子分类", httpMethod = "GET")
@@ -71,7 +77,14 @@ public class IndexController {
         if(rootCatId == null){
             return R.errorMsg("分类Id rootCatId 不能为空");
         }
+        String categoryKey = "category:" + rootCatId;
+        String category = redisUtils.get(categoryKey);
+        if(StringUtils.isNotBlank(category)){
+            List<CategoryVO> categories = JacksonUtils.jsonToList(category, CategoryVO.class);
+            return R.ok(categories);
+        }
         List<CategoryVO> subCatList = categoryService.getSubCatList(rootCatId);
+        redisUtils.set(categoryKey, JacksonUtils.objectToJson(subCatList));
         return R.ok(subCatList);
     }
 
