@@ -47,15 +47,9 @@ public class OrdersController extends BaseController {
     @Autowired
     private RedisUtils redisUtils;
 
-    @Autowired
-    private HttpServletRequest request;
-
-    @Autowired
-    private HttpServletResponse response;
-
     @ApiOperation(value = "用户下单", notes = "用户下单", httpMethod = "POST")
     @PostMapping("/create")
-    public R<String> create(@RequestBody SubmitOrderBO bo) {
+    public R<String> create(@RequestBody SubmitOrderBO bo, HttpServletRequest request, HttpServletResponse response) {
         Integer payMethod = bo.getPayMethod();
         if(!PayMethod.WE_CHAT.type.equals(payMethod) && !PayMethod.ALI_PAY.type.equals(payMethod)){
             return R.errorMsg("支付方式不支持");
@@ -72,8 +66,9 @@ public class OrdersController extends BaseController {
         // 2.创建订单以后，移除购物车中已结算(已提交)的商品
         // 清理覆盖现有的redis汇总的购物数据
         shopCartList.removeAll(order.getToBeRemovedShopCartList());
-        redisUtils.set(FOODIE_SHOP_CART + ":" + bo.getUserId(), JacksonUtils.objectToJson(shopCartList));
-        CookieUtils.setCookie(request, response, FOODIE_SHOP_CART, "", true);
+        String shopCartsJson = JacksonUtils.objectToJson(shopCartList);
+        redisUtils.set(FOODIE_SHOP_CART + ":" + bo.getUserId(), shopCartsJson);
+        CookieUtils.setCookie(request, response, FOODIE_SHOP_CART, shopCartsJson, true);
         // 3.向支付中心发送当前订单，用于保存支付中心的订单数据
         MerchantOrdersVO merchantOrdersVO = order.getMerchantOrdersVO();
         merchantOrdersVO.setReturnUrl(payReturnUrl);

@@ -16,7 +16,7 @@ public class BaseController {
     @Autowired
     private MyOrdersService myOrdersService;
 
-    public static final String FOODIE_SHOP_CART = "shopCart";
+    public static final String FOODIE_SHOP_CART = "shopcart";
 
     public static final Integer COMMON_PAGE_SIZE = 10;
 
