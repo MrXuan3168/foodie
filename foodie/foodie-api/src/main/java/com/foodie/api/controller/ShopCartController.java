@@ -83,7 +83,22 @@ public class ShopCartController extends BaseController {
         if(StringUtils.isBlank(itemSpecId)){
             return R.errorMsg("规格ID不能为空");
         }
-        // TODO: 2019/12/1 用户在页面删除购物车中的商品数据，如果此时用户已经登录，则需要同步删除后端购物车中的商品
+        // 用户在页面删除购物车中的商品数据，如果此时用户已经登录，则需要同步删除redis购物车中的商品
+        String shopCartJson = redisUtils.get(FOODIE_SHOP_CART + ":" + userId);
+        if(StringUtils.isNotBlank(shopCartJson)){
+            // redis中已经有购物车了
+            List<ShopCartBO> shopCartList = JacksonUtils.jsonToList(shopCartJson, ShopCartBO.class);
+            // 判断购物车中是否存在已有商品，如果有的话则删除
+            for(ShopCartBO sc: shopCartList){
+                String tmpSpecId = sc.getSpecId();
+                if(tmpSpecId.equals(itemSpecId)){
+                    shopCartList.remove(sc);
+                    break;
+                }
+            }
+            // 覆盖现有redis中的购物车
+            redisUtils.set(FOODIE_SHOP_CART + ":" + userId, JacksonUtils.objectToJson(shopCartList));
+        }
         return R.ok();
     }
 

@@ -2,6 +2,10 @@ package com.foodie.pojo.vo;
 
 import lombok.Data;
 
+/**
+ * 商户订单
+ * @author jamie
+ */
 @Data
 public class MerchantOrdersVO {
 

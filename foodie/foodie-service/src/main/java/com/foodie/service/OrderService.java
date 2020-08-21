@@ -1,8 +1,11 @@
 package com.foodie.service;
 
 import com.foodie.pojo.OrderStatus;
+import com.foodie.pojo.bo.ShopCartBO;
 import com.foodie.pojo.bo.SubmitOrderBO;
 import com.foodie.pojo.vo.OrderVO;
+
+import java.util.List;
 
 /**
  * 应用模块名称：订单业务层
@@ -13,10 +16,11 @@ public interface OrderService {
 
     /**
      * 用于创建订单
-     * @param bo 订单对象
+     * @param bo             订单对象
+     * @param shopCartList 购物车商品
      * @return com.foodie.pojo.vo.OrderVO
      */
-    OrderVO createOrder(SubmitOrderBO bo);
+    OrderVO createOrder(List<ShopCartBO> shopCartList, SubmitOrderBO bo);
 
     /**
      * 修改订单状态

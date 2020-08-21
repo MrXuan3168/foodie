@@ -4,8 +4,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.foodie.common.enums.OrderStatusEnum;
 import com.foodie.common.enums.PayMethod;
 import com.foodie.common.utils.CookieUtils;
+import com.foodie.common.utils.JacksonUtils;
 import com.foodie.common.utils.R;
+import com.foodie.common.utils.RedisUtils;
 import com.foodie.pojo.OrderStatus;
+import com.foodie.pojo.bo.ShopCartBO;
 import com.foodie.pojo.bo.SubmitOrderBO;
 import com.foodie.pojo.vo.MerchantOrdersVO;
 import com.foodie.pojo.vo.OrderVO;
@@ -13,6 +16,7 @@ import com.foodie.service.OrderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +24,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * 应用模块名称：订单
@@ -40,6 +45,9 @@ public class OrdersController extends BaseController {
     private RestTemplate restTemplate;
 
     @Autowired
+    private RedisUtils redisUtils;
+
+    @Autowired
     private HttpServletRequest request;
 
     @Autowired
@@ -52,11 +60,19 @@ public class OrdersController extends BaseController {
         if(!PayMethod.WE_CHAT.type.equals(payMethod) && !PayMethod.ALI_PAY.type.equals(payMethod)){
             return R.errorMsg("支付方式不支持");
         }
+        String shopCartJson = redisUtils.get(FOODIE_SHOP_CART + ":" + bo.getUserId());
+        if(StringUtils.isBlank(shopCartJson)){
+            return R.errorMsg("购物数据不正确");
+        }
+
+        List<ShopCartBO> shopCartList = JacksonUtils.jsonToList(shopCartJson, ShopCartBO.class);
         // 1.创建订单
-        OrderVO order = orderService.createOrder(bo);
+        OrderVO order = orderService.createOrder(shopCartList, bo);
         String orderId = order.getOrderId();
         // 2.创建订单以后，移除购物车中已结算(已提交)的商品
-        // TODO: 2019/12/8 整合redis之后， 完善购物车中的已结算商品清除，并且同步到前端的cookie
+        // 清理覆盖现有的redis汇总的购物数据
+        shopCartList.removeAll(order.getToBeRemovedShopCartList());
+        redisUtils.set(FOODIE_SHOP_CART + ":" + bo.getUserId(), JacksonUtils.objectToJson(shopCartList));
         CookieUtils.setCookie(request, response, FOODIE_SHOP_CART, "", true);
         // 3.向支付中心发送当前订单，用于保存支付中心的订单数据
         MerchantOrdersVO merchantOrdersVO = order.getMerchantOrdersVO();
