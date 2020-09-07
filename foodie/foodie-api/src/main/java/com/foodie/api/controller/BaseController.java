@@ -24,6 +24,8 @@ public class BaseController {
 
     public static final Integer COMMENT_PAGE = 1;
 
+    public static final String REDIS_USER_TOKEN = "redis_user_token";
+
     /**
      * 支付中心的调用地址
      * produce

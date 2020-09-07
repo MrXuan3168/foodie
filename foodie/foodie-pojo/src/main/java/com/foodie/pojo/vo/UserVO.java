@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 
 /**
  * 用户表
- *
  * @author jamie
  */
 @ApiModel(value = "登录成功返回对象", description = "登录成功返回对象")
@@ -38,5 +37,8 @@ public class UserVO {
 
     @ApiModelProperty(value = "性别 1:男 0:女 2:保密", name = "sex", example = "show", required = true)
     private Integer sex;
+
+    @ApiModelProperty(value = "token", name = "uniqueToken", example = "uuid", required = true)
+    private String uniqueToken;
 
 }

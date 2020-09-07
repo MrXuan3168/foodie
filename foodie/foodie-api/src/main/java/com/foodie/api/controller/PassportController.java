@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * 应用模块名称：
@@ -74,8 +75,7 @@ public class PassportController extends BaseController {
         }
         // 用户插入数据
         Users user = userService.createUser(bo);
-        UserVO userVO = UserVO.builder().build();
-        BeanUtils.copyProperties(user, userVO);
+        UserVO userVO = this.conventUserVo(user);
         // isEncode是否加密
         CookieUtils.setCookie(request, response, "user", JacksonUtils.objectToJson(userVO), true);
         // 3.请求成功，用户名没有重复
@@ -93,12 +93,11 @@ public class PassportController extends BaseController {
         if(user == null){
             return R.errorMsg("用户名和密码不正确");
         }
-        UserVO userVO = UserVO.builder().build();
-        BeanUtils.copyProperties(user, userVO);
+        UserVO userVO = this.conventUserVo(user);
         // isEncode是否加密
         CookieUtils.setCookie(request, response, "user", JacksonUtils.objectToJson(userVO), true);
-        // TODO: 2019/12/1 生成用户token， 存入redis会话
-        // 同步购物车页面
+
+        // 同步购物车数据
         this.synchShopcartData(userVO.getId(), request, response);
         return R.ok(userVO);
 
@@ -109,7 +108,8 @@ public class PassportController extends BaseController {
     public R<Void> logout(@RequestParam String userId, HttpServletRequest request, HttpServletResponse response) {
         // 清除用户相关的信息的 cookie
         CookieUtils.deleteCookie(request, response, "user");
-        // TODO: 2019/11/26 用户退出登录，需要清空购物车
+        //  用户退出登录，清除redis的会话信息
+        redisUtils.del(REDIS_USER_TOKEN + ":" + userId);
         // 分布式会话中需要清除用户数据
         CookieUtils.deleteCookie(request, response, FOODIE_SHOP_CART);
         return R.ok();
@@ -184,6 +184,23 @@ public class PassportController extends BaseController {
         // redis不为空，cookie为空，直接把redis覆盖cookie
         CookieUtils.setCookie(request, response, FOODIE_SHOP_CART, shopcartJsonRedis, true);
 
+    }
+
+    /**
+     * 转换对象，并生成token插入
+     * @param user 用户对象
+     * @return com.foodie.pojo.vo.UserVO
+     * @author jamie
+     * @date 2020/9/7 22:38
+     */
+    private UserVO conventUserVo(Users user) {
+        UserVO userVO = UserVO.builder().build();
+        BeanUtils.copyProperties(user, userVO);
+        // 实现用的的redis会话
+        String uniqueToken = UUID.randomUUID().toString().trim();
+        redisUtils.set(REDIS_USER_TOKEN + ":" + user.getId(), uniqueToken);
+        userVO.setUniqueToken(uniqueToken);
+        return userVO;
     }
 
 }

@@ -1,0 +1,41 @@
+<idea-plugin>
+    <!--插件ID，保持唯一-->
+    <id>com.jamie.firstplugin</id>
+    <!--插件名称-->
+    <name>FirstPlugin</name>
+    <!--版本号-->
+    <version>1.0</version>
+    <!--作者和提供方的信息-->
+    <vendor email="13622883168@163.com" url="http://www.xuanweiyao.com">jamie</vendor>
+    <!--插件功能描述-->
+    <description><![CDATA[
+      Enter short description faor your plugin here.<br>
+      <em>most HTML tagsa may be used </em>
+    ]]></description>
+    <!--变更日志-->
+    <change-notes><![CDATA[
+      Add change1 notes here.1<br>
+      <em>most HTML1 tags may be used1</em>
+    ]]>
+    </change-notes>
+    <!--插件支持的IDEA版本号-->
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+    <!--相关的其他依赖-->
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <!--扩展内容-->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+    <!--菜单动作-->
+    <actions>
+        <!-- Add your actions here -->
+        <action id="FirstPluginActionId" class="com.jamie.idea.plugin.FirstPluginAction" text="测试" description="测试描述">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl I"/>
+        </action>
+    </actions>
+
+</idea-plugin>
