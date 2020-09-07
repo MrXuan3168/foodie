@@ -1,9 +1,15 @@
 package com.foodie.api.controller;
 
+import com.foodie.common.utils.RedisUtils;
 import com.foodie.pojo.Orders;
+import com.foodie.pojo.Users;
+import com.foodie.pojo.vo.UserVO;
 import com.foodie.service.center.MyOrdersService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
+import java.util.UUID;
 
 /**
  * 应用模块名称：通用controller
@@ -12,6 +18,9 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class BaseController {
+
+    @Autowired
+    private RedisUtils redisUtils;
 
     @Autowired
     private MyOrdersService myOrdersService;
@@ -53,6 +62,23 @@ public class BaseController {
      */
     public boolean checkImgSuffix(String suffix) {
         return "png".equalsIgnoreCase(suffix) || "jpg".equalsIgnoreCase(suffix) || "jpeg".equalsIgnoreCase(suffix);
+    }
+
+    /**
+     * 转换对象，并生成token插入
+     * @param user 用户对象
+     * @return com.foodie.pojo.vo.UserVO
+     * @author jamie
+     * @date 2020/9/7 22:38
+     */
+    protected UserVO conventUserVo(Users user) {
+        UserVO userVO = UserVO.builder().build();
+        BeanUtils.copyProperties(user, userVO);
+        // 实现用的的redis会话
+        String uniqueToken = UUID.randomUUID().toString().trim();
+        redisUtils.set(REDIS_USER_TOKEN + ":" + user.getId(), uniqueToken);
+        userVO.setUniqueToken(uniqueToken);
+        return userVO;
     }
 
 }

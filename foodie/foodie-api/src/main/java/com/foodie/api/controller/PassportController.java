@@ -12,7 +12,6 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * 应用模块名称：
@@ -36,10 +34,10 @@ import java.util.UUID;
 public class PassportController extends BaseController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Autowired
-    RedisUtils redisUtils;
+    private RedisUtils redisUtils;
 
     @ApiOperation(value = "用户名是否存在", notes = "判断用户名是否存在", httpMethod = "GET")
     @ApiImplicitParam(name = "username", value = "用户名", required = true)
@@ -75,11 +73,11 @@ public class PassportController extends BaseController {
         }
         // 用户插入数据
         Users user = userService.createUser(bo);
-        UserVO userVO = this.conventUserVo(user);
+        UserVO userVO = super.conventUserVo(user);
         // isEncode是否加密
         CookieUtils.setCookie(request, response, "user", JacksonUtils.objectToJson(userVO), true);
         // 3.请求成功，用户名没有重复
-        this.synchShopcartData(userVO.getId(), request, response);
+        this.syncShopCartData(userVO.getId(), request, response);
         return R.ok(userVO);
     }
 
@@ -93,12 +91,12 @@ public class PassportController extends BaseController {
         if(user == null){
             return R.errorMsg("用户名和密码不正确");
         }
-        UserVO userVO = this.conventUserVo(user);
+        UserVO userVO = super.conventUserVo(user);
         // isEncode是否加密
         CookieUtils.setCookie(request, response, "user", JacksonUtils.objectToJson(userVO), true);
 
         // 同步购物车数据
-        this.synchShopcartData(userVO.getId(), request, response);
+        this.syncShopCartData(userVO.getId(), request, response);
         return R.ok(userVO);
 
     }
@@ -118,7 +116,7 @@ public class PassportController extends BaseController {
     /**
      * 注册登录成功后，同步cookie和redis中的购物车数据
      */
-    private void synchShopcartData(String userId, HttpServletRequest request, HttpServletResponse response) {
+    private void syncShopCartData(String userId, HttpServletRequest request, HttpServletResponse response) {
 
         /**
          * 1. redis中无数据，如果cookie中的购物车为空，那么这个时候不做任何处理
@@ -184,23 +182,6 @@ public class PassportController extends BaseController {
         // redis不为空，cookie为空，直接把redis覆盖cookie
         CookieUtils.setCookie(request, response, FOODIE_SHOP_CART, shopcartJsonRedis, true);
 
-    }
-
-    /**
-     * 转换对象，并生成token插入
-     * @param user 用户对象
-     * @return com.foodie.pojo.vo.UserVO
-     * @author jamie
-     * @date 2020/9/7 22:38
-     */
-    private UserVO conventUserVo(Users user) {
-        UserVO userVO = UserVO.builder().build();
-        BeanUtils.copyProperties(user, userVO);
-        // 实现用的的redis会话
-        String uniqueToken = UUID.randomUUID().toString().trim();
-        redisUtils.set(REDIS_USER_TOKEN + ":" + user.getId(), uniqueToken);
-        userVO.setUniqueToken(uniqueToken);
-        return userVO;
     }
 
 }

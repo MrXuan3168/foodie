@@ -8,6 +8,7 @@ import com.foodie.common.utils.JamieDateUtils;
 import com.foodie.common.utils.R;
 import com.foodie.pojo.Users;
 import com.foodie.pojo.bo.center.CenterUserBO;
+import com.foodie.pojo.vo.UserVO;
 import com.foodie.service.center.CenterUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -113,11 +114,11 @@ public class CenterUserController extends BaseController {
         String finalUserFaceUrl = imageServerUrl + uploadPathPrefix + "?t=" + JamieDateUtils.getLocalDateTimeString();
 
         // 更新用户头像到数据库
-        Users userResult = centerUserService.updateUserFace(userId, finalUserFaceUrl);
-        setNullProperty(userResult);
-        CookieUtils.setCookie(request, response, "user", JacksonUtils.objectToJson(userResult), true);
+        Users users = centerUserService.updateUserFace(userId, finalUserFaceUrl);
 
-        // TODO 后续要改，增加令牌token，会整合进redis，分布式会话
+        // 增加令牌token，会整合进redis，分布式会话
+        UserVO userVO = super.conventUserVo(users);
+        CookieUtils.setCookie(request, response, "user", JacksonUtils.objectToJson(userVO), true);
 
         return R.ok();
     }
@@ -127,11 +128,10 @@ public class CenterUserController extends BaseController {
     public R<String> update(@ApiParam(name = "userId", value = "用户id", required = true) @RequestParam String userId,
                             @RequestBody @Valid CenterUserBO centerUserBO) {
         System.out.println(centerUserBO);
-        Users userResult = centerUserService.updateUserInfo(userId, centerUserBO);
-        setNullProperty(userResult);
-        CookieUtils.setCookie(request, response, "user", JacksonUtils.objectToJson(userResult), true);
-
-        // TODO 后续要改，增加令牌token，会整合进redis，分布式会话
+        Users users = centerUserService.updateUserInfo(userId, centerUserBO);
+        // 增加令牌token，会整合进redis，分布式会话
+        UserVO userVO = super.conventUserVo(users);
+        CookieUtils.setCookie(request, response, "user", JacksonUtils.objectToJson(userVO), true);
         return R.ok();
     }
 
