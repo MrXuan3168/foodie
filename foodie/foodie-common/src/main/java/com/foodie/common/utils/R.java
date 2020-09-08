@@ -2,7 +2,6 @@ package com.foodie.common.utils;
 
 /**
  * 应用模块名称：统一返回前端对象
- *
  * @since 2019/11/25 11:42
  */
 
@@ -92,6 +91,10 @@ public class R<T> {
 
     public static <T> R<T> errorUserQQ(String msg) {
         return new <T>R<T>(556, msg);
+    }
+
+    public static <T> R<T> errorUserTicket(String msg) {
+        return new <T>R<T>(557, msg, null);
     }
 
 }

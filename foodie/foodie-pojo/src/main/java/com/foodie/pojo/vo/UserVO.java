@@ -41,4 +41,7 @@ public class UserVO {
     @ApiModelProperty(value = "token", name = "uniqueToken", example = "uuid", required = true)
     private String uniqueToken;
 
+    @ApiModelProperty(value = "用户token", name = "userUniqueToken", example = "uuid", required = true)
+    private String userUniqueToken;
+
 }
